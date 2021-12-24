@@ -1,0 +1,7 @@
+notes.md
+.DS_Store
+dist/
+example/
+node_modules/
+docs/
+bundle.js
