@@ -68,7 +68,7 @@ export class Oscillator extends BlipNode {
   public getDetune = () => this.params[OSCILLATOR_PARAM.DETUNE].value
 
   /** Get the waveform of the oscillator (Alias for getType) */
-  public getWaveform = () => this.getType()
+  // public getWaveform = () => this.getType()
 
   /** Get the waveform of the oscillator */
   public getType = () => this.oscillator.type
@@ -83,7 +83,7 @@ export class Oscillator extends BlipNode {
     this._timeUpdate(this.params[OSCILLATOR_PARAM.DETUNE], val, time)
 
   /** Set the waveform of the oscillator (Alias for setType) */
-  public setWaveform = (val: Waveform) => this.setType(val)
+  // public setWaveform = (val: Waveform) => this.setType(val)
 
   /** Set the waveform of the oscillator */
   public setType = (val: Waveform) => (this.oscillator.type = val)
