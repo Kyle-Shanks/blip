@@ -1,3 +1,8 @@
+// Component Nodes
+import { Envelope } from './component/Envelope'
+import { FilterEnvelope } from './component/FilterEnvelope'
+import { GainEnvelope } from './component/GainEnvelope'
+
 // Core Nodes
 import { ChannelMerger } from './core/ChannelMerger'
 import { ChannelSplitter } from './core/ChannelSplitter'
@@ -17,6 +22,10 @@ import { NoiseGenerator } from './source/NoiseGenerator'
 import { Oscillator } from './source/Oscillator'
 
 export {
+  // Component Nodes
+  Envelope,
+  FilterEnvelope,
+  GainEnvelope,
   // Core Nodes
   ChannelMerger,
   ChannelSplitter,
