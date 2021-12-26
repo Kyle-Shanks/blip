@@ -9,6 +9,13 @@ import { Gain } from './core/Gain'
 import { StereoPanner } from './core/StereoPanner'
 import { WaveShaper } from './core/WaveShaper'
 
+// Source Nodes
+import { BufferSource } from './source/BufferSource'
+import { ConstantSource } from './source/ConstantSource'
+import { LFO } from './source/LFO'
+import { NoiseGenerator } from './source/NoiseGenerator'
+import { Oscillator } from './source/Oscillator'
+
 export {
   // Core Nodes
   ChannelMerger,
@@ -20,4 +27,10 @@ export {
   Gain,
   StereoPanner,
   WaveShaper,
+  // Source Nodes
+  BufferSource,
+  ConstantSource,
+  LFO,
+  NoiseGenerator,
+  Oscillator,
 }
