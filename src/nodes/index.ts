@@ -11,8 +11,18 @@ import { Convolver } from './core/Convolver'
 import { Delay } from './core/Delay'
 import { Filter } from './core/Filter'
 import { Gain } from './core/Gain'
+import { Limiter } from './core/Limiter'
 import { StereoPanner } from './core/StereoPanner'
 import { WaveShaper } from './core/WaveShaper'
+
+// Effect Nodes
+import { AutoPan } from './effect/AutoPan'
+import { Distortion } from './effect/Distortion'
+import { EQ2 } from './effect/EQ2'
+import { FeedbackDelay } from './effect/FeedbackDelay'
+import { PingPongDelay } from './effect/PingPongDelay'
+import { Reverb } from './effect/Reverb'
+import { Tremolo } from './effect/Tremolo'
 
 // Source Nodes
 import { BufferSource } from './source/BufferSource'
@@ -34,8 +44,17 @@ export {
   Delay,
   Filter,
   Gain,
+  Limiter,
   StereoPanner,
   WaveShaper,
+  // Effect Nodes
+  AutoPan,
+  Distortion,
+  EQ2,
+  FeedbackDelay,
+  PingPongDelay,
+  Reverb,
+  Tremolo,
   // Source Nodes
   BufferSource,
   ConstantSource,
