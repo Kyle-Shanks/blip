@@ -30,7 +30,7 @@ export class Distortion extends BlipNode {
   private wetGain: Gain
   private waveShaper: WaveShaper
 
-  constructor(props: DistortionProps) {
+  constructor(props: DistortionProps = {}) {
     super(props)
     this.distortion = 0
     this.dryGain = new Gain({ AC: this.AC })

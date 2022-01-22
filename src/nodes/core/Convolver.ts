@@ -18,7 +18,7 @@ export class Convolver extends BlipNode {
 
   private convolver: ConvolverNode
 
-  constructor(props: ConvolverProps) {
+  constructor(props: ConvolverProps = {}) {
     super(props)
     this.convolver = this.AC.createConvolver()
     this.inputs = [this.convolver]

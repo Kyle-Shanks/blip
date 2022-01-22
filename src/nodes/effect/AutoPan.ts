@@ -40,7 +40,7 @@ export class AutoPan extends BlipNode {
   private LFO: LFO
   private panner: StereoPanner
 
-  constructor(props: AutoPanProps) {
+  constructor(props: AutoPanProps = {}) {
     super(props)
     this.LFO = new LFO({ AC: this.AC, start: true })
     this.panner = new StereoPanner({ AC: this.AC })

@@ -61,7 +61,7 @@ export class PingPongDelay extends BlipNode {
   private tone: Filter
   private wetGain: Gain
 
-  constructor(props: PingPongDelayProps) {
+  constructor(props: PingPongDelayProps = {}) {
     super(props)
     this.amount = 0
     this.dryGain = new Gain({ AC: this.AC })

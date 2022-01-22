@@ -13,7 +13,7 @@ export class ChannelSplitter extends BlipNode {
 
   private channelSplitter: ChannelSplitterNode
 
-  constructor(props: ChannelSplitterProps) {
+  constructor(props: ChannelSplitterProps = {}) {
     super(props)
     this.channelSplitter = this.AC.createChannelSplitter(2)
     this.inputs = [this.channelSplitter]

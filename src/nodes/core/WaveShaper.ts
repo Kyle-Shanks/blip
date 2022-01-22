@@ -22,7 +22,7 @@ export class WaveShaper extends BlipNode {
 
   private waveShaper: WaveShaperNode
 
-  constructor(props: WaveShaperProps) {
+  constructor(props: WaveShaperProps = {}) {
     super(props)
     this.waveShaper = this.AC.createWaveShaper()
     this.inputs = [this.waveShaper]

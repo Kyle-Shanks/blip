@@ -26,7 +26,7 @@ export class Gain extends BlipNode {
 
   private gain: GainNode
 
-  constructor(props: GainProps) {
+  constructor(props: GainProps = {}) {
     super(props)
     this.gain = this.AC.createGain()
     this.inputs = [this.gain]

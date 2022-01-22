@@ -1,8 +1,10 @@
+import { getContext } from '../../util/util'
+
 export type InputNode = BlipNode | AudioNode | AudioParam
 export type OutputNode = BlipNode | AudioNode
 
 export type BlipNodeProps = {
-  AC: BaseAudioContext
+  AC?: BaseAudioContext
 }
 
 /** Base class for Blip audio nodes. */
@@ -14,8 +16,9 @@ export class BlipNode {
 
   protected AC: BaseAudioContext
 
-  constructor(props: BlipNodeProps) {
-    this.AC = props.AC
+  constructor(props: BlipNodeProps = {}) {
+    this.AC = props?.AC ?? getContext()
+
     return this
   }
 

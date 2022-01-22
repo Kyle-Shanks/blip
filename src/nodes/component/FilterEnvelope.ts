@@ -46,7 +46,7 @@ export class FilterEnvelope extends Envelope {
 
   private filter: Filter
 
-  constructor(props: FilterEnvelopeProps) {
+  constructor(props: FilterEnvelopeProps = {}) {
     super(props)
     this.filter = new Filter({ AC: this.AC })
     this.inputs = [this.filter]

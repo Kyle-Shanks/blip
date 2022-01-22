@@ -47,7 +47,7 @@ export class FeedbackDelay extends BlipNode {
   private tone: Filter
   private wetGain: Gain
 
-  constructor(props: FeedbackDelayProps) {
+  constructor(props: FeedbackDelayProps = {}) {
     super(props)
     this.amount = 0
     this.dryGain = new Gain({ AC: this.AC })

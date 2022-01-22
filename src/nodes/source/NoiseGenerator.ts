@@ -79,7 +79,7 @@ export class NoiseGenerator extends BlipNode {
 
   private bufferSource: BufferSource
 
-  constructor(props: NoiseGeneratorProps) {
+  constructor(props: NoiseGeneratorProps = {}) {
     super(props)
     this.bufferSource = new BufferSource({ AC: this.AC, loop: true })
     this.outputs = [this.bufferSource]

@@ -35,7 +35,7 @@ export class BufferSource extends BlipNode {
 
   private bufferSource: AudioBufferSourceNode
 
-  constructor(props: BufferSourceProps) {
+  constructor(props: BufferSourceProps = {}) {
     super(props)
     this.bufferSource = this.AC.createBufferSource()
     this.outputs = [this.bufferSource]

@@ -35,7 +35,7 @@ export class Reverb extends BlipNode {
   private convolver: Convolver
   private wetGain: Gain
 
-  constructor(props: ReverbProps) {
+  constructor(props: ReverbProps = {}) {
     super(props)
     this.amount = 0
     this.dryGain = new Gain({ AC: this.AC })

@@ -34,7 +34,7 @@ export class GainEnvelope extends Envelope {
 
   private gain: Gain
 
-  constructor(props: GainEnvelopeProps) {
+  constructor(props: GainEnvelopeProps = {}) {
     super(props)
     this.gain = new Gain({ AC: this.AC })
     this.inputs = [this.gain]

@@ -33,7 +33,7 @@ export class Oscillator extends BlipNode {
 
   private oscillator: OscillatorNode
 
-  constructor(props: OscillatorProps) {
+  constructor(props: OscillatorProps = {}) {
     super(props)
     this.oscillator = this.AC.createOscillator()
     this.outputs = [this.oscillator]

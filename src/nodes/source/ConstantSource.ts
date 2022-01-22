@@ -28,7 +28,7 @@ export class ConstantSource extends BlipNode {
 
   private source: ConstantSourceNode
 
-  constructor(props: ConstantSourceProps) {
+  constructor(props: ConstantSourceProps = {}) {
     super(props)
     this.source = this.AC.createConstantSource()
     this.outputs = [this.source]

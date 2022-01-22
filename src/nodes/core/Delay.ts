@@ -26,7 +26,7 @@ export class Delay extends BlipNode {
 
   private delay: DelayNode
 
-  constructor(props: DelayProps) {
+  constructor(props: DelayProps = {}) {
     super(props)
     this.delay = this.AC.createDelay()
     this.inputs = [this.delay]

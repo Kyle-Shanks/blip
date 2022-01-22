@@ -1,4 +1,4 @@
 export * from './nodes'
-export { chain } from './util/util'
+export { chain, getContext, setContext, resume } from './util/util'
 
 console.log('Hello, Blip!')

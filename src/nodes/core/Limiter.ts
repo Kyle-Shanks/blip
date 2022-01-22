@@ -44,7 +44,7 @@ export class Limiter extends BlipNode {
   private limiter: Compressor
   private gain: Gain
 
-  constructor(props: LimiterProps) {
+  constructor(props: LimiterProps = {}) {
     super(props)
     this.limiter = new Compressor({ AC: this.AC })
     this.gain = new Gain({ AC: this.AC })

@@ -42,7 +42,7 @@ export class EQ2 extends BlipNode {
   private low: Filter
   private high: Filter
 
-  constructor(props: EQ2Props) {
+  constructor(props: EQ2Props = {}) {
     super(props)
     this.low = new Filter({
       AC: this.AC,

@@ -27,7 +27,7 @@ export class StereoPanner extends BlipNode {
 
   private stereoPanner: StereoPannerNode
 
-  constructor(props: StereoPannerProps) {
+  constructor(props: StereoPannerProps = {}) {
     super(props)
     this.stereoPanner = this.AC.createStereoPanner()
     this.inputs = [this.stereoPanner]

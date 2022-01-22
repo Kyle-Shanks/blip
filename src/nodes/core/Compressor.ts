@@ -39,7 +39,7 @@ export class Compressor extends BlipNode {
 
   private compressor: DynamicsCompressorNode
 
-  constructor(props: CompressorProps) {
+  constructor(props: CompressorProps = {}) {
     super(props)
     this.compressor = this.AC.createDynamicsCompressor()
     this.inputs = [this.compressor]

@@ -43,7 +43,7 @@ export class LFO extends BlipNode {
   private depth: Gain
   private osc: Oscillator
 
-  constructor(props: LFOProps) {
+  constructor(props: LFOProps = {}) {
     super(props)
     this.depth = new Gain({ AC: this.AC })
     this.osc = new Oscillator({ AC: this.AC })

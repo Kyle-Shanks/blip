@@ -13,7 +13,7 @@ export class ChannelMerger extends BlipNode {
 
   private channelMerger: ChannelMergerNode
 
-  constructor(props: ChannelMergerProps) {
+  constructor(props: ChannelMergerProps = {}) {
     super(props)
     this.channelMerger = this.AC.createChannelMerger(2)
     this.inputs = [this.channelMerger]

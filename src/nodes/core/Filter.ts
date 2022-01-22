@@ -38,7 +38,7 @@ export class Filter extends BlipNode {
 
   private filter: BiquadFilterNode
 
-  constructor(props: FilterProps) {
+  constructor(props: FilterProps = {}) {
     super(props)
     this.filter = this.AC.createBiquadFilter()
     this.inputs = [this.filter]

@@ -40,7 +40,7 @@ export class Envelope extends BlipNode {
 
   private timeoutIds: NodeJS.Timeout[]
 
-  constructor(props: EnvelopeProps) {
+  constructor(props: EnvelopeProps = {}) {
     super(props)
     this.source = new ConstantSource({ AC: this.AC, start: true })
     this.outputs = [this.source]

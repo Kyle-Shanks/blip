@@ -40,7 +40,7 @@ export class Tremolo extends BlipNode {
   private LFO: LFO
   private gain: Gain
 
-  constructor(props: TremoloProps) {
+  constructor(props: TremoloProps = {}) {
     super(props)
     this.LFO = new LFO({ AC: this.AC, start: true })
     this.gain = new Gain({ AC: this.AC, gain: 0 })
