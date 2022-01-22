@@ -1,6 +1,4 @@
 notes.md
 .DS_Store
-dist/
 node_modules/
-docs/
 bundle.js
