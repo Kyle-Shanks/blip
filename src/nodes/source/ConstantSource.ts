@@ -7,15 +7,17 @@ export const CONSTANT_SOURCE_PARAM = {
 type ConstantSourceParam =
   typeof CONSTANT_SOURCE_PARAM[keyof typeof CONSTANT_SOURCE_PARAM]
 
-type ConstantSourceProps = BlipNodeProps & {
+type BaseConstantSourceProps = {
   offset?: number
   start?: boolean
 }
 
-const defaultProps: Required<Omit<ConstantSourceProps, 'AC'>> = {
+const defaultProps: Required<BaseConstantSourceProps> = {
   offset: 1,
   start: false,
 } as const
+
+type ConstantSourceProps = BlipNodeProps & BaseConstantSourceProps
 
 /**
  * A source node that outputs a constant signal that can be adjusted.

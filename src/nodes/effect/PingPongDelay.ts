@@ -21,7 +21,7 @@ export const PING_PONG_DELAY_PARAM = {
 type PingPongDelayParam =
   typeof PING_PONG_DELAY_PARAM[keyof typeof PING_PONG_DELAY_PARAM]
 
-type PingPongDelayProps = BlipNodeProps & {
+type BasePingPongDelayProps = {
   amount?: number
   preDelayTime?: number
   leftDelayTime?: number
@@ -31,7 +31,7 @@ type PingPongDelayProps = BlipNodeProps & {
   tone?: number
 }
 
-const defaultProps: Required<Omit<PingPongDelayProps, 'AC'>> = {
+const defaultProps: Required<BasePingPongDelayProps> = {
   amount: 0,
   preDelayTime: 0.2,
   leftDelayTime: 0.2,
@@ -40,6 +40,8 @@ const defaultProps: Required<Omit<PingPongDelayProps, 'AC'>> = {
   rightFeedback: 0.6,
   tone: 4400,
 } as const
+
+type PingPongDelayProps = BlipNodeProps & BasePingPongDelayProps
 
 /**
  * A ping pong delay effect to adds echos and other delay-based effects to the incoming signal.

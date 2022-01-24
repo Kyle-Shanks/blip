@@ -15,17 +15,19 @@ export const AUTO_PAN_PARAM = {
 
 type AutoPanParam = typeof AUTO_PAN_PARAM[keyof typeof AUTO_PAN_PARAM]
 
-type AutoPanProps = BlipNodeProps & {
+type BaseAutoPanProps = {
   depth?: number
   rate?: number
   type?: Waveform
 }
 
-const defaultProps: Required<Omit<AutoPanProps, 'AC'>> = {
+const defaultProps: Required<BaseAutoPanProps> = {
   depth: 1,
   rate: 1,
   type: WAVEFORM.SINE,
 } as const
+
+type AutoPanProps = BlipNodeProps & BaseAutoPanProps
 
 /**
  * An effect used to pan the incoming signal back and forth at an adjustable rate and depth.

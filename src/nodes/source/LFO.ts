@@ -15,7 +15,7 @@ export const LFO_PARAM = {
 
 type LFOParam = typeof LFO_PARAM[keyof typeof LFO_PARAM]
 
-type LFOProps = BlipNodeProps & {
+type BaseLFOProps = {
   depth?: number
   detune?: number
   rate?: number
@@ -23,13 +23,15 @@ type LFOProps = BlipNodeProps & {
   type?: Waveform
 }
 
-const defaultProps: Required<Omit<LFOProps, 'AC'>> = {
+const defaultProps: Required<BaseLFOProps> = {
   depth: 1,
   detune: 0,
   rate: 1,
   start: false,
   type: WAVEFORM.SINE,
 } as const
+
+type LFOProps = BlipNodeProps & BaseLFOProps
 
 /**
  * A source node that outputs low frequency oscillations for modulating audio params over time.

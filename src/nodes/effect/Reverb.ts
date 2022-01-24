@@ -9,17 +9,19 @@ import { Convolver } from '../core/Convolver'
 import { Gain, GAIN_PARAM } from '../core/Gain'
 import { NoiseGenerator } from '../source/NoiseGenerator'
 
-type ReverbProps = BlipNodeProps & {
+type BaseReverbProps = {
   amount?: number
   buffer?: AudioBuffer | null
   normalize?: boolean
 }
 
-const defaultProps: Required<Omit<ReverbProps, 'AC'>> = {
+const defaultProps: Required<BaseReverbProps> = {
   amount: 0,
   buffer: null,
   normalize: false,
 } as const
+
+type ReverbProps = BlipNodeProps & BaseReverbProps
 
 /**
  * A convolusion reverb effect to adds width and space effects to the incoming signal.

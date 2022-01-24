@@ -10,7 +10,7 @@ export const FILTER_PARAM = {
 
 type FilterParam = typeof FILTER_PARAM[keyof typeof FILTER_PARAM]
 
-type FilterProps = BlipNodeProps & {
+type BaseFilterProps = {
   frequency?: number
   q?: number
   detune?: number
@@ -18,13 +18,15 @@ type FilterProps = BlipNodeProps & {
   type?: FilterType
 }
 
-const defaultProps: Required<Omit<FilterProps, 'AC'>> = {
+const defaultProps: Required<BaseFilterProps> = {
   frequency: 11000,
   q: 0,
   detune: 0,
   gain: 0,
   type: FILTER_TYPE.LOWPASS,
 } as const
+
+type FilterProps = BlipNodeProps & BaseFilterProps
 
 /**
  * A Node used to filter frequencies of the incoming signal.

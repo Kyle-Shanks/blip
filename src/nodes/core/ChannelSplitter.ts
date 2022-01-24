@@ -1,6 +1,8 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode'
 
-type ChannelSplitterProps = BlipNodeProps & {}
+type BaseChannelSplitterProps = {}
+
+type ChannelSplitterProps = BlipNodeProps & BaseChannelSplitterProps
 
 /**
  * A node used to split a stereo audio signal into its left and right components.

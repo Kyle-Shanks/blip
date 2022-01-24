@@ -8,7 +8,7 @@ export const BUFFER_SOURCE_PARAM = {
 type BufferSourceParam =
   typeof BUFFER_SOURCE_PARAM[keyof typeof BUFFER_SOURCE_PARAM]
 
-type BufferSourceProps = BlipNodeProps & {
+type BaseBufferSourceProps = {
   buffer?: AudioBuffer | null
   detune?: number
   loop?: boolean
@@ -16,13 +16,15 @@ type BufferSourceProps = BlipNodeProps & {
   start?: boolean
 }
 
-const defaultProps: Required<Omit<BufferSourceProps, 'AC'>> = {
+const defaultProps: Required<BaseBufferSourceProps> = {
   buffer: null,
   detune: 0,
   loop: false,
   playbackRate: 1.0,
   start: false,
 } as const
+
+type BufferSourceProps = BlipNodeProps & BaseBufferSourceProps
 
 /**
  * A source node that outputs signal based on a provided audio buffer.

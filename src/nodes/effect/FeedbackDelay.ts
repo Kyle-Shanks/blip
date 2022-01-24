@@ -17,19 +17,21 @@ export const FEEDBACK_DELAY_PARAM = {
 type FeedbackDelayParam =
   typeof FEEDBACK_DELAY_PARAM[keyof typeof FEEDBACK_DELAY_PARAM]
 
-type FeedbackDelayProps = BlipNodeProps & {
+type BaseFeedbackDelayProps = {
   amount?: number
   delayTime?: number
   feedback?: number
   tone?: number
 }
 
-const defaultProps: Required<Omit<FeedbackDelayProps, 'AC'>> = {
+const defaultProps: Required<BaseFeedbackDelayProps> = {
   amount: 0,
   delayTime: 0.2,
   feedback: 0.6,
   tone: 4400,
 } as const
+
+type FeedbackDelayProps = BlipNodeProps & BaseFeedbackDelayProps
 
 /**
  * A feedback delay effect to adds echos and other delay-based effects to the incoming signal.

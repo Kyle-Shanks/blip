@@ -15,17 +15,19 @@ export const TREMOLO_PARAM = {
 
 type TremoloParam = typeof TREMOLO_PARAM[keyof typeof TREMOLO_PARAM]
 
-type TremoloProps = BlipNodeProps & {
+type BaseTremoloProps = {
   depth?: number
   rate?: number
   type?: Waveform
 }
 
-const defaultProps: Required<Omit<TremoloProps, 'AC'>> = {
+const defaultProps: Required<BaseTremoloProps> = {
   depth: 1,
   rate: 1,
   type: WAVEFORM.SINE,
 } as const
+
+type TremoloProps = BlipNodeProps & BaseTremoloProps
 
 /**
  * An effect used to modulate the gain of the incoming signal at an adjustable rate and depth.

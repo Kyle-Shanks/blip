@@ -11,7 +11,7 @@ export const COMPRESSOR_PARAM = {
 export type CompressorParam =
   typeof COMPRESSOR_PARAM[keyof typeof COMPRESSOR_PARAM]
 
-type CompressorProps = BlipNodeProps & {
+type BaseCompressorProps = {
   attack?: number
   knee?: number
   ratio?: number
@@ -19,13 +19,15 @@ type CompressorProps = BlipNodeProps & {
   threshold?: number
 }
 
-const defaultProps: Required<Omit<CompressorProps, 'AC'>> = {
+const defaultProps: Required<BaseCompressorProps> = {
   attack: 0.003,
   knee: 30,
   ratio: 12,
   release: 0.25,
   threshold: -24,
 } as const
+
+type CompressorProps = BlipNodeProps & BaseCompressorProps
 
 /**
  * A node used to control the dynamic range of a signal.

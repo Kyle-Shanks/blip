@@ -6,13 +6,15 @@ export const GAIN_PARAM = {
 
 type GainParam = typeof GAIN_PARAM[keyof typeof GAIN_PARAM]
 
-type GainProps = BlipNodeProps & {
+type BaseGainProps = {
   gain?: number
 }
 
-const defaultProps: Required<Omit<GainProps, 'AC'>> = {
+const defaultProps: Required<BaseGainProps> = {
   gain: 1,
 } as const
+
+type GainProps = BlipNodeProps & BaseGainProps
 
 /**
  * A node used to adjust the gain, or volume, of the incoming signal.

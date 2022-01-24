@@ -1,5 +1,5 @@
-import { Envelope, EnvelopeProps } from './Envelope'
-import { InputNode, OutputNode } from '../core/BlipNode'
+import { Envelope, BaseEnvelopeProps } from './Envelope'
+import { BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { Gain, GAIN_PARAM } from '../core/Gain'
 
 export const GAIN_ENVELOPE_PARAM = {
@@ -9,11 +9,11 @@ export const GAIN_ENVELOPE_PARAM = {
 type GainEnvelopeParam =
   typeof GAIN_ENVELOPE_PARAM[keyof typeof GAIN_ENVELOPE_PARAM]
 
-type GainEnvelopeProps = EnvelopeProps & {
+type BaseGainEnvelopeProps = BaseEnvelopeProps & {
   gain?: number
 }
 
-const defaultProps: Required<Omit<GainEnvelopeProps, 'AC'>> = {
+const defaultProps: Required<BaseGainEnvelopeProps> = {
   gain: 0,
   attack: 0,
   decay: 0,
@@ -21,6 +21,8 @@ const defaultProps: Required<Omit<GainEnvelopeProps, 'AC'>> = {
   release: 0,
   modifier: 1,
 } as const
+
+type GainEnvelopeProps = BlipNodeProps & BaseGainEnvelopeProps
 
 /**
  * An envelope connected to a gain node.

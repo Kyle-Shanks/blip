@@ -8,19 +8,21 @@ export const OSCILLATOR_PARAM = {
 
 type OscillatorParam = typeof OSCILLATOR_PARAM[keyof typeof OSCILLATOR_PARAM]
 
-type OscillatorProps = BlipNodeProps & {
+type BaseOscillatorProps = {
   detune?: number
   frequency?: number
   start?: boolean
   type?: Waveform
 }
 
-const defaultProps: Required<Omit<OscillatorProps, 'AC'>> = {
+const defaultProps: Required<BaseOscillatorProps> = {
   detune: 0,
   frequency: 440,
   start: false,
   type: WAVEFORM.SINE,
 } as const
+
+type OscillatorProps = BlipNodeProps & BaseOscillatorProps
 
 /**
  * A source node that outputs signal of different waveforms and frequencies.

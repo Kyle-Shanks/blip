@@ -1,15 +1,17 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode'
 import { OVERSAMPLE, Oversample } from '../../util/constants'
 
-type WaveShaperProps = BlipNodeProps & {
+type BaseWaveShaperProps = {
   curve?: Float32Array | null
   oversample?: Oversample
 }
 
-const defaultProps: Required<Omit<WaveShaperProps, 'AC'>> = {
+const defaultProps: Required<BaseWaveShaperProps> = {
   curve: null,
   oversample: OVERSAMPLE.NONE,
 } as const
+
+type WaveShaperProps = BlipNodeProps & BaseWaveShaperProps
 
 /**
  * A Node used to adjust the shape of the incoming signal based on a waveshaping curve.

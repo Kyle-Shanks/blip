@@ -7,15 +7,17 @@ import {
 import { Gain, GAIN_PARAM } from '../core/Gain'
 import { WaveShaper } from '../core/WaveShaper'
 
-type DistortionProps = BlipNodeProps & {
+type BaseDistortionProps = {
   amount?: number
   distortion?: number
 }
 
-const defaultProps: Required<Omit<DistortionProps, 'AC'>> = {
+const defaultProps: Required<BaseDistortionProps> = {
   amount: 0,
   distortion: 0,
 } as const
+
+type DistortionProps = BlipNodeProps & BaseDistortionProps
 
 /**
  * An effect used to clip/distort the incoming signal.

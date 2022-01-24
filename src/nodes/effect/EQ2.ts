@@ -16,19 +16,21 @@ export const EQ2_PARAM = {
 
 type EQ2Param = typeof EQ2_PARAM[keyof typeof EQ2_PARAM]
 
-type EQ2Props = BlipNodeProps & {
+type BaseEQ2Props = {
   lowFrequency?: number
   lowGain?: number
   highFrequency?: number
   highGain?: number
 }
 
-const defaultProps: Required<Omit<EQ2Props, 'AC'>> = {
+const defaultProps: Required<BaseEQ2Props> = {
   lowFrequency: 320,
   lowGain: 0,
   highFrequency: 3200,
   highGain: 0,
 } as const
+
+type EQ2Props = BlipNodeProps & BaseEQ2Props
 
 /**
  * A 2-band equalizer node for adjusting the gain of the high and low frequencies of the incoming signal.

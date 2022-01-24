@@ -13,7 +13,7 @@ export const LIMITER_PARAM = {
 
 type LimiterParam = typeof LIMITER_PARAM[keyof typeof LIMITER_PARAM]
 
-type LimiterProps = BlipNodeProps & {
+type BaseLimiterProps = {
   threshold?: number
   ratio?: number
   knee?: number
@@ -22,7 +22,7 @@ type LimiterProps = BlipNodeProps & {
   gain?: number
 }
 
-const defaultProps: Required<Omit<LimiterProps, 'AC'>> = {
+const defaultProps: Required<BaseLimiterProps> = {
   threshold: -6,
   ratio: 20,
   knee: 0,
@@ -30,6 +30,8 @@ const defaultProps: Required<Omit<LimiterProps, 'AC'>> = {
   release: 0.01,
   gain: 0.75,
 } as const
+
+type LimiterProps = BlipNodeProps & BaseLimiterProps
 
 /**
  * An effect used to limit the dynamic range of the incoming signal.

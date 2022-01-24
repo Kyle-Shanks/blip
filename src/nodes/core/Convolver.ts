@@ -1,14 +1,16 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode'
 
-type ConvolverProps = BlipNodeProps & {
+type BaseConvolverProps = {
   buffer?: AudioBuffer | null
   normalize?: boolean
 }
 
-const defaultProps: Required<Omit<ConvolverProps, 'AC'>> = {
+const defaultProps: Required<BaseConvolverProps> = {
   buffer: null,
   normalize: false,
 } as const
+
+type ConvolverProps = BlipNodeProps & BaseConvolverProps
 
 /** Wrapper class for the native Convolver audio node. */
 export class Convolver extends BlipNode {

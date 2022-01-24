@@ -1,6 +1,8 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode'
 
-type ChannelMergerProps = BlipNodeProps & {}
+type BaseChannelMergerProps = {}
+
+type ChannelMergerProps = BlipNodeProps & BaseChannelMergerProps
 
 /**
  * A node used to merge two audio signals.

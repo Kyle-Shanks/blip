@@ -57,15 +57,17 @@ const typeBufferMap: Record<NoiseType, (buffer: AudioBuffer) => AudioBuffer> = {
   [NOISE_TYPE.BROWN]: getBrownNoiseBuffer,
 }
 
-type NoiseGeneratorProps = BlipNodeProps & {
+type BaseNoiseGeneratorProps = {
   start?: boolean
   type?: NoiseType
 }
 
-const defaultProps: Required<Omit<NoiseGeneratorProps, 'AC'>> = {
+const defaultProps: Required<BaseNoiseGeneratorProps> = {
   start: false,
   type: NOISE_TYPE.WHITE,
 }
+
+type NoiseGeneratorProps = BlipNodeProps & BaseNoiseGeneratorProps
 
 /**
  * A source node that outputs three types of noise using a BufferSource node.

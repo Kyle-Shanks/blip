@@ -6,13 +6,15 @@ export const DELAY_PARAM = {
 
 type DelayParam = typeof DELAY_PARAM[keyof typeof DELAY_PARAM]
 
-type DelayProps = BlipNodeProps & {
+type BaseDelayProps = {
   delayTime?: number
 }
 
-const defaultProps: Required<Omit<DelayProps, 'AC'>> = {
+const defaultProps: Required<BaseDelayProps> = {
   delayTime: 0,
 } as const
+
+type DelayProps = BlipNodeProps & BaseDelayProps
 
 /**
  * A node used to adjust the gain, or volume, of the incoming signal.

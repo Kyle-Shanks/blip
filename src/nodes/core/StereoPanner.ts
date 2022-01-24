@@ -7,13 +7,15 @@ export const STEREO_PANNER_PARAM = {
 type StereoPannerParam =
   typeof STEREO_PANNER_PARAM[keyof typeof STEREO_PANNER_PARAM]
 
-type StereoPannerProps = BlipNodeProps & {
+type BaseStereoPannerProps = {
   pan?: number
 }
 
-const defaultProps: Required<Omit<StereoPannerProps, 'AC'>> = {
+const defaultProps: Required<BaseStereoPannerProps> = {
   pan: 0,
 } as const
+
+type StereoPannerProps = BlipNodeProps & BaseStereoPannerProps
 
 /**
  * A Node used to adjust the pan of the incoming signal.
