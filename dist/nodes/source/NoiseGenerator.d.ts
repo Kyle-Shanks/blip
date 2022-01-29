@@ -1,9 +1,10 @@
 import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode';
 import { NoiseType } from '../../util/constants';
-declare type NoiseGeneratorProps = BlipNodeProps & {
+declare type BaseNoiseGeneratorProps = {
     start?: boolean;
     type?: NoiseType;
 };
+declare type NoiseGeneratorProps = BlipNodeProps & BaseNoiseGeneratorProps;
 /**
  * A source node that outputs three types of noise using a BufferSource node.
  * Can output white, pink, or brown noise.

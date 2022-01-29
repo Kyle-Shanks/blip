@@ -1,12 +1,13 @@
-import { Envelope, EnvelopeProps } from './Envelope';
-import { InputNode, OutputNode } from '../core/BlipNode';
+import { Envelope, BaseEnvelopeProps } from './Envelope';
+import { BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode';
 export declare const GAIN_ENVELOPE_PARAM: {
     readonly GAIN: "gain";
 };
 declare type GainEnvelopeParam = typeof GAIN_ENVELOPE_PARAM[keyof typeof GAIN_ENVELOPE_PARAM];
-declare type GainEnvelopeProps = EnvelopeProps & {
+declare type BaseGainEnvelopeProps = BaseEnvelopeProps & {
     gain?: number;
 };
+declare type GainEnvelopeProps = BlipNodeProps & BaseGainEnvelopeProps;
 /**
  * An envelope connected to a gain node.
  * Can be used to modulate the gain of the incoming signal over time.

@@ -5,12 +5,13 @@ export declare const OSCILLATOR_PARAM: {
     readonly FREQUENCY: "frequency";
 };
 declare type OscillatorParam = typeof OSCILLATOR_PARAM[keyof typeof OSCILLATOR_PARAM];
-declare type OscillatorProps = BlipNodeProps & {
+declare type BaseOscillatorProps = {
     detune?: number;
     frequency?: number;
     start?: boolean;
     type?: Waveform;
 };
+declare type OscillatorProps = BlipNodeProps & BaseOscillatorProps;
 /**
  * A source node that outputs signal of different waveforms and frequencies.
  * Wrapper class for the native Oscillator audio node.

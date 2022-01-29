@@ -1,8 +1,9 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode';
-declare type DistortionProps = BlipNodeProps & {
+declare type BaseDistortionProps = {
     amount?: number;
     distortion?: number;
 };
+declare type DistortionProps = BlipNodeProps & BaseDistortionProps;
 /**
  * An effect used to clip/distort the incoming signal.
  */

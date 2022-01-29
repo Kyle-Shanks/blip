@@ -3,9 +3,10 @@ export declare const GAIN_PARAM: {
     readonly GAIN: "gain";
 };
 declare type GainParam = typeof GAIN_PARAM[keyof typeof GAIN_PARAM];
-declare type GainProps = BlipNodeProps & {
+declare type BaseGainProps = {
     gain?: number;
 };
+declare type GainProps = BlipNodeProps & BaseGainProps;
 /**
  * A node used to adjust the gain, or volume, of the incoming signal.
  * Wrapper class for the native Gain audio node.

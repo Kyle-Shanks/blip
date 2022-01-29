@@ -3,9 +3,10 @@ export declare const STEREO_PANNER_PARAM: {
     readonly PAN: "pan";
 };
 declare type StereoPannerParam = typeof STEREO_PANNER_PARAM[keyof typeof STEREO_PANNER_PARAM];
-declare type StereoPannerProps = BlipNodeProps & {
+declare type BaseStereoPannerProps = {
     pan?: number;
 };
+declare type StereoPannerProps = BlipNodeProps & BaseStereoPannerProps;
 /**
  * A Node used to adjust the pan of the incoming signal.
  * Wrapper class for the native StereoPanner audio node.

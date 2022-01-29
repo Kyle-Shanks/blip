@@ -1,5 +1,5 @@
-import { Envelope, EnvelopeProps } from './Envelope';
-import { InputNode, OutputNode } from '../core/BlipNode';
+import { Envelope, BaseEnvelopeProps } from './Envelope';
+import { BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode';
 import { FilterType } from '../../util/constants';
 export declare const FILTER_ENVELOPE_PARAM: {
     readonly DETUNE: "detune";
@@ -8,13 +8,14 @@ export declare const FILTER_ENVELOPE_PARAM: {
     readonly Q: "q";
 };
 declare type FilterEnvelopeParam = typeof FILTER_ENVELOPE_PARAM[keyof typeof FILTER_ENVELOPE_PARAM];
-declare type FilterEnvelopeProps = EnvelopeProps & {
+declare type BaseFilterEnvelopeProps = BaseEnvelopeProps & {
     frequency?: number;
     q?: number;
     detune?: number;
     gain?: number;
     type?: FilterType;
 };
+declare type FilterEnvelopeProps = BlipNodeProps & BaseFilterEnvelopeProps;
 /**
  * An envelope connected to a filter node.
  * Can be used to modulate the sound and tone of the incoming signal over time.

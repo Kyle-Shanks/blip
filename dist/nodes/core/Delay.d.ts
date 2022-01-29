@@ -3,9 +3,10 @@ export declare const DELAY_PARAM: {
     readonly DELAY_TIME: "delayTime";
 };
 declare type DelayParam = typeof DELAY_PARAM[keyof typeof DELAY_PARAM];
-declare type DelayProps = BlipNodeProps & {
+declare type BaseDelayProps = {
     delayTime?: number;
 };
+declare type DelayProps = BlipNodeProps & BaseDelayProps;
 /**
  * A node used to adjust the gain, or volume, of the incoming signal.
  * Wrapper class for the native Gain audio node.

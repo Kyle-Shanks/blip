@@ -5,11 +5,12 @@ export declare const AUTO_PAN_PARAM: {
     readonly RATE: "rate";
 };
 declare type AutoPanParam = typeof AUTO_PAN_PARAM[keyof typeof AUTO_PAN_PARAM];
-declare type AutoPanProps = BlipNodeProps & {
+declare type BaseAutoPanProps = {
     depth?: number;
     rate?: number;
     type?: Waveform;
 };
+declare type AutoPanProps = BlipNodeProps & BaseAutoPanProps;
 /**
  * An effect used to pan the incoming signal back and forth at an adjustable rate and depth.
  * Composed of an LFO connected to a StereoPanner node.

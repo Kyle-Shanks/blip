@@ -8,7 +8,7 @@ export declare const PING_PONG_DELAY_PARAM: {
     readonly TONE: "tone";
 };
 declare type PingPongDelayParam = typeof PING_PONG_DELAY_PARAM[keyof typeof PING_PONG_DELAY_PARAM];
-declare type PingPongDelayProps = BlipNodeProps & {
+declare type BasePingPongDelayProps = {
     amount?: number;
     preDelayTime?: number;
     leftDelayTime?: number;
@@ -17,6 +17,7 @@ declare type PingPongDelayProps = BlipNodeProps & {
     rightFeedback?: number;
     tone?: number;
 };
+declare type PingPongDelayProps = BlipNodeProps & BasePingPongDelayProps;
 /**
  * A ping pong delay effect to adds echos and other delay-based effects to the incoming signal.
  */

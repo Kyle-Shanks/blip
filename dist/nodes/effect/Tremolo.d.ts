@@ -5,11 +5,12 @@ export declare const TREMOLO_PARAM: {
     readonly RATE: "rate";
 };
 declare type TremoloParam = typeof TREMOLO_PARAM[keyof typeof TREMOLO_PARAM];
-declare type TremoloProps = BlipNodeProps & {
+declare type BaseTremoloProps = {
     depth?: number;
     rate?: number;
     type?: Waveform;
 };
+declare type TremoloProps = BlipNodeProps & BaseTremoloProps;
 /**
  * An effect used to modulate the gain of the incoming signal at an adjustable rate and depth.
  * Composed of an LFO connected to a Gain node.

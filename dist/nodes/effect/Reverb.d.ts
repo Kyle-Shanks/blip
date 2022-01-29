@@ -1,9 +1,10 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode';
-declare type ReverbProps = BlipNodeProps & {
+declare type BaseReverbProps = {
     amount?: number;
     buffer?: AudioBuffer | null;
     normalize?: boolean;
 };
+declare type ReverbProps = BlipNodeProps & BaseReverbProps;
 /**
  * A convolusion reverb effect to adds width and space effects to the incoming signal.
  * A default impulse response will be generated if one is not provided.

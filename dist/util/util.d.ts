@@ -3,6 +3,7 @@ import { BlipNode } from '../nodes/core/BlipNode';
 export declare const getContext: () => AudioContext;
 /** Set the global audio context */
 export declare const setContext: (context: AudioContext) => void;
+/** Resume the global audio context */
 export declare const resume: () => Promise<void>;
 /** Clamp a number between a given min and max. */
 export declare const clamp: (val: number, min: number, max: number) => number;

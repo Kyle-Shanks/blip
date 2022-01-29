@@ -7,13 +7,14 @@ export declare const FILTER_PARAM: {
     readonly Q: "Q";
 };
 declare type FilterParam = typeof FILTER_PARAM[keyof typeof FILTER_PARAM];
-declare type FilterProps = BlipNodeProps & {
+declare type BaseFilterProps = {
     frequency?: number;
     q?: number;
     detune?: number;
     gain?: number;
     type?: FilterType;
 };
+declare type FilterProps = BlipNodeProps & BaseFilterProps;
 /**
  * A Node used to filter frequencies of the incoming signal.
  * Wrapper class for the native BiquadFilter audio node.

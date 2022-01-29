@@ -7,13 +7,14 @@ export declare const COMPRESSOR_PARAM: {
     readonly THRESHOLD: "threshold";
 };
 export declare type CompressorParam = typeof COMPRESSOR_PARAM[keyof typeof COMPRESSOR_PARAM];
-declare type CompressorProps = BlipNodeProps & {
+declare type BaseCompressorProps = {
     attack?: number;
     knee?: number;
     ratio?: number;
     release?: number;
     threshold?: number;
 };
+declare type CompressorProps = BlipNodeProps & BaseCompressorProps;
 /**
  * A node used to control the dynamic range of a signal.
  * Wrapper class for the native DynamicsCompressor audio node.

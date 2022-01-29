@@ -1,8 +1,9 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode';
-declare type ConvolverProps = BlipNodeProps & {
+declare type BaseConvolverProps = {
     buffer?: AudioBuffer | null;
     normalize?: boolean;
 };
+declare type ConvolverProps = BlipNodeProps & BaseConvolverProps;
 /** Wrapper class for the native Convolver audio node. */
 export declare class Convolver extends BlipNode {
     readonly name: string;

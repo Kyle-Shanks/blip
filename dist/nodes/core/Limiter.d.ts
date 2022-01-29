@@ -8,7 +8,7 @@ export declare const LIMITER_PARAM: {
     readonly GAIN: "gain";
 };
 declare type LimiterParam = typeof LIMITER_PARAM[keyof typeof LIMITER_PARAM];
-declare type LimiterProps = BlipNodeProps & {
+declare type BaseLimiterProps = {
     threshold?: number;
     ratio?: number;
     knee?: number;
@@ -16,6 +16,7 @@ declare type LimiterProps = BlipNodeProps & {
     release?: number;
     gain?: number;
 };
+declare type LimiterProps = BlipNodeProps & BaseLimiterProps;
 /**
  * An effect used to limit the dynamic range of the incoming signal.
  * Built using a Compressor node with more aggressive settings connected to a Gain node.

@@ -1,36 +1,4 @@
 export const minTime = 0.001
-export const noteRegex = /^(?![ebEB]#)([a-gA-G]#?)([0-9])$/
-
-export const BASE_NOTE = {
-  C: 'C',
-  C_SHARP: 'C#',
-  D: 'D',
-  D_SHARP: 'D#',
-  E: 'E',
-  F: 'F',
-  F_SHARP: 'F#',
-  G: 'G',
-  G_SHARP: 'G#',
-  A: 'A',
-  A_SHARP: 'A#',
-  B: 'B',
-} as const
-
-export type BaseNote = typeof BASE_NOTE[keyof typeof BASE_NOTE]
-
-export type Octave = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-
-export type Note = `${BaseNote}${Octave}`
-
-export const isNote = (note: any): note is Note => noteRegex.test(note)
-
-export type NoteInfo = {
-  note: Note
-  baseNote: BaseNote
-  octave: Octave
-  frequency: number
-  midi: number
-}
 
 // Distortion oversample types
 export const OVERSAMPLE = {

@@ -4,13 +4,14 @@ export declare const BUFFER_SOURCE_PARAM: {
     readonly PLAYBACK_RATE: "playbackRate";
 };
 declare type BufferSourceParam = typeof BUFFER_SOURCE_PARAM[keyof typeof BUFFER_SOURCE_PARAM];
-declare type BufferSourceProps = BlipNodeProps & {
+declare type BaseBufferSourceProps = {
     buffer?: AudioBuffer | null;
     detune?: number;
     loop?: boolean;
     playbackRate?: number;
     start?: boolean;
 };
+declare type BufferSourceProps = BlipNodeProps & BaseBufferSourceProps;
 /**
  * A source node that outputs signal based on a provided audio buffer.
  * Wrapper class for the native AudioBufferSourceNode.

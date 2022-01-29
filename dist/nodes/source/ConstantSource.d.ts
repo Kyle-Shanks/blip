@@ -3,10 +3,11 @@ export declare const CONSTANT_SOURCE_PARAM: {
     readonly OFFSET: "offset";
 };
 declare type ConstantSourceParam = typeof CONSTANT_SOURCE_PARAM[keyof typeof CONSTANT_SOURCE_PARAM];
-declare type ConstantSourceProps = BlipNodeProps & {
+declare type BaseConstantSourceProps = {
     offset?: number;
     start?: boolean;
 };
+declare type ConstantSourceProps = BlipNodeProps & BaseConstantSourceProps;
 /**
  * A source node that outputs a constant signal that can be adjusted.
  * Wrapper class for the native ConstantSource node.

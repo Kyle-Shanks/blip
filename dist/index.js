@@ -56,6 +56,7 @@ var getContext = function () {
 var setContext = function (context) {
     GLOBAL_CONTEXT = context;
 };
+/** Resume the global audio context */
 var resume = function () { return getContext().resume(); };
 // - Helper Functions -
 /** Clamp a number between a given min and max. */
@@ -232,7 +233,7 @@ var BlipNode = /** @class */ (function () {
 var CONSTANT_SOURCE_PARAM = {
     OFFSET: 'offset',
 };
-var defaultProps$m = {
+var defaultProps$n = {
     offset: 1,
     start: false,
 };
@@ -265,7 +266,7 @@ var ConstantSource = /** @class */ (function (_super) {
             _a[CONSTANT_SOURCE_PARAM.OFFSET] = _this.source.offset,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$m), props);
+        var initProps = __assign(__assign({}, defaultProps$n), props);
         _this.setOffset(initProps.offset);
         if (initProps.start)
             _this.start();
@@ -274,7 +275,7 @@ var ConstantSource = /** @class */ (function (_super) {
     return ConstantSource;
 }(BlipNode));
 
-var defaultProps$l = {
+var defaultProps$m = {
     attack: 0,
     decay: 0,
     sustain: 1,
@@ -374,13 +375,13 @@ var Envelope = /** @class */ (function (_super) {
         _this.source = new ConstantSource({ AC: _this.AC, start: true });
         _this.outputs = [_this.source];
         _this.timeoutIds = [];
-        _this.attack = defaultProps$l.attack;
-        _this.decay = defaultProps$l.decay;
-        _this.sustain = defaultProps$l.sustain;
-        _this.release = defaultProps$l.release;
-        _this.modifier = defaultProps$l.modifier;
+        _this.attack = defaultProps$m.attack;
+        _this.decay = defaultProps$m.decay;
+        _this.sustain = defaultProps$m.sustain;
+        _this.release = defaultProps$m.release;
+        _this.modifier = defaultProps$m.modifier;
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$l), props);
+        var initProps = __assign(__assign({}, defaultProps$m), props);
         _this.setAttack(initProps.attack);
         _this.setDecay(initProps.decay);
         _this.setSustain(initProps.sustain);
@@ -429,7 +430,7 @@ var FILTER_PARAM = {
     GAIN: 'gain',
     Q: 'Q',
 };
-var defaultProps$k = {
+var defaultProps$l = {
     frequency: 11000,
     q: 0,
     detune: 0,
@@ -487,7 +488,7 @@ var Filter = /** @class */ (function (_super) {
             _a[FILTER_PARAM.Q] = _this.filter.Q,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$k), props);
+        var initProps = __assign(__assign({}, defaultProps$l), props);
         _this.setFrequency(initProps.frequency);
         _this.setQ(initProps.q);
         _this.setGain(initProps.gain);
@@ -504,7 +505,7 @@ var FILTER_ENVELOPE_PARAM = {
     GAIN: 'gain',
     Q: 'q',
 };
-var defaultProps$j = {
+var defaultProps$k = {
     frequency: 2000,
     q: 0,
     detune: 0,
@@ -565,7 +566,7 @@ var FilterEnvelope = /** @class */ (function (_super) {
             _a[FILTER_ENVELOPE_PARAM.Q] = _this.filter.params[FILTER_PARAM.Q],
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$j), props);
+        var initProps = __assign(__assign({}, defaultProps$k), props);
         _this.setFrequency(initProps.frequency);
         _this.setQ(initProps.q);
         _this.setDetune(initProps.detune);
@@ -581,7 +582,7 @@ var FilterEnvelope = /** @class */ (function (_super) {
 var GAIN_PARAM = {
     GAIN: 'gain',
 };
-var defaultProps$i = {
+var defaultProps$j = {
     gain: 1,
 };
 /**
@@ -610,7 +611,7 @@ var Gain = /** @class */ (function (_super) {
             _a[GAIN_PARAM.GAIN] = _this.gain.gain,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$i), props);
+        var initProps = __assign(__assign({}, defaultProps$j), props);
         _this.setGain(initProps.gain);
         return _this;
     }
@@ -620,7 +621,7 @@ var Gain = /** @class */ (function (_super) {
 var GAIN_ENVELOPE_PARAM = {
     GAIN: 'gain',
 };
-var defaultProps$h = {
+var defaultProps$i = {
     gain: 0,
     attack: 0,
     decay: 0,
@@ -652,7 +653,7 @@ var GainEnvelope = /** @class */ (function (_super) {
             _a[GAIN_ENVELOPE_PARAM.GAIN] = _this.gain.params[GAIN_PARAM.GAIN],
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$h), props);
+        var initProps = __assign(__assign({}, defaultProps$i), props);
         _this.setGain(initProps.gain);
         // Connections
         _this.source.connect(_this.gain.params[GAIN_PARAM.GAIN]);
@@ -704,7 +705,7 @@ var COMPRESSOR_PARAM = {
     RELEASE: 'release',
     THRESHOLD: 'threshold',
 };
-var defaultProps$g = {
+var defaultProps$h = {
     attack: 0.003,
     knee: 30,
     ratio: 12,
@@ -767,7 +768,7 @@ var Compressor = /** @class */ (function (_super) {
             _a[COMPRESSOR_PARAM.THRESHOLD] = _this.compressor.threshold,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$g), props);
+        var initProps = __assign(__assign({}, defaultProps$h), props);
         _this.setThreshold(initProps.threshold);
         _this.setRatio(initProps.ratio);
         _this.setKnee(initProps.knee);
@@ -778,7 +779,7 @@ var Compressor = /** @class */ (function (_super) {
     return Compressor;
 }(BlipNode));
 
-var defaultProps$f = {
+var defaultProps$g = {
     buffer: null,
     normalize: false,
 };
@@ -803,7 +804,7 @@ var Convolver = /** @class */ (function (_super) {
         _this.inputs = [_this.convolver];
         _this.outputs = [_this.convolver];
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$f), props);
+        var initProps = __assign(__assign({}, defaultProps$g), props);
         _this.setBuffer(initProps.buffer);
         _this.setNormalize(initProps.normalize);
         return _this;
@@ -814,7 +815,7 @@ var Convolver = /** @class */ (function (_super) {
 var DELAY_PARAM = {
     DELAY_TIME: 'delayTime',
 };
-var defaultProps$e = {
+var defaultProps$f = {
     delayTime: 0,
 };
 /**
@@ -843,7 +844,7 @@ var Delay = /** @class */ (function (_super) {
             _a[DELAY_PARAM.DELAY_TIME] = _this.delay.delayTime,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$e), props);
+        var initProps = __assign(__assign({}, defaultProps$f), props);
         _this.setDelayTime(initProps.delayTime);
         return _this;
     }
@@ -858,7 +859,7 @@ var LIMITER_PARAM = {
     RELEASE: 'release',
     GAIN: 'gain',
 };
-var defaultProps$d = {
+var defaultProps$e = {
     threshold: -6,
     ratio: 20,
     knee: 0,
@@ -928,7 +929,7 @@ var Limiter = /** @class */ (function (_super) {
             _a[LIMITER_PARAM.THRESHOLD] = _this.limiter.params[COMPRESSOR_PARAM.THRESHOLD],
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$d), props);
+        var initProps = __assign(__assign({}, defaultProps$e), props);
         _this.setThreshold(initProps.threshold);
         _this.setRatio(initProps.ratio);
         _this.setKnee(initProps.knee);
@@ -945,7 +946,7 @@ var Limiter = /** @class */ (function (_super) {
 var STEREO_PANNER_PARAM = {
     PAN: 'pan',
 };
-var defaultProps$c = {
+var defaultProps$d = {
     pan: 0,
 };
 /**
@@ -974,14 +975,14 @@ var StereoPanner = /** @class */ (function (_super) {
             _a[STEREO_PANNER_PARAM.PAN] = _this.stereoPanner.pan,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$c), props);
+        var initProps = __assign(__assign({}, defaultProps$d), props);
         _this.setPan(initProps.pan);
         return _this;
     }
     return StereoPanner;
 }(BlipNode));
 
-var defaultProps$b = {
+var defaultProps$c = {
     curve: null,
     oversample: OVERSAMPLE.NONE,
 };
@@ -1009,7 +1010,7 @@ var WaveShaper = /** @class */ (function (_super) {
         _this.inputs = [_this.waveShaper];
         _this.outputs = [_this.waveShaper];
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$b), props);
+        var initProps = __assign(__assign({}, defaultProps$c), props);
         _this.setCurve(initProps.curve);
         _this.setOversample(initProps.oversample);
         return _this;
@@ -1021,7 +1022,7 @@ var OSCILLATOR_PARAM = {
     DETUNE: 'detune',
     FREQUENCY: 'frequency',
 };
-var defaultProps$a = {
+var defaultProps$b = {
     detune: 0,
     frequency: 440,
     start: false,
@@ -1071,7 +1072,7 @@ var Oscillator = /** @class */ (function (_super) {
             _a[OSCILLATOR_PARAM.FREQUENCY] = _this.oscillator.frequency,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$a), props);
+        var initProps = __assign(__assign({}, defaultProps$b), props);
         _this.setType(initProps.type);
         _this.setFrequency(initProps.frequency);
         _this.setDetune(initProps.detune);
@@ -1089,7 +1090,7 @@ var LFO_PARAM = {
     DETUNE: 'detune',
     RATE: 'rate',
 };
-var defaultProps$9 = {
+var defaultProps$a = {
     depth: 1,
     detune: 0,
     rate: 1,
@@ -1144,7 +1145,7 @@ var LFO = /** @class */ (function (_super) {
             _a[LFO_PARAM.RATE] = _this.osc.params[OSCILLATOR_PARAM.FREQUENCY],
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$9), props);
+        var initProps = __assign(__assign({}, defaultProps$a), props);
         _this.setRate(initProps.rate);
         _this.setDepth(initProps.depth);
         _this.setDetune(initProps.detune);
@@ -1162,7 +1163,7 @@ var AUTO_PAN_PARAM = {
     DEPTH: 'depth',
     RATE: 'rate',
 };
-var defaultProps$8 = {
+var defaultProps$9 = {
     depth: 1,
     rate: 1,
     type: WAVEFORM.SINE,
@@ -1201,7 +1202,7 @@ var AutoPan = /** @class */ (function (_super) {
             _a[AUTO_PAN_PARAM.RATE] = _this.LFO.params[LFO_PARAM.RATE],
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$8), props);
+        var initProps = __assign(__assign({}, defaultProps$9), props);
         _this.setRate(initProps.rate);
         _this.setDepth(initProps.depth);
         _this.setType(initProps.type);
@@ -1212,7 +1213,7 @@ var AutoPan = /** @class */ (function (_super) {
     return AutoPan;
 }(BlipNode));
 
-var defaultProps$7 = {
+var defaultProps$8 = {
     amount: 0,
     distortion: 0,
 };
@@ -1258,7 +1259,7 @@ var Distortion = /** @class */ (function (_super) {
         _this.inputs = [_this.dryGain, _this.waveShaper];
         _this.outputs = [_this.dryGain, _this.wetGain];
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$7), props);
+        var initProps = __assign(__assign({}, defaultProps$8), props);
         _this.setAmount(initProps.amount);
         _this.setDistortion(initProps.distortion);
         // Connections
@@ -1268,7 +1269,7 @@ var Distortion = /** @class */ (function (_super) {
     return Distortion;
 }(BlipNode));
 
-var defaultProps$6 = {
+var defaultProps$7 = {
     lowFrequency: 320,
     lowGain: 0,
     highFrequency: 3200,
@@ -1328,7 +1329,7 @@ var EQ2 = /** @class */ (function (_super) {
             highGain: _this.high.params[FILTER_PARAM.GAIN],
         };
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$6), props);
+        var initProps = __assign(__assign({}, defaultProps$7), props);
         _this.setLowFrequency(initProps.lowFrequency);
         _this.setLowGain(initProps.lowGain);
         _this.setHighFrequency(initProps.highFrequency);
@@ -1345,7 +1346,7 @@ var FEEDBACK_DELAY_PARAM = {
     FEEDBACK: 'feedback',
     TONE: 'tone',
 };
-var defaultProps$5 = {
+var defaultProps$6 = {
     amount: 0,
     delayTime: 0.2,
     feedback: 0.6,
@@ -1402,7 +1403,7 @@ var FeedbackDelay = /** @class */ (function (_super) {
             _a[FEEDBACK_DELAY_PARAM.TONE] = _this.tone.params[FILTER_PARAM.FREQUENCY],
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$5), props);
+        var initProps = __assign(__assign({}, defaultProps$6), props);
         _this.setAmount(initProps.amount);
         _this.setDelayTime(initProps.delayTime);
         _this.setFeedback(initProps.feedback);
@@ -1417,7 +1418,7 @@ var FeedbackDelay = /** @class */ (function (_super) {
     return FeedbackDelay;
 }(BlipNode));
 
-var defaultProps$4 = {
+var defaultProps$5 = {
     amount: 0,
     preDelayTime: 0.2,
     leftDelayTime: 0.2,
@@ -1501,7 +1502,7 @@ var PingPongDelay = /** @class */ (function (_super) {
             tone: _this.tone.params[FILTER_PARAM.FREQUENCY],
         };
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$4), props);
+        var initProps = __assign(__assign({}, defaultProps$5), props);
         _this.setAmount(initProps.amount);
         _this.setPreDelayTime(initProps.preDelayTime);
         _this.setLeftDelayTime(initProps.leftDelayTime);
@@ -1528,7 +1529,7 @@ var BUFFER_SOURCE_PARAM = {
     DETUNE: 'detune',
     PLAYBACK_RATE: 'playbackRate',
 };
-var defaultProps$3 = {
+var defaultProps$4 = {
     buffer: null,
     detune: 0,
     loop: false,
@@ -1583,7 +1584,7 @@ var BufferSource = /** @class */ (function (_super) {
             _a[BUFFER_SOURCE_PARAM.PLAYBACK_RATE] = _this.bufferSource.playbackRate,
             _a);
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$3), props);
+        var initProps = __assign(__assign({}, defaultProps$4), props);
         _this.setBuffer(initProps.buffer);
         _this.setLoop(initProps.loop);
         _this.setDetune(initProps.detune);
@@ -1640,7 +1641,7 @@ var typeBufferMap = (_a = {},
     _a[NOISE_TYPE.PINK] = getPinkNoiseBuffer,
     _a[NOISE_TYPE.BROWN] = getBrownNoiseBuffer,
     _a);
-var defaultProps$2 = {
+var defaultProps$3 = {
     start: false,
     type: NOISE_TYPE.WHITE,
 };
@@ -1678,7 +1679,7 @@ var NoiseGenerator = /** @class */ (function (_super) {
         _this.outputs = [_this.bufferSource];
         _this.type = NOISE_TYPE.WHITE;
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$2), props);
+        var initProps = __assign(__assign({}, defaultProps$3), props);
         _this.setType(initProps.type);
         if (initProps.start)
             _this.start();
@@ -1687,7 +1688,7 @@ var NoiseGenerator = /** @class */ (function (_super) {
     return NoiseGenerator;
 }(BlipNode));
 
-var defaultProps$1 = {
+var defaultProps$2 = {
     amount: 0,
     buffer: null,
     normalize: false,
@@ -1748,7 +1749,7 @@ var Reverb = /** @class */ (function (_super) {
         _this.inputs = [_this.dryGain, _this.convolver];
         _this.outputs = [_this.dryGain, _this.wetGain];
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps$1), props);
+        var initProps = __assign(__assign({}, defaultProps$2), props);
         _this.setAmount(initProps.amount);
         _this.setBuffer(initProps.buffer);
         _this.setNormalize(initProps.normalize);
@@ -1762,7 +1763,7 @@ var Reverb = /** @class */ (function (_super) {
     return Reverb;
 }(BlipNode));
 
-var defaultProps = {
+var defaultProps$1 = {
     depth: 1,
     rate: 1,
     type: WAVEFORM.SINE,
@@ -1800,7 +1801,7 @@ var Tremolo = /** @class */ (function (_super) {
             rate: _this.LFO.params[LFO_PARAM.RATE],
         };
         // Initialize
-        var initProps = __assign(__assign({}, defaultProps), props);
+        var initProps = __assign(__assign({}, defaultProps$1), props);
         _this.setRate(initProps.rate);
         _this.setDepth(initProps.depth);
         _this.setType(initProps.type);
@@ -1810,6 +1811,140 @@ var Tremolo = /** @class */ (function (_super) {
     }
     return Tremolo;
 }(BlipNode));
+
+var OSC_PARAM = {
+    DETUNE: 'detune',
+    FREQUENCY: 'frequency',
+    GAIN: 'gain',
+};
+var defaultProps = {
+    detune: 0,
+    frequency: 440,
+    gain: 1,
+    type: WAVEFORM.SINE,
+};
+/**
+ * A general-purpose instrument composed of an Oscillator connected to a Gain node.
+ */
+var Osc = /** @class */ (function (_super) {
+    __extends(Osc, _super);
+    function Osc(props) {
+        var _a;
+        if (props === void 0) { props = {}; }
+        var _this = _super.call(this, props) || this;
+        _this.name = 'Osc';
+        // - Getters -
+        /** Get the detune of the oscillator. */
+        _this.getDetune = function () { return _this.oscillator.getDetune(); };
+        /** Get the frequency of the oscillator. */
+        _this.getFrequency = function () { return _this.oscillator.getFrequency(); };
+        /** Get the gain of the gain node. */
+        _this.getGain = function () { return _this.gain.getGain(); };
+        /** Get the waveform of the oscillator.*/
+        _this.getType = function () { return _this.oscillator.getType(); };
+        // - Setters -
+        /** Set the detune of the oscillator. */
+        _this.setDetune = function (val, time) {
+            return _this.oscillator.setDetune(val, time);
+        };
+        /** Set the frequency of the oscillator. */
+        _this.setFrequency = function (val, time) {
+            return _this.oscillator.setFrequency(val, time);
+        };
+        /** Set the gain of the gain node. */
+        _this.setGain = function (val, time) { return _this.gain.setGain(val, time); };
+        /** Set the waveform of the oscillator. */
+        _this.setType = function (val) { return _this.oscillator.setType(val); };
+        _this.oscillator = new Oscillator({ AC: _this.AC, start: true });
+        _this.gain = new Gain({ AC: _this.AC });
+        _this.outputs = [_this.gain];
+        _this.params = (_a = {},
+            _a[OSC_PARAM.DETUNE] = _this.oscillator.params[OSCILLATOR_PARAM.DETUNE],
+            _a[OSC_PARAM.FREQUENCY] = _this.oscillator.params[OSCILLATOR_PARAM.FREQUENCY],
+            _a[OSC_PARAM.GAIN] = _this.gain.params[GAIN_PARAM.GAIN],
+            _a);
+        // Initialize
+        var initProps = __assign(__assign({}, defaultProps), props);
+        _this.setType(initProps.type);
+        _this.setFrequency(initProps.frequency);
+        _this.setDetune(initProps.detune);
+        _this.setGain(initProps.gain);
+        // Connections
+        _this.oscillator.connect(_this.gain);
+        return _this;
+    }
+    return Osc;
+}(BlipNode));
+
+var noteRegex = /^(?![ebEB]#)([a-gA-G]#?)([0-9])$/;
+// - Useful constants -
+// MIDI numbers for 0th octave
+var noteMidiMap = {
+    C: 12,
+    'C#': 13,
+    D: 14,
+    'D#': 15,
+    E: 16,
+    F: 17,
+    'F#': 18,
+    G: 19,
+    'G#': 20,
+    A: 21,
+    'A#': 22,
+    B: 23,
+};
+/** Frequencies in 4th octave */
+var noteFreqMap = {
+    C: 261.63,
+    'C#': 277.18,
+    D: 293.66,
+    'D#': 311.13,
+    E: 329.63,
+    F: 349.23,
+    'F#': 369.99,
+    G: 392.0,
+    'G#': 415.3,
+    A: 440.0,
+    'A#': 466.16,
+    B: 493.88,
+};
+// - Note Functions -
+var isNote = function (note) { return noteRegex.test(note); };
+var parseNote = function (val) {
+    var match = val.match(noteRegex);
+    if (!match)
+        return null;
+    return {
+        note: val.toUpperCase(),
+        baseNote: match[1].toUpperCase(),
+        octave: parseInt(match[2]),
+    };
+};
+/** Get the frequency of the given note. */
+var getNoteFrequency = function (note) {
+    var noteInfo = parseNote(note);
+    return noteInfo
+        ? noteFreqMap[noteInfo.baseNote] * Math.pow(2, noteInfo.octave - 4)
+        : null;
+};
+/** Get the midi value for the given note. */
+var getNoteMidiValue = function (note) {
+    var noteInfo = parseNote(note);
+    return noteInfo ? noteMidiMap[noteInfo.baseNote] + 12 * noteInfo.octave : null;
+};
+/** Get note information. */
+var getNoteInfo = function (note) {
+    var noteInfo = parseNote(note);
+    if (!noteInfo)
+        return null;
+    return {
+        note: noteInfo.note,
+        baseNote: noteInfo.baseNote,
+        octave: noteInfo.octave,
+        frequency: getNoteFrequency(note),
+        midi: getNoteMidiValue(note),
+    };
+};
 
 console.log('Hello, Blip!');
 
@@ -1832,6 +1967,7 @@ exports.GainEnvelope = GainEnvelope;
 exports.LFO = LFO;
 exports.Limiter = Limiter;
 exports.NoiseGenerator = NoiseGenerator;
+exports.Osc = Osc;
 exports.Oscillator = Oscillator;
 exports.PingPongDelay = PingPongDelay;
 exports.Reverb = Reverb;
@@ -1840,6 +1976,10 @@ exports.Tremolo = Tremolo;
 exports.WaveShaper = WaveShaper;
 exports.chain = chain;
 exports.getContext = getContext;
+exports.getNoteFrequency = getNoteFrequency;
+exports.getNoteInfo = getNoteInfo;
+exports.getNoteMidiValue = getNoteMidiValue;
+exports.isNote = isNote;
 exports.resume = resume;
 exports.setContext = setContext;
 //# sourceMappingURL=index.js.map

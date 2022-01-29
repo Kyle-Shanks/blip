@@ -1,9 +1,10 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode';
 import { Oversample } from '../../util/constants';
-declare type WaveShaperProps = BlipNodeProps & {
+declare type BaseWaveShaperProps = {
     curve?: Float32Array | null;
     oversample?: Oversample;
 };
+declare type WaveShaperProps = BlipNodeProps & BaseWaveShaperProps;
 /**
  * A Node used to adjust the shape of the incoming signal based on a waveshaping curve.
  * Wrapper class for the native WaveShaper audio node.

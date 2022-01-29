@@ -6,12 +6,13 @@ export declare const EQ2_PARAM: {
     readonly HIGH_GAIN: "highGain";
 };
 declare type EQ2Param = typeof EQ2_PARAM[keyof typeof EQ2_PARAM];
-declare type EQ2Props = BlipNodeProps & {
+declare type BaseEQ2Props = {
     lowFrequency?: number;
     lowGain?: number;
     highFrequency?: number;
     highGain?: number;
 };
+declare type EQ2Props = BlipNodeProps & BaseEQ2Props;
 /**
  * A 2-band equalizer node for adjusting the gain of the high and low frequencies of the incoming signal.
  */

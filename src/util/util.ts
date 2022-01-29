@@ -15,6 +15,7 @@ export const setContext = (context: AudioContext) => {
   GLOBAL_CONTEXT = context
 }
 
+/** Resume the global audio context */
 export const resume = () => getContext().resume()
 
 // - Helper Functions -

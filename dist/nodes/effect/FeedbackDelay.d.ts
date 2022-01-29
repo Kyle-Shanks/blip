@@ -5,12 +5,13 @@ export declare const FEEDBACK_DELAY_PARAM: {
     readonly TONE: "tone";
 };
 declare type FeedbackDelayParam = typeof FEEDBACK_DELAY_PARAM[keyof typeof FEEDBACK_DELAY_PARAM];
-declare type FeedbackDelayProps = BlipNodeProps & {
+declare type BaseFeedbackDelayProps = {
     amount?: number;
     delayTime?: number;
     feedback?: number;
     tone?: number;
 };
+declare type FeedbackDelayProps = BlipNodeProps & BaseFeedbackDelayProps;
 /**
  * A feedback delay effect to adds echos and other delay-based effects to the incoming signal.
  */

@@ -6,13 +6,14 @@ export declare const LFO_PARAM: {
     readonly RATE: "rate";
 };
 declare type LFOParam = typeof LFO_PARAM[keyof typeof LFO_PARAM];
-declare type LFOProps = BlipNodeProps & {
+declare type BaseLFOProps = {
     depth?: number;
     detune?: number;
     rate?: number;
     start?: boolean;
     type?: Waveform;
 };
+declare type LFOProps = BlipNodeProps & BaseLFOProps;
 /**
  * A source node that outputs low frequency oscillations for modulating audio params over time.
  * Built using an oscillator connected to a gain node.

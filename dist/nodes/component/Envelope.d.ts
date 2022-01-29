@@ -1,12 +1,13 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode';
 import { ConstantSource } from '../source/ConstantSource';
-export declare type EnvelopeProps = BlipNodeProps & {
+export declare type BaseEnvelopeProps = {
     attack?: number;
     decay?: number;
     sustain?: number;
     release?: number;
     modifier?: number;
 };
+export declare type EnvelopeProps = BlipNodeProps & BaseEnvelopeProps;
 /**
  * A general-purpose ADSR envelope that can be connected to AudioParams to modulate values over time.
  * Built using a ConstantSource node.

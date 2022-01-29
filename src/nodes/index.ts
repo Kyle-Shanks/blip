@@ -24,6 +24,9 @@ import { PingPongDelay } from './effect/PingPongDelay'
 import { Reverb } from './effect/Reverb'
 import { Tremolo } from './effect/Tremolo'
 
+// Instrument Nodes
+import { Osc } from './instruments/Osc'
+
 // Source Nodes
 import { BufferSource } from './source/BufferSource'
 import { ConstantSource } from './source/ConstantSource'
@@ -55,6 +58,8 @@ export {
   PingPongDelay,
   Reverb,
   Tremolo,
+  // Instrument Nodes
+  Osc,
   // Source Nodes
   BufferSource,
   ConstantSource,
