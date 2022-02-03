@@ -25,6 +25,7 @@ import { Reverb } from './effect/Reverb'
 import { Tremolo } from './effect/Tremolo'
 
 // Instrument Nodes
+import { MonoSynth } from './instruments/MonoSynth'
 import { Osc } from './instruments/Osc'
 
 // Source Nodes
@@ -59,6 +60,7 @@ export {
   Reverb,
   Tremolo,
   // Instrument Nodes
+  MonoSynth,
   Osc,
   // Source Nodes
   BufferSource,
