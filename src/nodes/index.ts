@@ -27,6 +27,7 @@ import { Tremolo } from './effect/Tremolo'
 // Instrument Nodes
 import { MonoSynth } from './instruments/MonoSynth'
 import { Osc } from './instruments/Osc'
+import { PolySynth } from './instruments/PolySynth'
 
 // Source Nodes
 import { BufferSource } from './source/BufferSource'
@@ -62,6 +63,7 @@ export {
   // Instrument Nodes
   MonoSynth,
   Osc,
+  PolySynth,
   // Source Nodes
   BufferSource,
   ConstantSource,

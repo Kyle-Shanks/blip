@@ -74,7 +74,7 @@ type MonoSynthProps = BlipNodeProps & BaseMonoSynthProps
  * Consists of an Oscillator connected to a GainEnvelope and FilterEnvelope.
  */
 export class MonoSynth extends BlipNode {
-  readonly name: string = 'Osc'
+  readonly name: string = 'MonoSynth'
   readonly outputs: OutputNode[]
   readonly params: Record<MonoSynthParam, AudioParam>
 
@@ -110,7 +110,7 @@ export class MonoSynth extends BlipNode {
     // Initialize
     const initProps = { ...defaultProps, ...props }
 
-    this.setWaveform(initProps.type)
+    this.setType(initProps.type)
     this.setFrequency(initProps.frequency)
     this.setDetune(initProps.detune)
     this.setGainAttack(initProps.gainAttack)
@@ -196,7 +196,7 @@ export class MonoSynth extends BlipNode {
 
   // - Setters -
   /** Set the waveform of the oscillator. */
-  public setWaveform = (val: Waveform) => this.oscillator.setType(val)
+  public setType = (val: Waveform) => this.oscillator.setType(val)
 
   /** Set the frequency of the oscillator. */
   public setFrequency = (val: number, time?: number) =>

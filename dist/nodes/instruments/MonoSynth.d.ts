@@ -84,7 +84,7 @@ export declare class MonoSynth extends BlipNode {
     /** Get the modifier amount of the filter envelope. */
     getFilterAmount: () => number;
     /** Set the waveform of the oscillator. */
-    setWaveform: (val: Waveform) => Waveform;
+    setType: (val: Waveform) => Waveform;
     /** Set the frequency of the oscillator. */
     setFrequency: (val: number, time?: number) => void;
     /** Set the detune of the oscillator. */

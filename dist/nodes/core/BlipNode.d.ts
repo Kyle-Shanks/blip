@@ -8,7 +8,7 @@ export declare class BlipNode {
     readonly name: string;
     readonly inputs: InputNode[];
     readonly outputs: OutputNode[];
-    readonly params: Record<string, AudioParam>;
+    readonly params: Record<string, AudioParam | AudioParam[]>;
     protected AC: BaseAudioContext;
     constructor(props?: BlipNodeProps);
     /**
