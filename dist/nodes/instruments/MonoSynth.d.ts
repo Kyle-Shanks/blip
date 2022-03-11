@@ -2,13 +2,13 @@ import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode';
 import { FilterType, Waveform } from '../../util/constants';
 import { Note } from '../../util/noteUtil';
 export declare const MONO_SYNTH_PARAM: {
-    DETUNE: string;
-    FREQUENCY: string;
-    GAIN: string;
-    FILTER_DETUNE: string;
-    FILTER_FREQUENCY: string;
-    FILTER_GAIN: string;
-    FILTER_Q: string;
+    readonly DETUNE: "detune";
+    readonly FREQUENCY: "frequency";
+    readonly GAIN: "gain";
+    readonly FILTER_DETUNE: "filterDetune";
+    readonly FILTER_FREQUENCY: "filterFrequency";
+    readonly FILTER_GAIN: "filterGain";
+    readonly FILTER_Q: "filterQ";
 };
 declare type MonoSynthParam = typeof MONO_SYNTH_PARAM[keyof typeof MONO_SYNTH_PARAM];
 declare type BaseMonoSynthProps = {

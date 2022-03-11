@@ -7,7 +7,7 @@ export const OSC_PARAM = {
   DETUNE: 'detune',
   FREQUENCY: 'frequency',
   GAIN: 'gain',
-}
+} as const
 
 type OscParam = typeof OSC_PARAM[keyof typeof OSC_PARAM]
 

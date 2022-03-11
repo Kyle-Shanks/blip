@@ -1,9 +1,9 @@
 import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode';
 import { Waveform } from '../../util/constants';
 export declare const OSC_PARAM: {
-    DETUNE: string;
-    FREQUENCY: string;
-    GAIN: string;
+    readonly DETUNE: "detune";
+    readonly FREQUENCY: "frequency";
+    readonly GAIN: "gain";
 };
 declare type OscParam = typeof OSC_PARAM[keyof typeof OSC_PARAM];
 declare type BaseOscProps = {

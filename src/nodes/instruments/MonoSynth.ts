@@ -21,7 +21,7 @@ export const MONO_SYNTH_PARAM = {
   FILTER_FREQUENCY: 'filterFrequency',
   FILTER_GAIN: 'filterGain',
   FILTER_Q: 'filterQ',
-}
+} as const
 
 type MonoSynthParam = typeof MONO_SYNTH_PARAM[keyof typeof MONO_SYNTH_PARAM]
 

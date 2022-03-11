@@ -18,7 +18,7 @@ export const POLY_SYNTH_PARAM = {
   FILTER_FREQUENCY: 'filterFrequency',
   FILTER_GAIN: 'filterGain',
   FILTER_Q: 'filterQ',
-}
+} as const
 
 type PolySynthParam = typeof POLY_SYNTH_PARAM[keyof typeof POLY_SYNTH_PARAM]
 
@@ -44,7 +44,7 @@ type BasePolySynthProps = {
   filterAmount?: number
 }
 
-const defaultProps = {
+const defaultProps: Required<BasePolySynthProps> = {
   polyphony: 8,
   waveform: WAVEFORM.SINE,
   frequency: 440,
@@ -64,7 +64,7 @@ const defaultProps = {
   filterSustain: 1,
   filterRelease: 0,
   filterAmount: 6000,
-}
+} as const
 
 type PolySynthProps = BlipNodeProps & BasePolySynthProps
 
