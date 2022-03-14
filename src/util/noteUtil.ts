@@ -16,6 +16,8 @@ export type BaseNote =
   | 'B'
 
 export type Octave = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+export const minOctave = 0
+export const maxOctave = 8
 
 export type Note = `${BaseNote}${Octave}`
 
@@ -42,6 +44,22 @@ export const noteMidiMap: Record<BaseNote, number> = {
   'A': 21,
   'A#': 22,
   'B': 23,
+}
+
+// MIDI numbers for 0th octave
+export const midiNoteMap: Record<number, BaseNote> = {
+  12: 'C',
+  13: 'C#',
+  14: 'D',
+  15: 'D#',
+  16: 'E',
+  17: 'F',
+  18: 'F#',
+  19: 'G',
+  20: 'G#',
+  21: 'A',
+  22: 'A#',
+  23: 'B',
 }
 
 /** Frequencies in 4th octave */
