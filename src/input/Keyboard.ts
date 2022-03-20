@@ -86,7 +86,7 @@ export class Keyboard {
   /** Set the current velocity */
   public setVelocity = (val: number) => (this.velocity = val)
 
-  // - Private Methdos -
+  // - Private Methods -
   // Event handling methods
   private _keydown = (e: KeyboardEvent) => {
     if (e.repeat) return
