@@ -1,7 +1,7 @@
-import { Note } from 'util/noteUtil'
 import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode'
 import { MonoSynth, MONO_SYNTH_PARAM } from './MonoSynth'
 import { Osc, OSC_PARAM } from './Osc'
+import { Note } from '../../util/noteUtil'
 
 export const SIMPLE_FM_SYNTH_PARAM = {
   MODULATOR_DEPTH: 'modulatorDepth',

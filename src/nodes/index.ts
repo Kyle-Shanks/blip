@@ -1,3 +1,6 @@
+// BlipNode
+import { BlipNode } from './core/BlipNode'
+
 // Component Nodes
 import { Envelope } from './component/Envelope'
 import { FilterEnvelope } from './component/FilterEnvelope'
@@ -28,6 +31,8 @@ import { Tremolo } from './effect/Tremolo'
 import { MonoSynth } from './instruments/MonoSynth'
 import { Osc } from './instruments/Osc'
 import { PolySynth } from './instruments/PolySynth'
+import { SimpleFMSynth } from './instruments/SimpleFMSynth'
+import { FMSynth } from './instruments/FMSynth'
 
 // Source Nodes
 import { BufferSource } from './source/BufferSource'
@@ -37,6 +42,7 @@ import { NoiseGenerator } from './source/NoiseGenerator'
 import { Oscillator } from './source/Oscillator'
 
 export {
+  BlipNode,
   // Component Nodes
   Envelope,
   FilterEnvelope,
@@ -64,6 +70,8 @@ export {
   MonoSynth,
   Osc,
   PolySynth,
+  FMSynth,
+  SimpleFMSynth,
   // Source Nodes
   BufferSource,
   ConstantSource,

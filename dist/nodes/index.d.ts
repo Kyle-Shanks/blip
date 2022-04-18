@@ -1,3 +1,4 @@
+import { BlipNode } from './core/BlipNode';
 import { Envelope } from './component/Envelope';
 import { FilterEnvelope } from './component/FilterEnvelope';
 import { GainEnvelope } from './component/GainEnvelope';
@@ -21,9 +22,11 @@ import { Tremolo } from './effect/Tremolo';
 import { MonoSynth } from './instruments/MonoSynth';
 import { Osc } from './instruments/Osc';
 import { PolySynth } from './instruments/PolySynth';
+import { SimpleFMSynth } from './instruments/SimpleFMSynth';
+import { FMSynth } from './instruments/FMSynth';
 import { BufferSource } from './source/BufferSource';
 import { ConstantSource } from './source/ConstantSource';
 import { LFO } from './source/LFO';
 import { NoiseGenerator } from './source/NoiseGenerator';
 import { Oscillator } from './source/Oscillator';
-export { Envelope, FilterEnvelope, GainEnvelope, ChannelMerger, ChannelSplitter, Compressor, Convolver, Delay, Filter, Gain, Limiter, StereoPanner, WaveShaper, AutoPan, Distortion, EQ2, FeedbackDelay, PingPongDelay, Reverb, Tremolo, MonoSynth, Osc, PolySynth, BufferSource, ConstantSource, LFO, NoiseGenerator, Oscillator, };
+export { BlipNode, Envelope, FilterEnvelope, GainEnvelope, ChannelMerger, ChannelSplitter, Compressor, Convolver, Delay, Filter, Gain, Limiter, StereoPanner, WaveShaper, AutoPan, Distortion, EQ2, FeedbackDelay, PingPongDelay, Reverb, Tremolo, MonoSynth, Osc, PolySynth, FMSynth, SimpleFMSynth, BufferSource, ConstantSource, LFO, NoiseGenerator, Oscillator, };
