@@ -23,10 +23,19 @@ const keyMidiMap: Record<string, number> = {
 }
 
 const keyToNote = (key: string, octave: Octave): Note | null => {
-  const midi = keyMidiMap[key]
+  let midi = keyMidiMap[key]
   if (!midi) return null
 
-  return `${midiNoteMap[midi]}${octave}`
+  let octMod = 0
+  while (midi >= 24) {
+    octMod++
+    midi -= 12
+  }
+
+  const oct = (octave + octMod) as Octave
+  if (oct > 8) return null
+
+  return `${midiNoteMap[midi]}${oct}`
 }
 
 type KeyboardProps = {
