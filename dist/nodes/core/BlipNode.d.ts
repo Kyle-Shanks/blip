@@ -24,9 +24,9 @@ export declare class BlipNode {
     /** Connect all output nodes to the AudioContext destination */
     toDestination: () => void;
     /** Internal connect handler method */
-    private _connect;
+    protected _connect: (destination: InputNode | InputNode[], outputNum?: number, inputNum?: number) => void;
     /** Internal disconnect handler method */
-    private _disconnect;
+    protected _disconnect: (destination?: InputNode | InputNode[], outputNum?: number, inputNum?: number) => void;
     private _getInputNodes;
     private _getOutputNodes;
     protected _update: (param: AudioParam, val: number) => AudioParam;

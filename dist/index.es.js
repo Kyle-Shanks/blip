@@ -292,20 +292,23 @@ var Envelope = /** @class */ (function (_super) {
          * Connect this envelope to an AudioParam.
          * An array can be passed to connect to multiple destinations.
          */
-        _this.connect = function (destination) {
-            if (Array.isArray(destination)) {
-                for (var i = 0; i < destination.length; i++) {
-                    if (!(destination[i] instanceof AudioParam)) {
-                        console.error('Envelopes must be connected to AudioParams');
-                        return _this;
+        _this.connect = function (destination, outputNum, inputNum) {
+            // Base Envelopes must be connected to AudioParams
+            if (_this.name === 'Envelope') {
+                if (Array.isArray(destination)) {
+                    for (var i = 0; i < destination.length; i++) {
+                        if (!(destination[i] instanceof AudioParam)) {
+                            console.error('Envelopes must be connected to AudioParams');
+                            return _this;
+                        }
                     }
                 }
+                else if (!(destination instanceof AudioParam)) {
+                    console.error('Envelopes must be connected to AudioParams');
+                    return _this;
+                }
             }
-            else if (!(destination instanceof AudioParam)) {
-                console.error('Envelopes must be connected to AudioParams');
-                return _this;
-            }
-            _this.connect(destination);
+            _this._connect(destination, outputNum, inputNum);
             return _this;
         };
         // - Getters -

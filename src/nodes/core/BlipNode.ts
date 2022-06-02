@@ -57,7 +57,7 @@ export class BlipNode {
 
   // --- Private Methods ---
   /** Internal connect handler method */
-  private _connect = (
+  protected _connect = (
     destination: InputNode | InputNode[],
     outputNum: number = 0,
     inputNum: number = 0
@@ -90,7 +90,7 @@ export class BlipNode {
   }
 
   /** Internal disconnect handler method */
-  private _disconnect = (
+  protected _disconnect = (
     destination?: InputNode | InputNode[],
     outputNum: number = 0,
     inputNum: number = 0

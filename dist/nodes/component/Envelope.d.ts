@@ -27,7 +27,7 @@ export declare class Envelope extends BlipNode {
      * Connect this envelope to an AudioParam.
      * An array can be passed to connect to multiple destinations.
      */
-    connect: (destination: InputNode | InputNode[]) => this;
+    connect: (destination: InputNode | InputNode[], outputNum?: number, inputNum?: number) => this;
     /** Get the attack time of the envelope. */
     getAttack: () => number;
     /** Get the decay time of the envelope. */

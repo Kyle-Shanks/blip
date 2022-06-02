@@ -72,20 +72,27 @@ export class Envelope extends BlipNode {
    * Connect this envelope to an AudioParam.
    * An array can be passed to connect to multiple destinations.
    */
-  public connect = (destination: InputNode | InputNode[]) => {
-    if (Array.isArray(destination)) {
-      for (let i = 0; i < destination.length; i++) {
-        if (!(destination[i] instanceof AudioParam)) {
-          console.error('Envelopes must be connected to AudioParams')
-          return this
+  public connect = (
+    destination: InputNode | InputNode[],
+    outputNum?: number,
+    inputNum?: number
+  ) => {
+    // Base Envelopes must be connected to AudioParams
+    if (this.name === 'Envelope') {
+      if (Array.isArray(destination)) {
+        for (let i = 0; i < destination.length; i++) {
+          if (!(destination[i] instanceof AudioParam)) {
+            console.error('Envelopes must be connected to AudioParams')
+            return this
+          }
         }
+      } else if (!(destination instanceof AudioParam)) {
+        console.error('Envelopes must be connected to AudioParams')
+        return this
       }
-    } else if (!(destination instanceof AudioParam)) {
-      console.error('Envelopes must be connected to AudioParams')
-      return this
     }
 
-    this.connect(destination)
+    this._connect(destination, outputNum, inputNum)
 
     return this
   }
