@@ -18,7 +18,7 @@ export const FM_SYNTH_PARAM = {
   MOD_C_FREQUENCY: 'modulatorCFrequency',
   MOD_D_GAIN: 'modulatorDGain',
   MOD_D_DETUNE: 'modulatorDDetune',
-  MOD_D_FREQUENCY: 'modulatorDFrequency',
+  MOD_D_FREQUENCY: 'modulatorDFrequency'
 }
 
 type FMSynthParam = typeof FM_SYNTH_PARAM[keyof typeof FM_SYNTH_PARAM]
@@ -64,7 +64,7 @@ const defaultProps: Required<BaseFMSynthProps> = {
   gainDecay: 0,
   gainSustain: 1,
   gainRelease: 0,
-  gainAmount: 0.75,
+  gainAmount: 0.75
 }
 
 export class FMSynth extends BlipNode {
@@ -103,7 +103,7 @@ export class FMSynth extends BlipNode {
       [FM_SYNTH_PARAM.MOD_C_FREQUENCY]: this.modC.params[OSC_PARAM.FREQUENCY],
       [FM_SYNTH_PARAM.MOD_D_GAIN]: this.modD.params[OSC_PARAM.GAIN],
       [FM_SYNTH_PARAM.MOD_D_DETUNE]: this.modD.params[OSC_PARAM.DETUNE],
-      [FM_SYNTH_PARAM.MOD_D_FREQUENCY]: this.modD.params[OSC_PARAM.FREQUENCY],
+      [FM_SYNTH_PARAM.MOD_D_FREQUENCY]: this.modD.params[OSC_PARAM.FREQUENCY]
     }
 
     // Initialize

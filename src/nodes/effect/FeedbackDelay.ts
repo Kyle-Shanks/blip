@@ -2,7 +2,7 @@ import {
   BlipNode,
   BlipNodeProps,
   InputNode,
-  OutputNode,
+  OutputNode
 } from '../core/BlipNode'
 import { Delay, DELAY_PARAM } from '../core/Delay'
 import { Filter, FILTER_PARAM } from '../core/Filter'
@@ -11,7 +11,7 @@ import { Gain, GAIN_PARAM } from '../core/Gain'
 export const FEEDBACK_DELAY_PARAM = {
   DELAY_TIME: 'delayTime',
   FEEDBACK: 'feedback',
-  TONE: 'tone',
+  TONE: 'tone'
 } as const
 
 type FeedbackDelayParam =
@@ -28,7 +28,7 @@ const defaultProps: Required<BaseFeedbackDelayProps> = {
   amount: 0,
   delayTime: 0.2,
   feedback: 0.6,
-  tone: 4400,
+  tone: 4400
 } as const
 
 type FeedbackDelayProps = BlipNodeProps & BaseFeedbackDelayProps
@@ -64,7 +64,7 @@ export class FeedbackDelay extends BlipNode {
         this.delay.params[DELAY_PARAM.DELAY_TIME],
       [FEEDBACK_DELAY_PARAM.FEEDBACK]:
         this.feedbackGain.params[GAIN_PARAM.GAIN],
-      [FEEDBACK_DELAY_PARAM.TONE]: this.tone.params[FILTER_PARAM.FREQUENCY],
+      [FEEDBACK_DELAY_PARAM.TONE]: this.tone.params[FILTER_PARAM.FREQUENCY]
     }
 
     // Initialize

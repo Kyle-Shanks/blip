@@ -3,7 +3,7 @@ import { WAVEFORM, Waveform } from '../../util/constants'
 
 export const OSCILLATOR_PARAM = {
   DETUNE: 'detune',
-  FREQUENCY: 'frequency',
+  FREQUENCY: 'frequency'
 } as const
 
 type OscillatorParam = typeof OSCILLATOR_PARAM[keyof typeof OSCILLATOR_PARAM]
@@ -19,7 +19,7 @@ const defaultProps: Required<BaseOscillatorProps> = {
   detune: 0,
   frequency: 440,
   start: false,
-  type: WAVEFORM.SINE,
+  type: WAVEFORM.SINE
 } as const
 
 type OscillatorProps = BlipNodeProps & BaseOscillatorProps
@@ -41,7 +41,7 @@ export class Oscillator extends BlipNode {
     this.outputs = [this.oscillator]
     this.params = {
       [OSCILLATOR_PARAM.DETUNE]: this.oscillator.detune,
-      [OSCILLATOR_PARAM.FREQUENCY]: this.oscillator.frequency,
+      [OSCILLATOR_PARAM.FREQUENCY]: this.oscillator.frequency
     }
 
     // Initialize

@@ -7,7 +7,7 @@ export const FILTER_ENVELOPE_PARAM = {
   DETUNE: 'detune',
   FREQUENCY: 'frequency',
   GAIN: 'gain',
-  Q: 'q',
+  Q: 'q'
 } as const
 
 type FilterEnvelopeParam =
@@ -31,7 +31,7 @@ const defaultProps: Required<BaseFilterEnvelopeProps> = {
   decay: 0,
   sustain: 1,
   release: 0,
-  modifier: 1,
+  modifier: 1
 } as const
 
 type FilterEnvelopeProps = BlipNodeProps & BaseFilterEnvelopeProps
@@ -58,7 +58,7 @@ export class FilterEnvelope extends Envelope {
       [FILTER_ENVELOPE_PARAM.FREQUENCY]:
         this.filter.params[FILTER_PARAM.FREQUENCY],
       [FILTER_ENVELOPE_PARAM.GAIN]: this.filter.params[FILTER_PARAM.GAIN],
-      [FILTER_ENVELOPE_PARAM.Q]: this.filter.params[FILTER_PARAM.Q],
+      [FILTER_ENVELOPE_PARAM.Q]: this.filter.params[FILTER_PARAM.Q]
     }
 
     // Initialize

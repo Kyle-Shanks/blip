@@ -7,7 +7,7 @@ type BaseConvolverProps = {
 
 const defaultProps: Required<BaseConvolverProps> = {
   buffer: null,
-  normalize: false,
+  normalize: false
 } as const
 
 type ConvolverProps = BlipNodeProps & BaseConvolverProps

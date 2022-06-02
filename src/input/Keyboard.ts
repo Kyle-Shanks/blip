@@ -19,7 +19,7 @@ const keyMidiMap: Record<string, number> = {
   'o': 25,
   'l': 26,
   'p': 27,
-  ';': 28,
+  ';': 28
 }
 
 const keyToNote = (key: string, octave: Octave): Note | null => {
@@ -36,7 +36,7 @@ type KeyboardProps = {
 
 const defaultProps: Required<KeyboardProps> = {
   onPress: () => {},
-  onRelease: () => {},
+  onRelease: () => {}
 }
 
 /**

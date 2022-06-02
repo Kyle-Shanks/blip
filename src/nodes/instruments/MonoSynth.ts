@@ -1,7 +1,7 @@
 import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode'
 import {
   FilterEnvelope,
-  FILTER_ENVELOPE_PARAM,
+  FILTER_ENVELOPE_PARAM
 } from '../component/FilterEnvelope'
 import { GainEnvelope, GAIN_ENVELOPE_PARAM } from '../component/GainEnvelope'
 import { Oscillator, OSCILLATOR_PARAM } from '../source/Oscillator'
@@ -9,7 +9,7 @@ import {
   FILTER_TYPE,
   FilterType,
   WAVEFORM,
-  Waveform,
+  Waveform
 } from '../../util/constants'
 import { getNoteFrequency, Note } from '../../util/noteUtil'
 
@@ -20,7 +20,7 @@ export const MONO_SYNTH_PARAM = {
   FILTER_DETUNE: 'filterDetune',
   FILTER_FREQUENCY: 'filterFrequency',
   FILTER_GAIN: 'filterGain',
-  FILTER_Q: 'filterQ',
+  FILTER_Q: 'filterQ'
 } as const
 
 type MonoSynthParam = typeof MONO_SYNTH_PARAM[keyof typeof MONO_SYNTH_PARAM]
@@ -64,7 +64,7 @@ const defaultProps: Required<BaseMonoSynthProps> = {
   filterDecay: 0,
   filterSustain: 1,
   filterRelease: 0,
-  filterAmount: 6000,
+  filterAmount: 6000
 } as const
 
 type MonoSynthProps = BlipNodeProps & BaseMonoSynthProps
@@ -104,7 +104,7 @@ export class MonoSynth extends BlipNode {
       [MONO_SYNTH_PARAM.FILTER_GAIN]:
         this.filterEnv.params[FILTER_ENVELOPE_PARAM.GAIN],
       [MONO_SYNTH_PARAM.FILTER_Q]:
-        this.filterEnv.params[FILTER_ENVELOPE_PARAM.Q],
+        this.filterEnv.params[FILTER_ENVELOPE_PARAM.Q]
     }
 
     // Initialize

@@ -10,7 +10,7 @@ const MAX_RATE = 100
 export const LFO_PARAM = {
   DEPTH: 'depth',
   DETUNE: 'detune',
-  RATE: 'rate',
+  RATE: 'rate'
 } as const
 
 type LFOParam = typeof LFO_PARAM[keyof typeof LFO_PARAM]
@@ -28,7 +28,7 @@ const defaultProps: Required<BaseLFOProps> = {
   detune: 0,
   rate: 1,
   start: false,
-  type: WAVEFORM.SINE,
+  type: WAVEFORM.SINE
 } as const
 
 type LFOProps = BlipNodeProps & BaseLFOProps
@@ -53,7 +53,7 @@ export class LFO extends BlipNode {
     this.params = {
       [LFO_PARAM.DEPTH]: this.depth.params[GAIN_PARAM.GAIN],
       [LFO_PARAM.DETUNE]: this.osc.params[OSCILLATOR_PARAM.DETUNE],
-      [LFO_PARAM.RATE]: this.osc.params[OSCILLATOR_PARAM.FREQUENCY],
+      [LFO_PARAM.RATE]: this.osc.params[OSCILLATOR_PARAM.FREQUENCY]
     }
 
     // Initialize

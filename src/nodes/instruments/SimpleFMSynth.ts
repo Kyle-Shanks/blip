@@ -13,7 +13,7 @@ export const SIMPLE_FM_SYNTH_PARAM = {
   CARIER_FILTER_DETUNE: 'carrierFilterDetune',
   CARIER_FILTER_FREQUENCY: 'carrierFilterFrequency',
   CARIER_FILTER_GAIN: 'carrierFilterGain',
-  CARIER_FILTER_Q: 'carrierFilterQ',
+  CARIER_FILTER_Q: 'carrierFilterQ'
 } as const
 
 type SimpleFMSynthParam =
@@ -54,7 +54,7 @@ const defaultProps: Required<BaseSimpleFMSynthProps> = {
   filterDecay: 0,
   filterSustain: 1,
   filterRelease: 0,
-  filterAmount: 6000,
+  filterAmount: 6000
 } as const
 
 export class SimpleFMSynth extends BlipNode {
@@ -91,7 +91,7 @@ export class SimpleFMSynth extends BlipNode {
       [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_GAIN]:
         this.carrier.params[MONO_SYNTH_PARAM.FILTER_GAIN],
       [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_Q]:
-        this.carrier.params[MONO_SYNTH_PARAM.FILTER_Q],
+        this.carrier.params[MONO_SYNTH_PARAM.FILTER_Q]
     }
 
     // Initialize

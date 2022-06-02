@@ -2,7 +2,7 @@ import {
   BlipNode,
   BlipNodeProps,
   InputNode,
-  OutputNode,
+  OutputNode
 } from '../core/BlipNode'
 import { ChannelMerger } from '../core/ChannelMerger'
 import { Delay, DELAY_PARAM } from '../core/Delay'
@@ -15,7 +15,7 @@ export const PING_PONG_DELAY_PARAM = {
   RIGHT_DELAY_TIME: 'rightDelayTime',
   LEFT_FEEDBACK: 'leftFeedback',
   RIGHT_FEEDBACK: 'rightFeedback',
-  TONE: 'tone',
+  TONE: 'tone'
 } as const
 
 type PingPongDelayParam =
@@ -38,7 +38,7 @@ const defaultProps: Required<BasePingPongDelayProps> = {
   rightDelayTime: 0.2,
   leftFeedback: 0.6,
   rightFeedback: 0.6,
-  tone: 4400,
+  tone: 4400
 } as const
 
 type PingPongDelayProps = BlipNodeProps & BasePingPongDelayProps
@@ -84,7 +84,7 @@ export class PingPongDelay extends BlipNode {
       rightDelayTime: this.rightDelay.params[DELAY_PARAM.DELAY_TIME],
       leftFeedback: this.leftFeedbackGain.params[GAIN_PARAM.GAIN],
       rightFeedback: this.rightFeedbackGain.params[GAIN_PARAM.GAIN],
-      tone: this.tone.params[FILTER_PARAM.FREQUENCY],
+      tone: this.tone.params[FILTER_PARAM.FREQUENCY]
     }
 
     // Initialize

@@ -54,7 +54,7 @@ const getPinkNoiseBuffer = (buffer: AudioBuffer) => {
 const typeBufferMap: Record<NoiseType, (buffer: AudioBuffer) => AudioBuffer> = {
   [NOISE_TYPE.WHITE]: getWhiteNoiseBuffer,
   [NOISE_TYPE.PINK]: getPinkNoiseBuffer,
-  [NOISE_TYPE.BROWN]: getBrownNoiseBuffer,
+  [NOISE_TYPE.BROWN]: getBrownNoiseBuffer
 }
 
 type BaseNoiseGeneratorProps = {
@@ -64,7 +64,7 @@ type BaseNoiseGeneratorProps = {
 
 const defaultProps: Required<BaseNoiseGeneratorProps> = {
   start: false,
-  type: NOISE_TYPE.WHITE,
+  type: NOISE_TYPE.WHITE
 }
 
 type NoiseGeneratorProps = BlipNodeProps & BaseNoiseGeneratorProps

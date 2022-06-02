@@ -5,7 +5,7 @@ import {
   FilterType,
   FILTER_TYPE,
   WAVEFORM,
-  Waveform,
+  Waveform
 } from '../../util/constants'
 import { Note } from '../../util/noteUtil'
 import { clamp } from '../../util/util'
@@ -17,7 +17,7 @@ export const POLY_SYNTH_PARAM = {
   FILTER_DETUNE: 'filterDetune',
   FILTER_FREQUENCY: 'filterFrequency',
   FILTER_GAIN: 'filterGain',
-  FILTER_Q: 'filterQ',
+  FILTER_Q: 'filterQ'
 } as const
 
 type PolySynthParam = typeof POLY_SYNTH_PARAM[keyof typeof POLY_SYNTH_PARAM]
@@ -63,7 +63,7 @@ const defaultProps: Required<BasePolySynthProps> = {
   filterDecay: 0,
   filterSustain: 1,
   filterRelease: 0,
-  filterAmount: 6000,
+  filterAmount: 6000
 } as const
 
 type PolySynthProps = BlipNodeProps & BasePolySynthProps
@@ -111,7 +111,7 @@ export class PolySynth extends BlipNode {
       ),
       [POLY_SYNTH_PARAM.FILTER_Q]: this.voices.map(
         (voice) => voice.params[MONO_SYNTH_PARAM.FILTER_Q]
-      ),
+      )
     }
 
     // Initialize

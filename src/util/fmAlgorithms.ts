@@ -117,7 +117,7 @@ export const fmAlgorithms: AlgorithmFunction[] = [
     a.connect([
       b.params[OSC_PARAM.FREQUENCY],
       c.params[OSC_PARAM.FREQUENCY],
-      d.params[OSC_PARAM.FREQUENCY],
+      d.params[OSC_PARAM.FREQUENCY]
     ])
     b.connect(out)
     c.connect(out)
@@ -219,7 +219,7 @@ export const fmAlgorithms: AlgorithmFunction[] = [
       a.params[OSC_PARAM.FREQUENCY],
       b.params[OSC_PARAM.FREQUENCY],
       c.params[OSC_PARAM.FREQUENCY],
-      d.params[OSC_PARAM.FREQUENCY],
+      d.params[OSC_PARAM.FREQUENCY]
     ])
     b.connect(out)
     c.connect(out)
@@ -250,5 +250,5 @@ export const fmAlgorithms: AlgorithmFunction[] = [
     d.connect(out)
 
     return '[A > A] + B + C + D'
-  },
+  }
 ]

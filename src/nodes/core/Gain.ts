@@ -1,7 +1,7 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode'
 
 export const GAIN_PARAM = {
-  GAIN: 'gain',
+  GAIN: 'gain'
 } as const
 
 type GainParam = typeof GAIN_PARAM[keyof typeof GAIN_PARAM]
@@ -11,7 +11,7 @@ type BaseGainProps = {
 }
 
 const defaultProps: Required<BaseGainProps> = {
-  gain: 1,
+  gain: 1
 } as const
 
 type GainProps = BlipNodeProps & BaseGainProps
@@ -34,7 +34,7 @@ export class Gain extends BlipNode {
     this.inputs = [this.gain]
     this.outputs = [this.gain]
     this.params = {
-      [GAIN_PARAM.GAIN]: this.gain.gain,
+      [GAIN_PARAM.GAIN]: this.gain.gain
     }
 
     // Initialize

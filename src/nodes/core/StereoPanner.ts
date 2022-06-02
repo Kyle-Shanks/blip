@@ -1,7 +1,7 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode'
 
 export const STEREO_PANNER_PARAM = {
-  PAN: 'pan',
+  PAN: 'pan'
 } as const
 
 type StereoPannerParam =
@@ -12,7 +12,7 @@ type BaseStereoPannerProps = {
 }
 
 const defaultProps: Required<BaseStereoPannerProps> = {
-  pan: 0,
+  pan: 0
 } as const
 
 type StereoPannerProps = BlipNodeProps & BaseStereoPannerProps
@@ -35,7 +35,7 @@ export class StereoPanner extends BlipNode {
     this.inputs = [this.stereoPanner]
     this.outputs = [this.stereoPanner]
     this.params = {
-      [STEREO_PANNER_PARAM.PAN]: this.stereoPanner.pan,
+      [STEREO_PANNER_PARAM.PAN]: this.stereoPanner.pan
     }
 
     // Initialize

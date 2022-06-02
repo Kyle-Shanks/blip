@@ -2,7 +2,7 @@ import {
   BlipNode,
   BlipNodeProps,
   InputNode,
-  OutputNode,
+  OutputNode
 } from '../core/BlipNode'
 import { Filter, FILTER_PARAM } from '../core/Filter'
 import { FILTER_TYPE } from '../../util/constants'
@@ -11,7 +11,7 @@ export const EQ2_PARAM = {
   LOW_FREQUENCY: 'lowFrequency',
   LOW_GAIN: 'lowGain',
   HIGH_FREQUENCY: 'highFrequency',
-  HIGH_GAIN: 'highGain',
+  HIGH_GAIN: 'highGain'
 } as const
 
 type EQ2Param = typeof EQ2_PARAM[keyof typeof EQ2_PARAM]
@@ -27,7 +27,7 @@ const defaultProps: Required<BaseEQ2Props> = {
   lowFrequency: 320,
   lowGain: 0,
   highFrequency: 3200,
-  highGain: 0,
+  highGain: 0
 } as const
 
 type EQ2Props = BlipNodeProps & BaseEQ2Props
@@ -49,12 +49,12 @@ export class EQ2 extends BlipNode {
     this.low = new Filter({
       AC: this.AC,
       type: FILTER_TYPE.LOW_SHELF,
-      frequency: 320,
+      frequency: 320
     })
     this.high = new Filter({
       AC: this.AC,
       type: FILTER_TYPE.HIGH_SHELF,
-      frequency: 3200,
+      frequency: 3200
     })
     this.inputs = [this.low]
     this.outputs = [this.high]
@@ -62,7 +62,7 @@ export class EQ2 extends BlipNode {
       lowFrequency: this.low.params[FILTER_PARAM.FREQUENCY],
       lowGain: this.low.params[FILTER_PARAM.GAIN],
       highFrequency: this.high.params[FILTER_PARAM.FREQUENCY],
-      highGain: this.high.params[FILTER_PARAM.GAIN],
+      highGain: this.high.params[FILTER_PARAM.GAIN]
     }
 
     // Initialize
