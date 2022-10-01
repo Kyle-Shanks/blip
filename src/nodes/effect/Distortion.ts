@@ -2,7 +2,7 @@ import {
   BlipNode,
   BlipNodeProps,
   InputNode,
-  OutputNode
+  OutputNode,
 } from '../core/BlipNode'
 import { Gain, GAIN_PARAM } from '../core/Gain'
 import { WaveShaper } from '../core/WaveShaper'
@@ -14,7 +14,7 @@ type BaseDistortionProps = {
 
 const defaultProps: Required<BaseDistortionProps> = {
   amount: 0,
-  distortion: 0
+  distortion: 0,
 } as const
 
 type DistortionProps = BlipNodeProps & BaseDistortionProps

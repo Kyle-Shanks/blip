@@ -77,5 +77,5 @@ export {
   ConstantSource,
   LFO,
   NoiseGenerator,
-  Oscillator
+  Oscillator,
 }

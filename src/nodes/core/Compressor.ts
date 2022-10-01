@@ -5,7 +5,7 @@ export const COMPRESSOR_PARAM = {
   KNEE: 'knee',
   RATIO: 'ratio',
   RELEASE: 'release',
-  THRESHOLD: 'threshold'
+  THRESHOLD: 'threshold',
 } as const
 
 export type CompressorParam =
@@ -24,7 +24,7 @@ const defaultProps: Required<BaseCompressorProps> = {
   knee: 30,
   ratio: 12,
   release: 0.25,
-  threshold: -24
+  threshold: -24,
 } as const
 
 type CompressorProps = BlipNodeProps & BaseCompressorProps
@@ -51,7 +51,7 @@ export class Compressor extends BlipNode {
       [COMPRESSOR_PARAM.KNEE]: this.compressor.knee,
       [COMPRESSOR_PARAM.RATIO]: this.compressor.ratio,
       [COMPRESSOR_PARAM.RELEASE]: this.compressor.release,
-      [COMPRESSOR_PARAM.THRESHOLD]: this.compressor.threshold
+      [COMPRESSOR_PARAM.THRESHOLD]: this.compressor.threshold,
     }
 
     // Initialize

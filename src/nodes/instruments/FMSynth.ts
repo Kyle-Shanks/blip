@@ -18,7 +18,7 @@ export const FM_SYNTH_PARAM = {
   MOD_C_FREQUENCY: 'modulatorCFrequency',
   MOD_D_GAIN: 'modulatorDGain',
   MOD_D_DETUNE: 'modulatorDDetune',
-  MOD_D_FREQUENCY: 'modulatorDFrequency'
+  MOD_D_FREQUENCY: 'modulatorDFrequency',
 }
 
 type FMSynthParam = typeof FM_SYNTH_PARAM[keyof typeof FM_SYNTH_PARAM]
@@ -64,7 +64,7 @@ const defaultProps: Required<BaseFMSynthProps> = {
   gainDecay: 0,
   gainSustain: 1,
   gainRelease: 0,
-  gainAmount: 0.75
+  gainAmount: 0.75,
 }
 
 export class FMSynth extends BlipNode {
@@ -103,7 +103,7 @@ export class FMSynth extends BlipNode {
       [FM_SYNTH_PARAM.MOD_C_FREQUENCY]: this.modC.params[OSC_PARAM.FREQUENCY],
       [FM_SYNTH_PARAM.MOD_D_GAIN]: this.modD.params[OSC_PARAM.GAIN],
       [FM_SYNTH_PARAM.MOD_D_DETUNE]: this.modD.params[OSC_PARAM.DETUNE],
-      [FM_SYNTH_PARAM.MOD_D_FREQUENCY]: this.modD.params[OSC_PARAM.FREQUENCY]
+      [FM_SYNTH_PARAM.MOD_D_FREQUENCY]: this.modD.params[OSC_PARAM.FREQUENCY],
     }
 
     // Initialize
@@ -139,55 +139,55 @@ export class FMSynth extends BlipNode {
   public getAlgorithm = () => this.algorithm
 
   /** Get the frequency of modulator A. */
-  public ggetModAFrequency = () => this.modA.getFrequency()
+  public getModAFrequency = () => this.modA.getFrequency()
 
   /** Get the detune of modulator A. */
-  public ggetModADetune = () => this.modA.getDetune()
+  public getModADetune = () => this.modA.getDetune()
 
   /** Get the gain of modulator A. */
-  public ggetModAGain = () => this.modA.getGain()
+  public getModAGain = () => this.modA.getGain()
 
   /** Get the frequency of modulator B. */
-  public ggetModBFrequency = () => this.modB.getFrequency()
+  public getModBFrequency = () => this.modB.getFrequency()
 
   /** Get the detune of modulator B. */
-  public ggetModBDetune = () => this.modB.getDetune()
+  public getModBDetune = () => this.modB.getDetune()
 
   /** Get the gain of modulator B. */
-  public ggetModBGain = () => this.modB.getGain()
+  public getModBGain = () => this.modB.getGain()
 
   /** Get the frequency of modulator C. */
-  public ggetModCFrequency = () => this.modC.getFrequency()
+  public getModCFrequency = () => this.modC.getFrequency()
 
   /** Get the detune of modulator C. */
-  public ggetModCDetune = () => this.modC.getDetune()
+  public getModCDetune = () => this.modC.getDetune()
 
   /** Get the gain of modulator C. */
-  public ggetModCGain = () => this.modC.getGain()
+  public getModCGain = () => this.modC.getGain()
 
   /** Get the frequency of modulator D. */
-  public ggetModDFrequency = () => this.modD.getFrequency()
+  public getModDFrequency = () => this.modD.getFrequency()
 
   /** Get the detune of modulator D. */
-  public ggetModDDetune = () => this.modD.getDetune()
+  public getModDDetune = () => this.modD.getDetune()
 
   /** Get the gain of modulator D. */
-  public ggetModDGain = () => this.modD.getGain()
+  public getModDGain = () => this.modD.getGain()
 
   /** Get the attack time of the gain envelope. */
-  public ggetGainAttack = () => this.gainEnv.getAttack()
+  public getGainAttack = () => this.gainEnv.getAttack()
 
   /** Get the decay time of the gain envelope. */
-  public ggetGainDecay = () => this.gainEnv.getDecay()
+  public getGainDecay = () => this.gainEnv.getDecay()
 
   /** Get the sustain value of the gain envelope. */
-  public ggetGainSustain = () => this.gainEnv.getSustain()
+  public getGainSustain = () => this.gainEnv.getSustain()
 
   /** Get the release time of the gain envelope. */
-  public ggetGainRelease = () => this.gainEnv.getRelease()
+  public getGainRelease = () => this.gainEnv.getRelease()
 
   /** Get the gain modifier of the gain envelope. */
-  public ggetGainAmount = () => this.gainEnv.getModifier()
+  public getGainAmount = () => this.gainEnv.getModifier()
 
   // - Setters -
   /** Set the algorithm and reconnect the modulators. */

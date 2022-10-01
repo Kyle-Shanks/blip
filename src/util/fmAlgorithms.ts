@@ -1,5 +1,5 @@
-import { OSC_PARAM } from 'nodes/instruments/Osc'
 import { Limiter, Osc } from '../nodes'
+import { OSC_PARAM } from '../nodes/instruments/Osc'
 
 const disconnectAll = (arr: Osc[]) => arr.forEach((mod) => mod.disconnect())
 
@@ -117,7 +117,7 @@ export const fmAlgorithms: AlgorithmFunction[] = [
     a.connect([
       b.params[OSC_PARAM.FREQUENCY],
       c.params[OSC_PARAM.FREQUENCY],
-      d.params[OSC_PARAM.FREQUENCY]
+      d.params[OSC_PARAM.FREQUENCY],
     ])
     b.connect(out)
     c.connect(out)
@@ -219,7 +219,7 @@ export const fmAlgorithms: AlgorithmFunction[] = [
       a.params[OSC_PARAM.FREQUENCY],
       b.params[OSC_PARAM.FREQUENCY],
       c.params[OSC_PARAM.FREQUENCY],
-      d.params[OSC_PARAM.FREQUENCY]
+      d.params[OSC_PARAM.FREQUENCY],
     ])
     b.connect(out)
     c.connect(out)
@@ -250,5 +250,5 @@ export const fmAlgorithms: AlgorithmFunction[] = [
     d.connect(out)
 
     return '[A > A] + B + C + D'
-  }
+  },
 ]

@@ -1,7 +1,7 @@
 import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode'
 
 export const DELAY_PARAM = {
-  DELAY_TIME: 'delayTime'
+  DELAY_TIME: 'delayTime',
 } as const
 
 type DelayParam = typeof DELAY_PARAM[keyof typeof DELAY_PARAM]
@@ -11,7 +11,7 @@ type BaseDelayProps = {
 }
 
 const defaultProps: Required<BaseDelayProps> = {
-  delayTime: 0
+  delayTime: 0,
 } as const
 
 type DelayProps = BlipNodeProps & BaseDelayProps
@@ -34,7 +34,7 @@ export class Delay extends BlipNode {
     this.inputs = [this.delay]
     this.outputs = [this.delay]
     this.params = {
-      [DELAY_PARAM.DELAY_TIME]: this.delay.delayTime
+      [DELAY_PARAM.DELAY_TIME]: this.delay.delayTime,
     }
 
     // Initialize

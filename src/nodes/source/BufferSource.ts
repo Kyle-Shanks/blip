@@ -2,7 +2,7 @@ import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode'
 
 export const BUFFER_SOURCE_PARAM = {
   DETUNE: 'detune',
-  PLAYBACK_RATE: 'playbackRate'
+  PLAYBACK_RATE: 'playbackRate',
 } as const
 
 type BufferSourceParam =
@@ -21,7 +21,7 @@ const defaultProps: Required<BaseBufferSourceProps> = {
   detune: 0,
   loop: false,
   playbackRate: 1.0,
-  start: false
+  start: false,
 } as const
 
 type BufferSourceProps = BlipNodeProps & BaseBufferSourceProps
@@ -43,7 +43,7 @@ export class BufferSource extends BlipNode {
     this.outputs = [this.bufferSource]
     this.params = {
       [BUFFER_SOURCE_PARAM.DETUNE]: this.bufferSource.detune,
-      [BUFFER_SOURCE_PARAM.PLAYBACK_RATE]: this.bufferSource.playbackRate
+      [BUFFER_SOURCE_PARAM.PLAYBACK_RATE]: this.bufferSource.playbackRate,
     }
 
     // Initialize

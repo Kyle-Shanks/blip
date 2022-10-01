@@ -1,4 +1,4 @@
-import { Note, Octave } from 'util/noteUtil';
+import { Note, Octave } from '../util/noteUtil';
 declare type KeyboardProps = {
     onPress?: (note: Note, e: KeyboardEvent) => void;
     onRelease?: (note: Note, e: KeyboardEvent) => void;

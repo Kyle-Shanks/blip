@@ -2,7 +2,7 @@ import {
   BlipNode,
   BlipNodeProps,
   InputNode,
-  OutputNode
+  OutputNode,
 } from '../core/BlipNode'
 import { StereoPanner, STEREO_PANNER_PARAM } from '../core/StereoPanner'
 import { LFO, LFO_PARAM } from '../source/LFO'
@@ -10,7 +10,7 @@ import { Waveform, WAVEFORM } from '../../util/constants'
 
 export const AUTO_PAN_PARAM = {
   DEPTH: 'depth',
-  RATE: 'rate'
+  RATE: 'rate',
 } as const
 
 type AutoPanParam = typeof AUTO_PAN_PARAM[keyof typeof AUTO_PAN_PARAM]
@@ -24,7 +24,7 @@ type BaseAutoPanProps = {
 const defaultProps: Required<BaseAutoPanProps> = {
   depth: 1,
   rate: 1,
-  type: WAVEFORM.SINE
+  type: WAVEFORM.SINE,
 } as const
 
 type AutoPanProps = BlipNodeProps & BaseAutoPanProps
@@ -50,7 +50,7 @@ export class AutoPan extends BlipNode {
     this.outputs = [this.panner]
     this.params = {
       [AUTO_PAN_PARAM.DEPTH]: this.LFO.params[LFO_PARAM.DEPTH],
-      [AUTO_PAN_PARAM.RATE]: this.LFO.params[LFO_PARAM.RATE]
+      [AUTO_PAN_PARAM.RATE]: this.LFO.params[LFO_PARAM.RATE],
     }
 
     // Initialize

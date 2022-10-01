@@ -2,7 +2,7 @@ import {
   BlipNode,
   BlipNodeProps,
   InputNode,
-  OutputNode
+  OutputNode,
 } from '../core/BlipNode'
 import { ChannelMerger } from '../core/ChannelMerger'
 import { Convolver } from '../core/Convolver'
@@ -18,10 +18,12 @@ type BaseReverbProps = {
 const defaultProps: Required<BaseReverbProps> = {
   amount: 0,
   buffer: null,
-  normalize: false
+  normalize: false,
 } as const
 
 type ReverbProps = BlipNodeProps & BaseReverbProps
+
+// TODO: Add a tone filter to adjust the brightness/darkness of the wet signal before going into the convolver
 
 /**
  * A convolusion reverb effect to adds width and space effects to the incoming signal.

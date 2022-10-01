@@ -43,7 +43,7 @@ export const noteMidiMap: Record<BaseNote, number> = {
   'G#': 20,
   'A': 21,
   'A#': 22,
-  'B': 23
+  'B': 23,
 }
 
 // MIDI numbers for 0th octave
@@ -59,7 +59,7 @@ export const midiNoteMap: Record<number, BaseNote> = {
   20: 'G#',
   21: 'A',
   22: 'A#',
-  23: 'B'
+  23: 'B',
 }
 
 /** Frequencies in 4th octave */
@@ -75,7 +75,7 @@ export const noteFreqMap: Record<BaseNote, number> = {
   'G#': 415.3,
   'A': 440.0,
   'A#': 466.16,
-  'B': 493.88
+  'B': 493.88,
 }
 
 // - Note Functions -
@@ -88,7 +88,7 @@ const parseNote = (val: string) => {
   return {
     note: val.toUpperCase() as Note,
     baseNote: match[1].toUpperCase() as BaseNote,
-    octave: parseInt(match[2]) as Octave
+    octave: parseInt(match[2]) as Octave,
   }
 }
 
@@ -116,6 +116,6 @@ export const getNoteInfo = (note: Note): NoteInfo => {
     baseNote: noteInfo.baseNote,
     octave: noteInfo.octave,
     frequency: getNoteFrequency(note),
-    midi: getNoteMidiValue(note)
+    midi: getNoteMidiValue(note),
   }
 }

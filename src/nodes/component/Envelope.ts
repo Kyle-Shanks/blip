@@ -2,7 +2,7 @@ import {
   BlipNode,
   BlipNodeProps,
   InputNode,
-  OutputNode
+  OutputNode,
 } from '../core/BlipNode'
 import { ConstantSource } from '../source/ConstantSource'
 
@@ -19,7 +19,7 @@ const defaultProps: Required<BaseEnvelopeProps> = {
   decay: 0,
   sustain: 1,
   release: 0,
-  modifier: 1
+  modifier: 1,
 } as const
 
 export type EnvelopeProps = BlipNodeProps & BaseEnvelopeProps

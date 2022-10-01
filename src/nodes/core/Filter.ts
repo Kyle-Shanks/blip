@@ -5,7 +5,7 @@ export const FILTER_PARAM = {
   DETUNE: 'detune',
   FREQUENCY: 'frequency',
   GAIN: 'gain',
-  Q: 'Q'
+  Q: 'Q',
 } as const
 
 type FilterParam = typeof FILTER_PARAM[keyof typeof FILTER_PARAM]
@@ -23,7 +23,7 @@ const defaultProps: Required<BaseFilterProps> = {
   q: 0,
   detune: 0,
   gain: 0,
-  type: FILTER_TYPE.LOWPASS
+  type: FILTER_TYPE.LOWPASS,
 } as const
 
 type FilterProps = BlipNodeProps & BaseFilterProps
@@ -49,7 +49,7 @@ export class Filter extends BlipNode {
       [FILTER_PARAM.DETUNE]: this.filter.detune,
       [FILTER_PARAM.FREQUENCY]: this.filter.frequency,
       [FILTER_PARAM.GAIN]: this.filter.gain,
-      [FILTER_PARAM.Q]: this.filter.Q
+      [FILTER_PARAM.Q]: this.filter.Q,
     }
 
     // Initialize

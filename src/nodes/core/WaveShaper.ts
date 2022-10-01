@@ -8,7 +8,7 @@ type BaseWaveShaperProps = {
 
 const defaultProps: Required<BaseWaveShaperProps> = {
   curve: null,
-  oversample: OVERSAMPLE.NONE
+  oversample: OVERSAMPLE.NONE,
 } as const
 
 type WaveShaperProps = BlipNodeProps & BaseWaveShaperProps

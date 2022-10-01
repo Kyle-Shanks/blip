@@ -3,7 +3,7 @@ export {
   getNoteFrequency,
   getNoteInfo,
   getNoteMidiValue,
-  isNote
+  isNote,
 } from './util/noteUtil'
 export { chain, getContext, setContext, resume } from './util/util'
 export { Keyboard } from './input/Keyboard'

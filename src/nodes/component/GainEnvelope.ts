@@ -3,7 +3,7 @@ import { BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { Gain, GAIN_PARAM } from '../core/Gain'
 
 export const GAIN_ENVELOPE_PARAM = {
-  GAIN: 'gain'
+  GAIN: 'gain',
 } as const
 
 type GainEnvelopeParam =
@@ -19,7 +19,7 @@ const defaultProps: Required<BaseGainEnvelopeProps> = {
   decay: 0,
   sustain: 1,
   release: 0,
-  modifier: 1
+  modifier: 1,
 } as const
 
 type GainEnvelopeProps = BlipNodeProps & BaseGainEnvelopeProps
@@ -42,7 +42,7 @@ export class GainEnvelope extends Envelope {
     this.inputs = [this.gain]
     this.outputs = [this.gain]
     this.params = {
-      [GAIN_ENVELOPE_PARAM.GAIN]: this.gain.params[GAIN_PARAM.GAIN]
+      [GAIN_ENVELOPE_PARAM.GAIN]: this.gain.params[GAIN_PARAM.GAIN],
     }
 
     // Initialize

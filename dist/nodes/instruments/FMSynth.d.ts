@@ -50,39 +50,39 @@ export declare class FMSynth extends BlipNode {
     /** Get an diagram for the current algorithm. */
     getAlgorithm: () => string;
     /** Get the frequency of modulator A. */
-    ggetModAFrequency: () => number;
+    getModAFrequency: () => number;
     /** Get the detune of modulator A. */
-    ggetModADetune: () => number;
+    getModADetune: () => number;
     /** Get the gain of modulator A. */
-    ggetModAGain: () => number;
+    getModAGain: () => number;
     /** Get the frequency of modulator B. */
-    ggetModBFrequency: () => number;
+    getModBFrequency: () => number;
     /** Get the detune of modulator B. */
-    ggetModBDetune: () => number;
+    getModBDetune: () => number;
     /** Get the gain of modulator B. */
-    ggetModBGain: () => number;
+    getModBGain: () => number;
     /** Get the frequency of modulator C. */
-    ggetModCFrequency: () => number;
+    getModCFrequency: () => number;
     /** Get the detune of modulator C. */
-    ggetModCDetune: () => number;
+    getModCDetune: () => number;
     /** Get the gain of modulator C. */
-    ggetModCGain: () => number;
+    getModCGain: () => number;
     /** Get the frequency of modulator D. */
-    ggetModDFrequency: () => number;
+    getModDFrequency: () => number;
     /** Get the detune of modulator D. */
-    ggetModDDetune: () => number;
+    getModDDetune: () => number;
     /** Get the gain of modulator D. */
-    ggetModDGain: () => number;
+    getModDGain: () => number;
     /** Get the attack time of the gain envelope. */
-    ggetGainAttack: () => number;
+    getGainAttack: () => number;
     /** Get the decay time of the gain envelope. */
-    ggetGainDecay: () => number;
+    getGainDecay: () => number;
     /** Get the sustain value of the gain envelope. */
-    ggetGainSustain: () => number;
+    getGainSustain: () => number;
     /** Get the release time of the gain envelope. */
-    ggetGainRelease: () => number;
+    getGainRelease: () => number;
     /** Get the gain modifier of the gain envelope. */
-    ggetGainAmount: () => number;
+    getGainAmount: () => number;
     /** Set the algorithm and reconnect the modulators. */
     setAlgorithm: (idx: number) => string | void;
     /** Set the frequency of modulator A. */

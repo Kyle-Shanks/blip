@@ -8,7 +8,7 @@ export const LIMITER_PARAM = {
   RATIO: 'ratio',
   ATTACK: 'attack',
   RELEASE: 'release',
-  GAIN: 'gain'
+  GAIN: 'gain',
 } as const
 
 type LimiterParam = typeof LIMITER_PARAM[keyof typeof LIMITER_PARAM]
@@ -28,7 +28,7 @@ const defaultProps: Required<BaseLimiterProps> = {
   knee: 0,
   attack: 0.003,
   release: 0.01,
-  gain: 0.75
+  gain: 0.75,
 } as const
 
 type LimiterProps = BlipNodeProps & BaseLimiterProps
@@ -58,7 +58,8 @@ export class Limiter extends BlipNode {
       [LIMITER_PARAM.KNEE]: this.limiter.params[COMPRESSOR_PARAM.KNEE],
       [LIMITER_PARAM.RATIO]: this.limiter.params[COMPRESSOR_PARAM.RATIO],
       [LIMITER_PARAM.RELEASE]: this.limiter.params[COMPRESSOR_PARAM.RELEASE],
-      [LIMITER_PARAM.THRESHOLD]: this.limiter.params[COMPRESSOR_PARAM.THRESHOLD]
+      [LIMITER_PARAM.THRESHOLD]:
+        this.limiter.params[COMPRESSOR_PARAM.THRESHOLD],
     }
 
     // Initialize

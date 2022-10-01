@@ -1,5 +1,11 @@
-import { maxOctave, midiNoteMap, minOctave, Note, Octave } from 'util/noteUtil'
-import { clamp } from 'util/util'
+import {
+  maxOctave,
+  midiNoteMap,
+  minOctave,
+  Note,
+  Octave,
+} from '../util/noteUtil'
+import { clamp } from '../util/util'
 
 // Key to midi mapping for 0th octave
 const keyMidiMap: Record<string, number> = {
@@ -19,7 +25,7 @@ const keyMidiMap: Record<string, number> = {
   'o': 25,
   'l': 26,
   'p': 27,
-  ';': 28
+  ';': 28,
 }
 
 const keyToNote = (key: string, octave: Octave): Note | null => {
@@ -45,7 +51,7 @@ type KeyboardProps = {
 
 const defaultProps: Required<KeyboardProps> = {
   onPress: () => {},
-  onRelease: () => {}
+  onRelease: () => {},
 }
 
 /**

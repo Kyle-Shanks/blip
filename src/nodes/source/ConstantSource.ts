@@ -1,7 +1,7 @@
 import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode'
 
 export const CONSTANT_SOURCE_PARAM = {
-  OFFSET: 'offset'
+  OFFSET: 'offset',
 } as const
 
 type ConstantSourceParam =
@@ -14,7 +14,7 @@ type BaseConstantSourceProps = {
 
 const defaultProps: Required<BaseConstantSourceProps> = {
   offset: 1,
-  start: false
+  start: false,
 } as const
 
 type ConstantSourceProps = BlipNodeProps & BaseConstantSourceProps
@@ -35,7 +35,7 @@ export class ConstantSource extends BlipNode {
     this.source = this.AC.createConstantSource()
     this.outputs = [this.source]
     this.params = {
-      [CONSTANT_SOURCE_PARAM.OFFSET]: this.source.offset
+      [CONSTANT_SOURCE_PARAM.OFFSET]: this.source.offset,
     }
 
     // Initialize
