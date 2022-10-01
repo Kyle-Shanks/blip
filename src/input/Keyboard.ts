@@ -1,8 +1,10 @@
 import {
+  getNoteInfo,
   maxOctave,
   midiNoteMap,
   minOctave,
   Note,
+  NoteInfo,
   Octave,
 } from '../util/noteUtil'
 import { clamp } from '../util/util'
@@ -45,8 +47,8 @@ const keyToNote = (key: string, octave: Octave): Note | null => {
 }
 
 type KeyboardProps = {
-  onPress?: (note: Note, e: KeyboardEvent) => void
-  onRelease?: (note: Note, e: KeyboardEvent) => void
+  onPress?: (noteInfo: NoteInfo, e: KeyboardEvent) => void
+  onRelease?: (noteInfo: NoteInfo, e: KeyboardEvent) => void
 }
 
 const defaultProps: Required<KeyboardProps> = {
@@ -59,8 +61,8 @@ const defaultProps: Required<KeyboardProps> = {
  * Uses A-; keys to play notes. The Z and X keys change the octave
  */
 export class Keyboard {
-  readonly onPress: (note: Note, e: KeyboardEvent) => void
-  readonly onRelease: (note: Note, e: KeyboardEvent) => void
+  readonly onPress: (noteInfo: NoteInfo, e: KeyboardEvent) => void
+  readonly onRelease: (noteInfo: NoteInfo, e: KeyboardEvent) => void
 
   private octave: Octave = 4
   private velocity: number = 100
@@ -119,12 +121,12 @@ export class Keyboard {
     }
 
     const note = keyToNote(e.key, this.octave)
-    if (note !== null) this.onPress(note, e)
+    if (note !== null) this.onPress(getNoteInfo(note), e)
   }
 
   private _keyup = (e: KeyboardEvent) => {
     const note = keyToNote(e.key, this.octave)
-    if (note !== null) this.onRelease(note, e)
+    if (note !== null) this.onRelease(getNoteInfo(note), e)
   }
 
   // Octave methods

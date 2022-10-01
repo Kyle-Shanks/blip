@@ -10,7 +10,7 @@
     "start": "webpack --watch --mode=development"
   },
   "dependencies": {
-    "blip-nodes": "file:../"
+    "blip": "file:../"
   },
   "devDependencies": {
     "ts-loader": "^9.2.6",

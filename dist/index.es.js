@@ -2170,7 +2170,7 @@ var POLY_SYNTH_PARAM = {
 };
 var defaultProps$3 = {
     polyphony: 8,
-    waveform: WAVEFORM.SINE,
+    type: WAVEFORM.SINE,
     frequency: 440,
     detune: 0,
     gainAttack: 0,
@@ -2390,7 +2390,7 @@ var PolySynth = /** @class */ (function (_super) {
         var initProps = __assign(__assign({}, defaultProps$3), props);
         _this.setPolyphony(initProps.polyphony);
         _this.voices.forEach(function (voice) {
-            voice.setType(initProps.waveform);
+            voice.setType(initProps.type);
             voice.setFrequency(initProps.frequency);
             voice.setDetune(initProps.detune);
             voice.setGainAttack(initProps.gainAttack);
@@ -3040,12 +3040,12 @@ var Keyboard = /** @class */ (function () {
             }
             var note = keyToNote(e.key, _this.octave);
             if (note !== null)
-                _this.onPress(note, e);
+                _this.onPress(getNoteInfo(note), e);
         };
         this._keyup = function (e) {
             var note = keyToNote(e.key, _this.octave);
             if (note !== null)
-                _this.onRelease(note, e);
+                _this.onRelease(getNoteInfo(note), e);
         };
         // Octave methods
         this._octaveDown = function () {

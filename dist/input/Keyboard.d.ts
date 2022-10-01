@@ -1,15 +1,15 @@
-import { Note, Octave } from '../util/noteUtil';
+import { NoteInfo, Octave } from '../util/noteUtil';
 declare type KeyboardProps = {
-    onPress?: (note: Note, e: KeyboardEvent) => void;
-    onRelease?: (note: Note, e: KeyboardEvent) => void;
+    onPress?: (noteInfo: NoteInfo, e: KeyboardEvent) => void;
+    onRelease?: (noteInfo: NoteInfo, e: KeyboardEvent) => void;
 };
 /**
  * A general-purpose Keyboard input class to give users a piano-like interface to interact with projects.
  * Uses A-; keys to play notes. The Z and X keys change the octave
  */
 export declare class Keyboard {
-    readonly onPress: (note: Note, e: KeyboardEvent) => void;
-    readonly onRelease: (note: Note, e: KeyboardEvent) => void;
+    readonly onPress: (noteInfo: NoteInfo, e: KeyboardEvent) => void;
+    readonly onRelease: (noteInfo: NoteInfo, e: KeyboardEvent) => void;
     private octave;
     private velocity;
     constructor(props: KeyboardProps);

@@ -1,18 +1,36 @@
-import * as Blip from 'blip-nodes'
-import { GainEnvelope } from 'blip-nodes'
+import * as Blip from 'blip'
 
-const osc1 = new Blip.Oscillator({ start: true, type: 'triangle' })
-// const gain1 = new Blip.Gain({ gain: 0 })
-const gainEnv1 = new GainEnvelope()
+const context = Blip.getContext()
+const poly = new Blip.PolySynth({
+  type: 'triangle',
+  gainAmount: 0.4,
+  gainAttack: 0.004,
+  gainDecay: 0.15,
+  gainSustain: 0,
+  gainRelease: 0.15,
+})
 
-osc1.connect(gainEnv1)
-gainEnv1.toDestination()
+poly.toDestination()
+
+// Keyboard setup
+const keyboard = new Blip.Keyboard({
+  onPress: ({ note }) => {
+    // Start context when the user tries to play a note
+    if (context.state === 'suspended') context.resume()
+
+    poly.triggerAttack(note)
+  },
+  onRelease: () => {
+    poly.triggerRelease()
+  },
+})
+
+// Start keyboard listeners
+keyboard.on()
 
 // @ts-ignore
 window.Blip = Blip
 // @ts-ignore
-window.osc1 = osc1
-// @ts-ignore
-// window.gain1 = gain1
+window.poly = poly
 
-console.log({ osc1 })
+console.log({ poly })

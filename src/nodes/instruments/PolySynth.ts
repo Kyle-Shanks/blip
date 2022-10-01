@@ -24,7 +24,7 @@ type PolySynthParam = typeof POLY_SYNTH_PARAM[keyof typeof POLY_SYNTH_PARAM]
 
 type BasePolySynthProps = {
   polyphony?: number
-  waveform?: Waveform
+  type?: Waveform
   frequency?: number
   detune?: number
   gainAttack?: number
@@ -46,7 +46,7 @@ type BasePolySynthProps = {
 
 const defaultProps: Required<BasePolySynthProps> = {
   polyphony: 8,
-  waveform: WAVEFORM.SINE,
+  type: WAVEFORM.SINE,
   frequency: 440,
   detune: 0,
   gainAttack: 0,
@@ -120,7 +120,7 @@ export class PolySynth extends BlipNode {
     this.setPolyphony(initProps.polyphony)
 
     this.voices.forEach((voice) => {
-      voice.setType(initProps.waveform)
+      voice.setType(initProps.type)
       voice.setFrequency(initProps.frequency)
       voice.setDetune(initProps.detune)
       voice.setGainAttack(initProps.gainAttack)

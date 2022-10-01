@@ -218,7 +218,7 @@ ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-"blip-nodes@file:..":
+"blip@file:..":
   version "1.0.0"
 
 braces@^3.0.1:
