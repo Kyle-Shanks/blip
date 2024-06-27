@@ -10,7 +10,7 @@ import {
 import { clamp } from '../util/util'
 
 // Key to midi mapping for 0th octave
-const keyMidiMap: Record<string, number> = {
+const keyMidiMap = {
   'a': 12,
   'w': 13,
   's': 14,
@@ -28,7 +28,7 @@ const keyMidiMap: Record<string, number> = {
   'l': 26,
   'p': 27,
   ';': 28,
-}
+} as const
 
 const keyToNote = (key: string, octave: Octave): Note | null => {
   let midi = keyMidiMap[key]
@@ -52,8 +52,8 @@ type KeyboardProps = {
 }
 
 const defaultProps: Required<KeyboardProps> = {
-  onPress: () => {},
-  onRelease: () => {},
+  onPress: () => { },
+  onRelease: () => { },
 }
 
 /**

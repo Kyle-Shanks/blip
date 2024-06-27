@@ -135,7 +135,7 @@ export class FMSynth extends BlipNode {
   }
 
   // - Getters -
-  /** Get an diagram for the current algorithm. */
+  /** Get a diagram for the current algorithm. */
   public getAlgorithm = () => this.algorithm
 
   /** Get the frequency of modulator A. */
