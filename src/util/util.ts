@@ -20,8 +20,7 @@ export const resume = () => getContext().resume()
 
 // - Helper Functions -
 /** Clamp a number between a given min and max. */
-export const clamp = (val: number, min: number, max: number) =>
-  Math.min(max, Math.max(min, val))
+export const clamp = (val: number, min: number, max: number) => Math.min(max, Math.max(min, val))
 
 /** Connect a series of synth nodes together. */
 export const chain = (...nodes: BlipNode[]) => {

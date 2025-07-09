@@ -79,9 +79,7 @@ export class BlipNode {
         })
       })
     } else if (destination instanceof AudioNode) {
-      this.outputs.forEach((output) =>
-        output.connect(destination, outputNum, inputNum)
-      )
+      this.outputs.forEach((output) => output.connect(destination, outputNum, inputNum))
     } else if (destination instanceof AudioParam) {
       this.outputs.forEach((output) => output.connect(destination, outputNum))
     } else {
@@ -107,17 +105,10 @@ export class BlipNode {
 
       const inputs = destination._getInputNodes()
       inputs.forEach((input) => {
-        this.outputs.forEach((output) =>
-          output.disconnect(input, outputNum, inputNum)
-        )
+        this.outputs.forEach((output) => output.disconnect(input, outputNum, inputNum))
       })
-    } else if (
-      destination instanceof AudioNode ||
-      destination instanceof AudioParam
-    ) {
-      this.outputs.forEach((output) =>
-        output.disconnect(destination, outputNum, inputNum)
-      )
+    } else if (destination instanceof AudioNode || destination instanceof AudioParam) {
+      this.outputs.forEach((output) => output.disconnect(destination, outputNum, inputNum))
     } else {
       console.error('Invalid destination type')
     }
@@ -126,9 +117,7 @@ export class BlipNode {
   // Recursively go down to get the default audio nodes/params of all inputs
   private _getInputNodes = (): (AudioNode | AudioParam)[] =>
     this.inputs.reduce<(AudioNode | AudioParam)[]>((nodes, input) => {
-      input instanceof BlipNode
-        ? nodes.push(...input._getInputNodes())
-        : nodes.push(input)
+      input instanceof BlipNode ? nodes.push(...input._getInputNodes()) : nodes.push(input)
 
       return nodes
     }, [])
@@ -136,9 +125,7 @@ export class BlipNode {
   // Recursively go down to get the default audio nodes of all outputs
   private _getOutputNodes = (): AudioNode[] =>
     this.outputs.reduce<AudioNode[]>((nodes, output) => {
-      output instanceof BlipNode
-        ? nodes.push(...output._getOutputNodes())
-        : nodes.push(output)
+      output instanceof BlipNode ? nodes.push(...output._getOutputNodes()) : nodes.push(output)
 
       return nodes
     }, [])
@@ -147,11 +134,7 @@ export class BlipNode {
   protected _update = (param: AudioParam, val: number) =>
     param.setValueAtTime(val, this.AC.currentTime)
 
-  protected _timeUpdate = (
-    param: AudioParam,
-    val: number,
-    time: number = 0
-  ) => {
+  protected _timeUpdate = (param: AudioParam, val: number, time: number = 0) => {
     time
       ? param.setTargetAtTime(val, this.AC.currentTime, time)
       : param.setValueAtTime(val, this.AC.currentTime)

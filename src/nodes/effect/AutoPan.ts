@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { StereoPanner, STEREO_PANNER_PARAM } from '../core/StereoPanner'
 import { LFO, LFO_PARAM } from '../source/LFO'
 import { Waveform, WAVEFORM } from '../../util/constants'
@@ -13,7 +8,7 @@ export const AUTO_PAN_PARAM = {
   RATE: 'rate',
 } as const
 
-type AutoPanParam = typeof AUTO_PAN_PARAM[keyof typeof AUTO_PAN_PARAM]
+type AutoPanParam = (typeof AUTO_PAN_PARAM)[keyof typeof AUTO_PAN_PARAM]
 
 type BaseAutoPanProps = {
   depth?: number

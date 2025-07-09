@@ -3,7 +3,7 @@ import { BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode';
 export declare const GAIN_ENVELOPE_PARAM: {
     readonly GAIN: "gain";
 };
-declare type GainEnvelopeParam = typeof GAIN_ENVELOPE_PARAM[keyof typeof GAIN_ENVELOPE_PARAM];
+declare type GainEnvelopeParam = (typeof GAIN_ENVELOPE_PARAM)[keyof typeof GAIN_ENVELOPE_PARAM];
 declare type BaseGainEnvelopeProps = BaseEnvelopeProps & {
     gain?: number;
 };

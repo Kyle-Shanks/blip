@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { Delay, DELAY_PARAM } from '../core/Delay'
 import { Filter, FILTER_PARAM } from '../core/Filter'
 import { Gain, GAIN_PARAM } from '../core/Gain'
@@ -14,8 +9,7 @@ export const FEEDBACK_DELAY_PARAM = {
   TONE: 'tone',
 } as const
 
-type FeedbackDelayParam =
-  typeof FEEDBACK_DELAY_PARAM[keyof typeof FEEDBACK_DELAY_PARAM]
+type FeedbackDelayParam = (typeof FEEDBACK_DELAY_PARAM)[keyof typeof FEEDBACK_DELAY_PARAM]
 
 type BaseFeedbackDelayProps = {
   amount?: number
@@ -60,10 +54,8 @@ export class FeedbackDelay extends BlipNode {
     this.inputs = [this.dryGain, this.delay]
     this.outputs = [this.dryGain, this.wetGain]
     this.params = {
-      [FEEDBACK_DELAY_PARAM.DELAY_TIME]:
-        this.delay.params[DELAY_PARAM.DELAY_TIME],
-      [FEEDBACK_DELAY_PARAM.FEEDBACK]:
-        this.feedbackGain.params[GAIN_PARAM.GAIN],
+      [FEEDBACK_DELAY_PARAM.DELAY_TIME]: this.delay.params[DELAY_PARAM.DELAY_TIME],
+      [FEEDBACK_DELAY_PARAM.FEEDBACK]: this.feedbackGain.params[GAIN_PARAM.GAIN],
       [FEEDBACK_DELAY_PARAM.TONE]: this.tone.params[FILTER_PARAM.FREQUENCY],
     }
 
@@ -110,14 +102,11 @@ export class FeedbackDelay extends BlipNode {
   }
 
   /** Set the delay time of the node. */
-  public setDelayTime = (val: number, time?: number) =>
-    this.delay.setDelayTime(val, time)
+  public setDelayTime = (val: number, time?: number) => this.delay.setDelayTime(val, time)
 
   /** Set the feedback value of the node. */
-  public setFeedback = (val: number, time?: number) =>
-    this.feedbackGain.setGain(val, time)
+  public setFeedback = (val: number, time?: number) => this.feedbackGain.setGain(val, time)
 
   /** Set the tone value of the node. */
-  public setTone = (val: number, time?: number) =>
-    this.tone.setFrequency(val, time)
+  public setTone = (val: number, time?: number) => this.tone.setFrequency(val, time)
 }

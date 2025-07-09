@@ -6,7 +6,7 @@ export declare const FILTER_PARAM: {
     readonly GAIN: "gain";
     readonly Q: "Q";
 };
-declare type FilterParam = typeof FILTER_PARAM[keyof typeof FILTER_PARAM];
+declare type FilterParam = (typeof FILTER_PARAM)[keyof typeof FILTER_PARAM];
 declare type BaseFilterProps = {
     frequency?: number;
     q?: number;

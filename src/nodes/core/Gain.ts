@@ -4,7 +4,7 @@ export const GAIN_PARAM = {
   GAIN: 'gain',
 } as const
 
-type GainParam = typeof GAIN_PARAM[keyof typeof GAIN_PARAM]
+type GainParam = (typeof GAIN_PARAM)[keyof typeof GAIN_PARAM]
 
 type BaseGainProps = {
   gain?: number

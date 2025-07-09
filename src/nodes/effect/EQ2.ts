@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { Filter, FILTER_PARAM } from '../core/Filter'
 import { FILTER_TYPE } from '../../util/constants'
 
@@ -14,7 +9,7 @@ export const EQ2_PARAM = {
   HIGH_GAIN: 'highGain',
 } as const
 
-type EQ2Param = typeof EQ2_PARAM[keyof typeof EQ2_PARAM]
+type EQ2Param = (typeof EQ2_PARAM)[keyof typeof EQ2_PARAM]
 
 type BaseEQ2Props = {
   lowFrequency?: number
@@ -94,18 +89,14 @@ export class EQ2 extends BlipNode {
 
   // - Setters -
   /** Set the frequency of the low band. */
-  public setLowFrequency = (val: number, time?: number) =>
-    this.low.setFrequency(val, time)
+  public setLowFrequency = (val: number, time?: number) => this.low.setFrequency(val, time)
 
   /** Set the gain value of the low band. */
-  public setLowGain = (val: number, time?: number) =>
-    this.low.setGain(val, time)
+  public setLowGain = (val: number, time?: number) => this.low.setGain(val, time)
 
   /** Set the frequency of the high band. */
-  public setHighFrequency = (val: number, time?: number) =>
-    this.high.setFrequency(val, time)
+  public setHighFrequency = (val: number, time?: number) => this.high.setFrequency(val, time)
 
   /** Set the gain value of the high band. */
-  public setHighGain = (val: number, time?: number) =>
-    this.high.setGain(val, time)
+  public setHighGain = (val: number, time?: number) => this.high.setGain(val, time)
 }

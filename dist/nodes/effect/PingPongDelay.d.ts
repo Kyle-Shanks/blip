@@ -7,7 +7,7 @@ export declare const PING_PONG_DELAY_PARAM: {
     readonly RIGHT_FEEDBACK: "rightFeedback";
     readonly TONE: "tone";
 };
-declare type PingPongDelayParam = typeof PING_PONG_DELAY_PARAM[keyof typeof PING_PONG_DELAY_PARAM];
+declare type PingPongDelayParam = (typeof PING_PONG_DELAY_PARAM)[keyof typeof PING_PONG_DELAY_PARAM];
 declare type BasePingPongDelayProps = {
     amount?: number;
     preDelayTime?: number;

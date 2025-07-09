@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { ChannelMerger } from '../core/ChannelMerger'
 import { Delay, DELAY_PARAM } from '../core/Delay'
 import { Gain, GAIN_PARAM } from '../core/Gain'
@@ -18,8 +13,7 @@ export const PING_PONG_DELAY_PARAM = {
   TONE: 'tone',
 } as const
 
-type PingPongDelayParam =
-  typeof PING_PONG_DELAY_PARAM[keyof typeof PING_PONG_DELAY_PARAM]
+type PingPongDelayParam = (typeof PING_PONG_DELAY_PARAM)[keyof typeof PING_PONG_DELAY_PARAM]
 
 type BasePingPongDelayProps = {
   amount?: number
@@ -147,26 +141,21 @@ export class PingPongDelay extends BlipNode {
   }
 
   /** Set the initial delay time of the node. */
-  public setPreDelayTime = (val: number, time?: number) =>
-    this.preDelay.setDelayTime(val, time)
+  public setPreDelayTime = (val: number, time?: number) => this.preDelay.setDelayTime(val, time)
 
   /** Set the left delay time of the node. */
-  public setLeftDelayTime = (val: number, time?: number) =>
-    this.leftDelay.setDelayTime(val, time)
+  public setLeftDelayTime = (val: number, time?: number) => this.leftDelay.setDelayTime(val, time)
 
   /** Set the right delay time of the node. */
-  public setRightDelayTime = (val: number, time?: number) =>
-    this.rightDelay.setDelayTime(val, time)
+  public setRightDelayTime = (val: number, time?: number) => this.rightDelay.setDelayTime(val, time)
 
   /** Set the left feedback value of the node. */
-  public setLeftFeedback = (val: number, time?: number) =>
-    this.leftFeedbackGain.setGain(val, time)
+  public setLeftFeedback = (val: number, time?: number) => this.leftFeedbackGain.setGain(val, time)
 
   /** Set the right feedback value of the node. */
   public setRightFeedback = (val: number, time?: number) =>
     this.rightFeedbackGain.setGain(val, time)
 
   /** Set the tone value of the node. */
-  public setTone = (val: number, time?: number) =>
-    this.tone.setFrequency(val, time)
+  public setTone = (val: number, time?: number) => this.tone.setFrequency(val, time)
 }

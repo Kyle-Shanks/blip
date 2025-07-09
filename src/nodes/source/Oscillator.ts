@@ -6,7 +6,7 @@ export const OSCILLATOR_PARAM = {
   FREQUENCY: 'frequency',
 } as const
 
-type OscillatorParam = typeof OSCILLATOR_PARAM[keyof typeof OSCILLATOR_PARAM]
+type OscillatorParam = (typeof OSCILLATOR_PARAM)[keyof typeof OSCILLATOR_PARAM]
 
 type BaseOscillatorProps = {
   detune?: number

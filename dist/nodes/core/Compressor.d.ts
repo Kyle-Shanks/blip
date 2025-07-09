@@ -6,7 +6,7 @@ export declare const COMPRESSOR_PARAM: {
     readonly RELEASE: "release";
     readonly THRESHOLD: "threshold";
 };
-export declare type CompressorParam = typeof COMPRESSOR_PARAM[keyof typeof COMPRESSOR_PARAM];
+export declare type CompressorParam = (typeof COMPRESSOR_PARAM)[keyof typeof COMPRESSOR_PARAM];
 declare type BaseCompressorProps = {
     attack?: number;
     knee?: number;

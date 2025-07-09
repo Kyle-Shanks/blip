@@ -5,8 +5,7 @@ export const BUFFER_SOURCE_PARAM = {
   PLAYBACK_RATE: 'playbackRate',
 } as const
 
-type BufferSourceParam =
-  typeof BUFFER_SOURCE_PARAM[keyof typeof BUFFER_SOURCE_PARAM]
+type BufferSourceParam = (typeof BUFFER_SOURCE_PARAM)[keyof typeof BUFFER_SOURCE_PARAM]
 
 type BaseBufferSourceProps = {
   buffer?: AudioBuffer | null
@@ -76,13 +75,11 @@ export class BufferSource extends BlipNode {
   public getDetune = () => this.params[BUFFER_SOURCE_PARAM.DETUNE].value
 
   /** Get the current playback rate */
-  public getPlaybackRate = () =>
-    this.params[BUFFER_SOURCE_PARAM.PLAYBACK_RATE].value
+  public getPlaybackRate = () => this.params[BUFFER_SOURCE_PARAM.PLAYBACK_RATE].value
 
   // - Setters -
   /** Set the buffer of the source node */
-  public setBuffer = (val: AudioBuffer | null) =>
-    (this.bufferSource.buffer = val)
+  public setBuffer = (val: AudioBuffer | null) => (this.bufferSource.buffer = val)
 
   /** Set the loop value of the source node */
   public setLoop = (val: boolean) => (this.bufferSource.loop = val)

@@ -4,7 +4,7 @@ export const DELAY_PARAM = {
   DELAY_TIME: 'delayTime',
 } as const
 
-type DelayParam = typeof DELAY_PARAM[keyof typeof DELAY_PARAM]
+type DelayParam = (typeof DELAY_PARAM)[keyof typeof DELAY_PARAM]
 
 type BaseDelayProps = {
   delayTime?: number

@@ -2,7 +2,7 @@ import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode';
 export declare const GAIN_PARAM: {
     readonly GAIN: "gain";
 };
-declare type GainParam = typeof GAIN_PARAM[keyof typeof GAIN_PARAM];
+declare type GainParam = (typeof GAIN_PARAM)[keyof typeof GAIN_PARAM];
 declare type BaseGainProps = {
     gain?: number;
 };

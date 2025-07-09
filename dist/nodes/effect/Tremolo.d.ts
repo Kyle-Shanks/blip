@@ -4,7 +4,7 @@ export declare const TREMOLO_PARAM: {
     readonly DEPTH: "depth";
     readonly RATE: "rate";
 };
-declare type TremoloParam = typeof TREMOLO_PARAM[keyof typeof TREMOLO_PARAM];
+declare type TremoloParam = (typeof TREMOLO_PARAM)[keyof typeof TREMOLO_PARAM];
 declare type BaseTremoloProps = {
     depth?: number;
     rate?: number;

@@ -3,13 +3,7 @@ import { OSC_PARAM } from '../nodes/instruments/Osc'
 
 const disconnectAll = (arr: Osc[]) => arr.forEach((mod) => mod.disconnect())
 
-type AlgorithmFunction = (
-  a: Osc,
-  b: Osc,
-  c: Osc,
-  d: Osc,
-  out: Limiter
-) => string
+type AlgorithmFunction = (a: Osc, b: Osc, c: Osc, d: Osc, out: Limiter) => string
 
 // Algorithms for FMSynth
 export const fmAlgorithms: AlgorithmFunction[] = [

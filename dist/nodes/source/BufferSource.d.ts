@@ -3,7 +3,7 @@ export declare const BUFFER_SOURCE_PARAM: {
     readonly DETUNE: "detune";
     readonly PLAYBACK_RATE: "playbackRate";
 };
-declare type BufferSourceParam = typeof BUFFER_SOURCE_PARAM[keyof typeof BUFFER_SOURCE_PARAM];
+declare type BufferSourceParam = (typeof BUFFER_SOURCE_PARAM)[keyof typeof BUFFER_SOURCE_PARAM];
 declare type BaseBufferSourceProps = {
     buffer?: AudioBuffer | null;
     detune?: number;

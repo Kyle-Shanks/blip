@@ -8,7 +8,7 @@ export const FILTER_PARAM = {
   Q: 'Q',
 } as const
 
-type FilterParam = typeof FILTER_PARAM[keyof typeof FILTER_PARAM]
+type FilterParam = (typeof FILTER_PARAM)[keyof typeof FILTER_PARAM]
 
 type BaseFilterProps = {
   frequency?: number

@@ -2,7 +2,7 @@ import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode';
 export declare const STEREO_PANNER_PARAM: {
     readonly PAN: "pan";
 };
-declare type StereoPannerParam = typeof STEREO_PANNER_PARAM[keyof typeof STEREO_PANNER_PARAM];
+declare type StereoPannerParam = (typeof STEREO_PANNER_PARAM)[keyof typeof STEREO_PANNER_PARAM];
 declare type BaseStereoPannerProps = {
     pan?: number;
 };

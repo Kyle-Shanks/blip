@@ -4,7 +4,7 @@ export declare const FEEDBACK_DELAY_PARAM: {
     readonly FEEDBACK: "feedback";
     readonly TONE: "tone";
 };
-declare type FeedbackDelayParam = typeof FEEDBACK_DELAY_PARAM[keyof typeof FEEDBACK_DELAY_PARAM];
+declare type FeedbackDelayParam = (typeof FEEDBACK_DELAY_PARAM)[keyof typeof FEEDBACK_DELAY_PARAM];
 declare type BaseFeedbackDelayProps = {
     amount?: number;
     delayTime?: number;

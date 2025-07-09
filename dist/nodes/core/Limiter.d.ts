@@ -7,7 +7,7 @@ export declare const LIMITER_PARAM: {
     readonly RELEASE: "release";
     readonly GAIN: "gain";
 };
-declare type LimiterParam = typeof LIMITER_PARAM[keyof typeof LIMITER_PARAM];
+declare type LimiterParam = (typeof LIMITER_PARAM)[keyof typeof LIMITER_PARAM];
 declare type BaseLimiterProps = {
     threshold?: number;
     ratio?: number;

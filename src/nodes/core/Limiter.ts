@@ -11,7 +11,7 @@ export const LIMITER_PARAM = {
   GAIN: 'gain',
 } as const
 
-type LimiterParam = typeof LIMITER_PARAM[keyof typeof LIMITER_PARAM]
+type LimiterParam = (typeof LIMITER_PARAM)[keyof typeof LIMITER_PARAM]
 
 type BaseLimiterProps = {
   threshold?: number
@@ -58,8 +58,7 @@ export class Limiter extends BlipNode {
       [LIMITER_PARAM.KNEE]: this.limiter.params[COMPRESSOR_PARAM.KNEE],
       [LIMITER_PARAM.RATIO]: this.limiter.params[COMPRESSOR_PARAM.RATIO],
       [LIMITER_PARAM.RELEASE]: this.limiter.params[COMPRESSOR_PARAM.RELEASE],
-      [LIMITER_PARAM.THRESHOLD]:
-        this.limiter.params[COMPRESSOR_PARAM.THRESHOLD],
+      [LIMITER_PARAM.THRESHOLD]: this.limiter.params[COMPRESSOR_PARAM.THRESHOLD],
     }
 
     // Initialize
@@ -102,24 +101,19 @@ export class Limiter extends BlipNode {
 
   // - Setters -
   /** Set the knee value. */
-  public setKnee = (val: number, time?: number) =>
-    this.limiter.setKnee(val, time)
+  public setKnee = (val: number, time?: number) => this.limiter.setKnee(val, time)
 
   /** Set the threshold. */
-  public setThreshold = (val: number, time?: number) =>
-    this.limiter.setThreshold(val, time)
+  public setThreshold = (val: number, time?: number) => this.limiter.setThreshold(val, time)
 
   /** Set the compression ratio. */
-  public setRatio = (val: number, time?: number) =>
-    this.limiter.setRatio(val, time)
+  public setRatio = (val: number, time?: number) => this.limiter.setRatio(val, time)
 
   /** Set the attack time. */
-  public setAttack = (val: number, time?: number) =>
-    this.limiter.setAttack(val, time)
+  public setAttack = (val: number, time?: number) => this.limiter.setAttack(val, time)
 
   /** Set the release time. */
-  public setRelease = (val: number, time?: number) =>
-    this.limiter.setRelease(val, time)
+  public setRelease = (val: number, time?: number) => this.limiter.setRelease(val, time)
 
   /** Set the gain value of the output. */
   public setGain = (val: number, time?: number) => this.gain.setGain(val, time)

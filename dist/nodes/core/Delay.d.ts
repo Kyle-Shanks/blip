@@ -2,7 +2,7 @@ import { BlipNode, BlipNodeProps, InputNode, OutputNode } from './BlipNode';
 export declare const DELAY_PARAM: {
     readonly DELAY_TIME: "delayTime";
 };
-declare type DelayParam = typeof DELAY_PARAM[keyof typeof DELAY_PARAM];
+declare type DelayParam = (typeof DELAY_PARAM)[keyof typeof DELAY_PARAM];
 declare type BaseDelayProps = {
     delayTime?: number;
 };

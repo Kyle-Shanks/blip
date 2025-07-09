@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { ConstantSource } from '../source/ConstantSource'
 
 export type BaseEnvelopeProps = {
@@ -168,6 +163,5 @@ export class Envelope extends BlipNode {
   }
 
   // - Private Methods -
-  private _clearTimeouts = () =>
-    this.timeoutIds.forEach((id) => clearTimeout(id))
+  private _clearTimeouts = () => this.timeoutIds.forEach((id) => clearTimeout(id))
 }

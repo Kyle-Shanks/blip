@@ -18,9 +18,7 @@ var setContext = function (context) {
 var resume = function () { return getContext().resume(); };
 // - Helper Functions -
 /** Clamp a number between a given min and max. */
-var clamp = function (val, min, max) {
-    return Math.min(max, Math.max(min, val));
-};
+var clamp = function (val, min, max) { return Math.min(max, Math.max(min, val)); };
 /** Connect a series of synth nodes together. */
 var chain = function () {
     var nodes = [];
@@ -89,9 +87,7 @@ var BlipNode = /** @class */ (function () {
                 });
             }
             else if (destination instanceof AudioNode) {
-                _this.outputs.forEach(function (output) {
-                    return output.connect(destination, outputNum, inputNum);
-                });
+                _this.outputs.forEach(function (output) { return output.connect(destination, outputNum, inputNum); });
             }
             else if (destination instanceof AudioParam) {
                 _this.outputs.forEach(function (output) { return output.connect(destination, outputNum); });
@@ -117,16 +113,11 @@ var BlipNode = /** @class */ (function () {
                 }
                 var inputs = destination._getInputNodes();
                 inputs.forEach(function (input) {
-                    _this.outputs.forEach(function (output) {
-                        return output.disconnect(input, outputNum, inputNum);
-                    });
+                    _this.outputs.forEach(function (output) { return output.disconnect(input, outputNum, inputNum); });
                 });
             }
-            else if (destination instanceof AudioNode ||
-                destination instanceof AudioParam) {
-                _this.outputs.forEach(function (output) {
-                    return output.disconnect(destination, outputNum, inputNum);
-                });
+            else if (destination instanceof AudioNode || destination instanceof AudioParam) {
+                _this.outputs.forEach(function (output) { return output.disconnect(destination, outputNum, inputNum); });
             }
             else {
                 console.error('Invalid destination type');
@@ -135,16 +126,14 @@ var BlipNode = /** @class */ (function () {
         // Recursively go down to get the default audio nodes/params of all inputs
         this._getInputNodes = function () {
             return _this.inputs.reduce(function (nodes, input) {
-                input instanceof BlipNode
-                    ? nodes.push.apply(nodes, input._getInputNodes()) : nodes.push(input);
+                input instanceof BlipNode ? nodes.push.apply(nodes, input._getInputNodes()) : nodes.push(input);
                 return nodes;
             }, []);
         };
         // Recursively go down to get the default audio nodes of all outputs
         this._getOutputNodes = function () {
             return _this.outputs.reduce(function (nodes, output) {
-                output instanceof BlipNode
-                    ? nodes.push.apply(nodes, output._getOutputNodes()) : nodes.push(output);
+                output instanceof BlipNode ? nodes.push.apply(nodes, output._getOutputNodes()) : nodes.push(output);
                 return nodes;
             }, []);
         };
@@ -372,9 +361,7 @@ var Envelope = /** @class */ (function (_super) {
             _this.source.setOffset(0);
         };
         // - Private Methods -
-        _this._clearTimeouts = function () {
-            return _this.timeoutIds.forEach(function (id) { return clearTimeout(id); });
-        };
+        _this._clearTimeouts = function () { return _this.timeoutIds.forEach(function (id) { return clearTimeout(id); }); };
         _this.source = new ConstantSource({ AC: _this.AC, start: true });
         _this.outputs = [_this.source];
         _this.timeoutIds = [];
@@ -544,19 +531,13 @@ var FilterEnvelope = /** @class */ (function (_super) {
         _this.getType = function () { return _this.filter.getType(); };
         // - Setters -
         /** Set the cutoff frequency of the filter node. */
-        _this.setFrequency = function (val, time) {
-            return _this.filter.setFrequency(val, time);
-        };
+        _this.setFrequency = function (val, time) { return _this.filter.setFrequency(val, time); };
         /** Set the q factor value of the filter node. */
         _this.setQ = function (val, time) { return _this.filter.setQ(val, time); };
         /** Set the detune value of the filter node. */
-        _this.setDetune = function (val, time) {
-            return _this.filter.setDetune(val, time);
-        };
+        _this.setDetune = function (val, time) { return _this.filter.setDetune(val, time); };
         /** Set the gain value of the filter node. */
-        _this.setGain = function (val, time) {
-            return _this.filter.setGain(val, time);
-        };
+        _this.setGain = function (val, time) { return _this.filter.setGain(val, time); };
         /** Set the filter node's type. */
         _this.setType = function (val) { return _this.filter.setType(val); };
         _this.filter = new Filter({ AC: _this.AC });
@@ -898,25 +879,15 @@ var Limiter = /** @class */ (function (_super) {
         _this.getGain = function () { return _this.gain.getGain(); };
         // - Setters -
         /** Set the knee value. */
-        _this.setKnee = function (val, time) {
-            return _this.limiter.setKnee(val, time);
-        };
+        _this.setKnee = function (val, time) { return _this.limiter.setKnee(val, time); };
         /** Set the threshold. */
-        _this.setThreshold = function (val, time) {
-            return _this.limiter.setThreshold(val, time);
-        };
+        _this.setThreshold = function (val, time) { return _this.limiter.setThreshold(val, time); };
         /** Set the compression ratio. */
-        _this.setRatio = function (val, time) {
-            return _this.limiter.setRatio(val, time);
-        };
+        _this.setRatio = function (val, time) { return _this.limiter.setRatio(val, time); };
         /** Set the attack time. */
-        _this.setAttack = function (val, time) {
-            return _this.limiter.setAttack(val, time);
-        };
+        _this.setAttack = function (val, time) { return _this.limiter.setAttack(val, time); };
         /** Set the release time. */
-        _this.setRelease = function (val, time) {
-            return _this.limiter.setRelease(val, time);
-        };
+        _this.setRelease = function (val, time) { return _this.limiter.setRelease(val, time); };
         /** Set the gain value of the output. */
         _this.setGain = function (val, time) { return _this.gain.setGain(val, time); };
         _this.limiter = new Compressor({ AC: _this.AC });
@@ -1130,13 +1101,9 @@ var LFO = /** @class */ (function (_super) {
             return _this.osc.setFrequency(clamp(val, MIN_RATE, MAX_RATE), time);
         };
         /** Set the detune of the LFO. */
-        _this.setDetune = function (val, time) {
-            return _this.osc.setDetune(val, time);
-        };
+        _this.setDetune = function (val, time) { return _this.osc.setDetune(val, time); };
         /** Set the depth of the LFO. */
-        _this.setDepth = function (val, time) {
-            return _this.depth.setGain(val, time);
-        };
+        _this.setDepth = function (val, time) { return _this.depth.setGain(val, time); };
         /** Set the waveform of the LFO. */
         _this.setType = function (val) { return _this.osc.setType(val); };
         _this.depth = new Gain({ AC: _this.AC });
@@ -1251,8 +1218,7 @@ var Distortion = /** @class */ (function (_super) {
             var curve = new Float32Array(sampleNum);
             return curve.map(function (_, i) {
                 var x = (i * 2) / sampleNum - 1;
-                return (((3 + gain) * Math.atan(Math.sinh(x * 0.25) * 5)) /
-                    (Math.PI + gain * Math.abs(x)));
+                return ((3 + gain) * Math.atan(Math.sinh(x * 0.25) * 5)) / (Math.PI + gain * Math.abs(x));
             });
         };
         _this.distortion = 0;
@@ -1298,21 +1264,13 @@ var EQ2 = /** @class */ (function (_super) {
         _this.getHighGain = function () { return _this.high.getGain(); };
         // - Setters -
         /** Set the frequency of the low band. */
-        _this.setLowFrequency = function (val, time) {
-            return _this.low.setFrequency(val, time);
-        };
+        _this.setLowFrequency = function (val, time) { return _this.low.setFrequency(val, time); };
         /** Set the gain value of the low band. */
-        _this.setLowGain = function (val, time) {
-            return _this.low.setGain(val, time);
-        };
+        _this.setLowGain = function (val, time) { return _this.low.setGain(val, time); };
         /** Set the frequency of the high band. */
-        _this.setHighFrequency = function (val, time) {
-            return _this.high.setFrequency(val, time);
-        };
+        _this.setHighFrequency = function (val, time) { return _this.high.setFrequency(val, time); };
         /** Set the gain value of the high band. */
-        _this.setHighGain = function (val, time) {
-            return _this.high.setGain(val, time);
-        };
+        _this.setHighGain = function (val, time) { return _this.high.setGain(val, time); };
         _this.low = new Filter({
             AC: _this.AC,
             type: FILTER_TYPE.LOW_SHELF,
@@ -1381,17 +1339,11 @@ var FeedbackDelay = /** @class */ (function (_super) {
             _this._dryWetUpdate(_this.dryGain.params[GAIN_PARAM.GAIN], _this.wetGain.params[GAIN_PARAM.GAIN], val, time);
         };
         /** Set the delay time of the node. */
-        _this.setDelayTime = function (val, time) {
-            return _this.delay.setDelayTime(val, time);
-        };
+        _this.setDelayTime = function (val, time) { return _this.delay.setDelayTime(val, time); };
         /** Set the feedback value of the node. */
-        _this.setFeedback = function (val, time) {
-            return _this.feedbackGain.setGain(val, time);
-        };
+        _this.setFeedback = function (val, time) { return _this.feedbackGain.setGain(val, time); };
         /** Set the tone value of the node. */
-        _this.setTone = function (val, time) {
-            return _this.tone.setFrequency(val, time);
-        };
+        _this.setTone = function (val, time) { return _this.tone.setFrequency(val, time); };
         _this.amount = 0;
         _this.dryGain = new Gain({ AC: _this.AC });
         _this.delay = new Delay({ AC: _this.AC });
@@ -1461,29 +1413,19 @@ var PingPongDelay = /** @class */ (function (_super) {
             _this._dryWetUpdate(_this.dryGain.params[GAIN_PARAM.GAIN], _this.wetGain.params[GAIN_PARAM.GAIN], val, time);
         };
         /** Set the initial delay time of the node. */
-        _this.setPreDelayTime = function (val, time) {
-            return _this.preDelay.setDelayTime(val, time);
-        };
+        _this.setPreDelayTime = function (val, time) { return _this.preDelay.setDelayTime(val, time); };
         /** Set the left delay time of the node. */
-        _this.setLeftDelayTime = function (val, time) {
-            return _this.leftDelay.setDelayTime(val, time);
-        };
+        _this.setLeftDelayTime = function (val, time) { return _this.leftDelay.setDelayTime(val, time); };
         /** Set the right delay time of the node. */
-        _this.setRightDelayTime = function (val, time) {
-            return _this.rightDelay.setDelayTime(val, time);
-        };
+        _this.setRightDelayTime = function (val, time) { return _this.rightDelay.setDelayTime(val, time); };
         /** Set the left feedback value of the node. */
-        _this.setLeftFeedback = function (val, time) {
-            return _this.leftFeedbackGain.setGain(val, time);
-        };
+        _this.setLeftFeedback = function (val, time) { return _this.leftFeedbackGain.setGain(val, time); };
         /** Set the right feedback value of the node. */
         _this.setRightFeedback = function (val, time) {
             return _this.rightFeedbackGain.setGain(val, time);
         };
         /** Set the tone value of the node. */
-        _this.setTone = function (val, time) {
-            return _this.tone.setFrequency(val, time);
-        };
+        _this.setTone = function (val, time) { return _this.tone.setFrequency(val, time); };
         _this.amount = 0;
         _this.dryGain = new Gain({ AC: _this.AC });
         _this.leftDelay = new Delay({ AC: _this.AC });
@@ -1562,14 +1504,10 @@ var BufferSource = /** @class */ (function (_super) {
         /** Get the current detune value */
         _this.getDetune = function () { return _this.params[BUFFER_SOURCE_PARAM.DETUNE].value; };
         /** Get the current playback rate */
-        _this.getPlaybackRate = function () {
-            return _this.params[BUFFER_SOURCE_PARAM.PLAYBACK_RATE].value;
-        };
+        _this.getPlaybackRate = function () { return _this.params[BUFFER_SOURCE_PARAM.PLAYBACK_RATE].value; };
         // - Setters -
         /** Set the buffer of the source node */
-        _this.setBuffer = function (val) {
-            return (_this.bufferSource.buffer = val);
-        };
+        _this.setBuffer = function (val) { return (_this.bufferSource.buffer = val); };
         /** Set the loop value of the source node */
         _this.setLoop = function (val) { return (_this.bufferSource.loop = val); };
         /** Set the detune value of the source node */
@@ -1822,18 +1760,18 @@ var maxOctave = 8;
 // - Useful constants -
 // MIDI numbers for 0th octave
 var noteMidiMap = {
-    'C': 12,
+    C: 12,
     'C#': 13,
-    'D': 14,
+    D: 14,
     'D#': 15,
-    'E': 16,
-    'F': 17,
+    E: 16,
+    F: 17,
     'F#': 18,
-    'G': 19,
+    G: 19,
     'G#': 20,
-    'A': 21,
+    A: 21,
     'A#': 22,
-    'B': 23,
+    B: 23,
 };
 // MIDI numbers for 0th octave
 var midiNoteMap = {
@@ -1852,18 +1790,18 @@ var midiNoteMap = {
 };
 /** Frequencies in 4th octave */
 var noteFreqMap = {
-    'C': 261.63,
+    C: 261.63,
     'C#': 277.18,
-    'D': 293.66,
+    D: 293.66,
     'D#': 311.13,
-    'E': 329.63,
-    'F': 349.23,
+    E: 329.63,
+    F: 349.23,
     'F#': 369.99,
-    'G': 392.0,
+    G: 392.0,
     'G#': 415.3,
-    'A': 440.0,
+    A: 440.0,
     'A#': 466.16,
-    'B': 493.88,
+    B: 493.88,
 };
 // - Note Functions -
 var isNote = function (note) { return noteRegex.test(note); };
@@ -1880,9 +1818,7 @@ var parseNote = function (val) {
 /** Get the frequency of the given note. */
 var getNoteFrequency = function (note) {
     var noteInfo = parseNote(note);
-    return noteInfo
-        ? noteFreqMap[noteInfo.baseNote] * Math.pow(2, noteInfo.octave - 4)
-        : null;
+    return noteInfo ? noteFreqMap[noteInfo.baseNote] * Math.pow(2, noteInfo.octave - 4) : null;
 };
 /** Get the midi value for the given note. */
 var getNoteMidiValue = function (note) {
@@ -1986,13 +1922,9 @@ var MonoSynth = /** @class */ (function (_super) {
         /** Set the waveform of the oscillator. */
         _this.setType = function (val) { return _this.oscillator.setType(val); };
         /** Set the frequency of the oscillator. */
-        _this.setFrequency = function (val, time) {
-            return _this.oscillator.setFrequency(val, time);
-        };
+        _this.setFrequency = function (val, time) { return _this.oscillator.setFrequency(val, time); };
         /** Set the detune of the oscillator. */
-        _this.setDetune = function (val, time) {
-            return _this.oscillator.setDetune(val, time);
-        };
+        _this.setDetune = function (val, time) { return _this.oscillator.setDetune(val, time); };
         /** Set the attack time of the gain envelope. */
         _this.setGainAttack = function (val) { return _this.gainEnv.setAttack(val); };
         /** Set the decay time of the gain envelope. */
@@ -2004,21 +1936,13 @@ var MonoSynth = /** @class */ (function (_super) {
         /** Set the gain modifier of the gain envelope. */
         _this.setGainAmount = function (val) { return _this.gainEnv.setModifier(val); };
         /** Set the frequency of the filter envelope's filter. */
-        _this.setFilterFrequency = function (val, time) {
-            return _this.filterEnv.setFrequency(val, time);
-        };
+        _this.setFilterFrequency = function (val, time) { return _this.filterEnv.setFrequency(val, time); };
         /** Set the detune value of the filter envelope's filter. */
-        _this.setFilterDetune = function (val, time) {
-            return _this.filterEnv.setDetune(val, time);
-        };
+        _this.setFilterDetune = function (val, time) { return _this.filterEnv.setDetune(val, time); };
         /** Set the q value of the filter envelope's filter. */
-        _this.setFilterQ = function (val, time) {
-            return _this.filterEnv.setQ(val, time);
-        };
+        _this.setFilterQ = function (val, time) { return _this.filterEnv.setQ(val, time); };
         /** Set the gain of the filter envelope's filter. */
-        _this.setFilterGain = function (val, time) {
-            return _this.filterEnv.setGain(val, time);
-        };
+        _this.setFilterGain = function (val, time) { return _this.filterEnv.setGain(val, time); };
         /** Set the type of the filter envelope's filter. */
         _this.setFilterType = function (val) { return _this.filterEnv.setType(val); };
         /** Set the attack time of the filter envelope. */
@@ -2131,13 +2055,9 @@ var Osc = /** @class */ (function (_super) {
         _this.getType = function () { return _this.oscillator.getType(); };
         // - Setters -
         /** Set the detune of the oscillator. */
-        _this.setDetune = function (val, time) {
-            return _this.oscillator.setDetune(val, time);
-        };
+        _this.setDetune = function (val, time) { return _this.oscillator.setDetune(val, time); };
         /** Set the frequency of the oscillator. */
-        _this.setFrequency = function (val, time) {
-            return _this.oscillator.setFrequency(val, time);
-        };
+        _this.setFrequency = function (val, time) { return _this.oscillator.setFrequency(val, time); };
         /** Set the gain of the gain node. */
         _this.setGain = function (val, time) { return _this.gain.setGain(val, time); };
         /** Set the waveform of the oscillator. */
@@ -2247,33 +2167,21 @@ var PolySynth = /** @class */ (function (_super) {
         /** Set the maximum number of active voices for the node. (Min = 1, Max = 8) */
         _this.setPolyphony = function (val) { return (_this.polyphony = clamp(val, 1, 8)); };
         /** Set the waveform for each of the node's oscillators. */
-        _this.setType = function (val) {
-            return _this.voices.forEach(function (voice) { return voice.setType(val); });
-        };
+        _this.setType = function (val) { return _this.voices.forEach(function (voice) { return voice.setType(val); }); };
         /** Set the detune for each of the node's oscillators. */
         _this.setDetune = function (val, time) {
             return _this.voices.forEach(function (voice) { return voice.setDetune(val, time); });
         };
         /** Set the attack time of the gain envelope. */
-        _this.setGainAttack = function (val) {
-            return _this.voices.forEach(function (voice) { return voice.setGainAttack(val); });
-        };
+        _this.setGainAttack = function (val) { return _this.voices.forEach(function (voice) { return voice.setGainAttack(val); }); };
         /** Set the attack time of the gain envelope. */
-        _this.setGainDecay = function (val) {
-            return _this.voices.forEach(function (voice) { return voice.setGainDecay(val); });
-        };
+        _this.setGainDecay = function (val) { return _this.voices.forEach(function (voice) { return voice.setGainDecay(val); }); };
         /** Set the sustain value of the gain envelope. */
-        _this.setGainSustain = function (val) {
-            return _this.voices.forEach(function (voice) { return voice.setGainSustain(val); });
-        };
+        _this.setGainSustain = function (val) { return _this.voices.forEach(function (voice) { return voice.setGainSustain(val); }); };
         /** Set the release time of the gain envelope. */
-        _this.setGainRelease = function (val) {
-            return _this.voices.forEach(function (voice) { return voice.setGainRelease(val); });
-        };
+        _this.setGainRelease = function (val) { return _this.voices.forEach(function (voice) { return voice.setGainRelease(val); }); };
         /** Set the gain modifier of the gain envelope. */
-        _this.setGainAmount = function (val) {
-            return _this.voices.forEach(function (voice) { return voice.setGainAmount(val); });
-        };
+        _this.setGainAmount = function (val) { return _this.voices.forEach(function (voice) { return voice.setGainAmount(val); }); };
         /** Set the cutoff frequency of the filter envelope's filter. */
         _this.setFilterFrequency = function (val, time) {
             return _this.voices.forEach(function (voice) { return voice.setFilterFrequency(val, time); });
@@ -2299,9 +2207,7 @@ var PolySynth = /** @class */ (function (_super) {
             return _this.voices.forEach(function (voice) { return voice.setFilterAttack(val); });
         };
         /** Set the attack time of the filter envelope. */
-        _this.setFilterDecay = function (val) {
-            return _this.voices.forEach(function (voice) { return voice.setFilterDecay(val); });
-        };
+        _this.setFilterDecay = function (val) { return _this.voices.forEach(function (voice) { return voice.setFilterDecay(val); }); };
         /** Set the sustain value of the filter envelope. */
         _this.setFilterSustain = function (val) {
             return _this.voices.forEach(function (voice) { return voice.setFilterSustain(val); });
@@ -2366,15 +2272,9 @@ var PolySynth = /** @class */ (function (_super) {
             targetVoices.forEach(function (voice) { return _this._voiceTriggerStop(voice); });
         };
         // - Private Methods -
-        _this._incrementVoicePos = function () {
-            return (_this.voicePos = (_this.voicePos + 1) % _this.polyphony);
-        };
-        _this._voiceTriggerAttack = function (voice, note) {
-            return voice.triggerAttack(note);
-        };
-        _this._voiceTriggerRelease = function (voice, note) {
-            return voice.triggerRelease(note);
-        };
+        _this._incrementVoicePos = function () { return (_this.voicePos = (_this.voicePos + 1) % _this.polyphony); };
+        _this._voiceTriggerAttack = function (voice, note) { return voice.triggerAttack(note); };
+        _this._voiceTriggerRelease = function (voice, note) { return voice.triggerRelease(note); };
         _this._voiceTriggerStop = function (voice) { return voice.triggerStop(); };
         _this.voices = Array(8)
             .fill(0)
@@ -2492,21 +2392,13 @@ var SimpleFMSynth = /** @class */ (function (_super) {
             return _this.modulator.setFrequency(val, time);
         };
         /** Set the detune value of the modulator. */
-        _this.setModulatorDetune = function (val, time) {
-            return _this.modulator.setDetune(val, time);
-        };
+        _this.setModulatorDetune = function (val, time) { return _this.modulator.setDetune(val, time); };
         /** Set the depth of the modulator. */
-        _this.setModulatorDepth = function (val, time) {
-            return _this.modulator.setGain(val, time);
-        };
+        _this.setModulatorDepth = function (val, time) { return _this.modulator.setGain(val, time); };
         /** Set the frequency of the carrier. */
-        _this.setCarrierFrequency = function (val, time) {
-            return _this.carrier.setFrequency(val, time);
-        };
+        _this.setCarrierFrequency = function (val, time) { return _this.carrier.setFrequency(val, time); };
         /** Set the detune value of the carrier. */
-        _this.setCarrierDetune = function (val, time) {
-            return _this.carrier.setDetune(val, time);
-        };
+        _this.setCarrierDetune = function (val, time) { return _this.carrier.setDetune(val, time); };
         /** Set the attack time of the carrier's gain envelope. */
         _this.setGainAttack = function (val) { return _this.carrier.setGainAttack(val); };
         /** Set the decay time of the carrier's gain envelope. */
@@ -2801,7 +2693,7 @@ var FMSynth = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.name = 'FMSynth';
         // - Getters -
-        /** Get an diagram for the current algorithm. */
+        /** Get a diagram for the current algorithm. */
         _this.getAlgorithm = function () { return _this.algorithm; };
         /** Get the frequency of modulator A. */
         _this.getModAFrequency = function () { return _this.modA.getFrequency(); };
@@ -2846,53 +2738,29 @@ var FMSynth = /** @class */ (function (_super) {
             return _this.algorithm;
         };
         /** Set the frequency of modulator A. */
-        _this.setModAFrequency = function (val, time) {
-            return _this.modA.setFrequency(val, time);
-        };
+        _this.setModAFrequency = function (val, time) { return _this.modA.setFrequency(val, time); };
         /** Set the detune of modulator A. */
-        _this.setModADetune = function (val, time) {
-            return _this.modA.setDetune(val, time);
-        };
+        _this.setModADetune = function (val, time) { return _this.modA.setDetune(val, time); };
         /** Set the gain of modulator A. */
-        _this.setModAGain = function (val, time) {
-            return _this.modA.setGain(val, time);
-        };
+        _this.setModAGain = function (val, time) { return _this.modA.setGain(val, time); };
         /** Set the frequency of modulator B. */
-        _this.setModBFrequency = function (val, time) {
-            return _this.modB.setFrequency(val, time);
-        };
+        _this.setModBFrequency = function (val, time) { return _this.modB.setFrequency(val, time); };
         /** Set the detune of modulator B. */
-        _this.setModBDetune = function (val, time) {
-            return _this.modB.setDetune(val, time);
-        };
+        _this.setModBDetune = function (val, time) { return _this.modB.setDetune(val, time); };
         /** Set the gain of modulator B. */
-        _this.setModBGain = function (val, time) {
-            return _this.modB.setGain(val, time);
-        };
+        _this.setModBGain = function (val, time) { return _this.modB.setGain(val, time); };
         /** Set the frequency of modulator C. */
-        _this.setModCFrequency = function (val, time) {
-            return _this.modC.setFrequency(val, time);
-        };
+        _this.setModCFrequency = function (val, time) { return _this.modC.setFrequency(val, time); };
         /** Set the detune of modulator C. */
-        _this.setModCDetune = function (val, time) {
-            return _this.modC.setDetune(val, time);
-        };
+        _this.setModCDetune = function (val, time) { return _this.modC.setDetune(val, time); };
         /** Set the gain of modulator C. */
-        _this.setModCGain = function (val, time) {
-            return _this.modC.setGain(val, time);
-        };
+        _this.setModCGain = function (val, time) { return _this.modC.setGain(val, time); };
         /** Set the frequency of modulator D. */
-        _this.setModDFrequency = function (val, time) {
-            return _this.modD.setFrequency(val, time);
-        };
+        _this.setModDFrequency = function (val, time) { return _this.modD.setFrequency(val, time); };
         /** Set the detune of modulator D. */
-        _this.setModDDetune = function (val, time) {
-            return _this.modD.setDetune(val, time);
-        };
+        _this.setModDDetune = function (val, time) { return _this.modD.setDetune(val, time); };
         /** Set the gain of modulator D. */
-        _this.setModDGain = function (val, time) {
-            return _this.modD.setGain(val, time);
-        };
+        _this.setModDGain = function (val, time) { return _this.modD.setGain(val, time); };
         /** Set the attack time of the gain envelope. */
         _this.setGainAttack = function (val) { return _this.gainEnv.setAttack(val); };
         /** Set the decay time of the gain envelope. */
@@ -2961,22 +2829,22 @@ var FMSynth = /** @class */ (function (_super) {
 
 // Key to midi mapping for 0th octave
 var keyMidiMap = {
-    'a': 12,
-    'w': 13,
-    's': 14,
-    'e': 15,
-    'd': 16,
-    'f': 17,
-    't': 18,
-    'g': 19,
-    'y': 20,
-    'h': 21,
-    'u': 22,
-    'j': 23,
-    'k': 24,
-    'o': 25,
-    'l': 26,
-    'p': 27,
+    a: 12,
+    w: 13,
+    s: 14,
+    e: 15,
+    d: 16,
+    f: 17,
+    t: 18,
+    g: 19,
+    y: 20,
+    h: 21,
+    u: 22,
+    j: 23,
+    k: 24,
+    o: 25,
+    l: 26,
+    p: 27,
     ';': 28,
 };
 var keyToNote = function (key, octave) {
@@ -3008,13 +2876,13 @@ var Keyboard = /** @class */ (function () {
         this.velocity = 100;
         /** Start event listening for the keyboard. */
         this.on = function () {
-            window.addEventListener('keydown', _this._keydown);
-            window.addEventListener('keyup', _this._keyup);
+            window.addEventListener('keydown', _this._keyDown);
+            window.addEventListener('keyup', _this._keyUp);
         };
         /** Stop event listening for the keyboard. */
         this.off = function () {
-            window.removeEventListener('keydown', _this._keydown);
-            window.removeEventListener('keyup', _this._keyup);
+            window.removeEventListener('keydown', _this._keyDown);
+            window.removeEventListener('keyup', _this._keyUp);
         };
         // - Getters -
         /** Get the current octave */
@@ -3028,7 +2896,7 @@ var Keyboard = /** @class */ (function () {
         this.setVelocity = function (val) { return (_this.velocity = val); };
         // - Private Methods -
         // Event handling methods
-        this._keydown = function (e) {
+        this._keyDown = function (e) {
             if (e.repeat)
                 return;
             // Additional commands
@@ -3046,7 +2914,7 @@ var Keyboard = /** @class */ (function () {
             if (note !== null)
                 _this.onPress(getNoteInfo(note), e);
         };
-        this._keyup = function (e) {
+        this._keyUp = function (e) {
             var note = keyToNote(e.key, _this.octave);
             if (note !== null)
                 _this.onRelease(getNoteInfo(note), e);

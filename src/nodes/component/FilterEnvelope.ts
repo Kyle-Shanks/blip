@@ -10,8 +10,7 @@ export const FILTER_ENVELOPE_PARAM = {
   Q: 'q',
 } as const
 
-type FilterEnvelopeParam =
-  typeof FILTER_ENVELOPE_PARAM[keyof typeof FILTER_ENVELOPE_PARAM]
+type FilterEnvelopeParam = (typeof FILTER_ENVELOPE_PARAM)[keyof typeof FILTER_ENVELOPE_PARAM]
 
 type BaseFilterEnvelopeProps = BaseEnvelopeProps & {
   frequency?: number
@@ -55,8 +54,7 @@ export class FilterEnvelope extends Envelope {
     this.outputs = [this.filter]
     this.params = {
       [FILTER_ENVELOPE_PARAM.DETUNE]: this.filter.params[FILTER_PARAM.DETUNE],
-      [FILTER_ENVELOPE_PARAM.FREQUENCY]:
-        this.filter.params[FILTER_PARAM.FREQUENCY],
+      [FILTER_ENVELOPE_PARAM.FREQUENCY]: this.filter.params[FILTER_PARAM.FREQUENCY],
       [FILTER_ENVELOPE_PARAM.GAIN]: this.filter.params[FILTER_PARAM.GAIN],
       [FILTER_ENVELOPE_PARAM.Q]: this.filter.params[FILTER_PARAM.Q],
     }
@@ -94,19 +92,16 @@ export class FilterEnvelope extends Envelope {
 
   // - Setters -
   /** Set the cutoff frequency of the filter node. */
-  public setFrequency = (val: number, time?: number) =>
-    this.filter.setFrequency(val, time)
+  public setFrequency = (val: number, time?: number) => this.filter.setFrequency(val, time)
 
   /** Set the q factor value of the filter node. */
   public setQ = (val: number, time?: number) => this.filter.setQ(val, time)
 
   /** Set the detune value of the filter node. */
-  public setDetune = (val: number, time?: number) =>
-    this.filter.setDetune(val, time)
+  public setDetune = (val: number, time?: number) => this.filter.setDetune(val, time)
 
   /** Set the gain value of the filter node. */
-  public setGain = (val: number, time?: number) =>
-    this.filter.setGain(val, time)
+  public setGain = (val: number, time?: number) => this.filter.setGain(val, time)
 
   /** Set the filter node's type. */
   public setType = (val: FilterType) => this.filter.setType(val)

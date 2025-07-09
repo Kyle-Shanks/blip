@@ -10,7 +10,7 @@ export declare const POLY_SYNTH_PARAM: {
     readonly FILTER_GAIN: "filterGain";
     readonly FILTER_Q: "filterQ";
 };
-declare type PolySynthParam = typeof POLY_SYNTH_PARAM[keyof typeof POLY_SYNTH_PARAM];
+declare type PolySynthParam = (typeof POLY_SYNTH_PARAM)[keyof typeof POLY_SYNTH_PARAM];
 declare type BasePolySynthProps = {
     polyphony?: number;
     type?: Waveform;

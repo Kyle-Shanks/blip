@@ -2,7 +2,7 @@ import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode';
 export declare const CONSTANT_SOURCE_PARAM: {
     readonly OFFSET: "offset";
 };
-declare type ConstantSourceParam = typeof CONSTANT_SOURCE_PARAM[keyof typeof CONSTANT_SOURCE_PARAM];
+declare type ConstantSourceParam = (typeof CONSTANT_SOURCE_PARAM)[keyof typeof CONSTANT_SOURCE_PARAM];
 declare type BaseConstantSourceProps = {
     offset?: number;
     start?: boolean;

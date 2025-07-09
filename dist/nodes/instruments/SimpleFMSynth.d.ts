@@ -12,7 +12,7 @@ export declare const SIMPLE_FM_SYNTH_PARAM: {
     readonly CARIER_FILTER_GAIN: "carrierFilterGain";
     readonly CARIER_FILTER_Q: "carrierFilterQ";
 };
-declare type SimpleFMSynthParam = typeof SIMPLE_FM_SYNTH_PARAM[keyof typeof SIMPLE_FM_SYNTH_PARAM];
+declare type SimpleFMSynthParam = (typeof SIMPLE_FM_SYNTH_PARAM)[keyof typeof SIMPLE_FM_SYNTH_PARAM];
 declare type BaseSimpleFMSynthProps = {
     modulatorFrequency?: number;
     modulatorDetune?: number;

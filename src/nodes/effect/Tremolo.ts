@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { Gain, GAIN_PARAM } from '../core/Gain'
 import { LFO, LFO_PARAM } from '../source/LFO'
 import { Waveform, WAVEFORM } from '../../util/constants'
@@ -13,7 +8,7 @@ export const TREMOLO_PARAM = {
   RATE: 'rate',
 } as const
 
-type TremoloParam = typeof TREMOLO_PARAM[keyof typeof TREMOLO_PARAM]
+type TremoloParam = (typeof TREMOLO_PARAM)[keyof typeof TREMOLO_PARAM]
 
 type BaseTremoloProps = {
   depth?: number

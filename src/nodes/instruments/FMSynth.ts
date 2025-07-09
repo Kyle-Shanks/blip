@@ -21,7 +21,7 @@ export const FM_SYNTH_PARAM = {
   MOD_D_FREQUENCY: 'modulatorDFrequency',
 }
 
-type FMSynthParam = typeof FM_SYNTH_PARAM[keyof typeof FM_SYNTH_PARAM]
+type FMSynthParam = (typeof FM_SYNTH_PARAM)[keyof typeof FM_SYNTH_PARAM]
 
 type BaseFMSynthProps = {
   algorithm?: number
@@ -193,63 +193,45 @@ export class FMSynth extends BlipNode {
   /** Set the algorithm and reconnect the modulators. */
   public setAlgorithm = (idx: number) => {
     if (!fmAlgorithms[idx]) return console.error('Invalid algorithm index')
-    this.algorithm = fmAlgorithms[idx](
-      this.modA,
-      this.modB,
-      this.modC,
-      this.modD,
-      this.limiter
-    )
+    this.algorithm = fmAlgorithms[idx](this.modA, this.modB, this.modC, this.modD, this.limiter)
     return this.algorithm
   }
 
   /** Set the frequency of modulator A. */
-  public setModAFrequency = (val: number, time?: number) =>
-    this.modA.setFrequency(val, time)
+  public setModAFrequency = (val: number, time?: number) => this.modA.setFrequency(val, time)
 
   /** Set the detune of modulator A. */
-  public setModADetune = (val: number, time?: number) =>
-    this.modA.setDetune(val, time)
+  public setModADetune = (val: number, time?: number) => this.modA.setDetune(val, time)
 
   /** Set the gain of modulator A. */
-  public setModAGain = (val: number, time?: number) =>
-    this.modA.setGain(val, time)
+  public setModAGain = (val: number, time?: number) => this.modA.setGain(val, time)
 
   /** Set the frequency of modulator B. */
-  public setModBFrequency = (val: number, time?: number) =>
-    this.modB.setFrequency(val, time)
+  public setModBFrequency = (val: number, time?: number) => this.modB.setFrequency(val, time)
 
   /** Set the detune of modulator B. */
-  public setModBDetune = (val: number, time?: number) =>
-    this.modB.setDetune(val, time)
+  public setModBDetune = (val: number, time?: number) => this.modB.setDetune(val, time)
 
   /** Set the gain of modulator B. */
-  public setModBGain = (val: number, time?: number) =>
-    this.modB.setGain(val, time)
+  public setModBGain = (val: number, time?: number) => this.modB.setGain(val, time)
 
   /** Set the frequency of modulator C. */
-  public setModCFrequency = (val: number, time?: number) =>
-    this.modC.setFrequency(val, time)
+  public setModCFrequency = (val: number, time?: number) => this.modC.setFrequency(val, time)
 
   /** Set the detune of modulator C. */
-  public setModCDetune = (val: number, time?: number) =>
-    this.modC.setDetune(val, time)
+  public setModCDetune = (val: number, time?: number) => this.modC.setDetune(val, time)
 
   /** Set the gain of modulator C. */
-  public setModCGain = (val: number, time?: number) =>
-    this.modC.setGain(val, time)
+  public setModCGain = (val: number, time?: number) => this.modC.setGain(val, time)
 
   /** Set the frequency of modulator D. */
-  public setModDFrequency = (val: number, time?: number) =>
-    this.modD.setFrequency(val, time)
+  public setModDFrequency = (val: number, time?: number) => this.modD.setFrequency(val, time)
 
   /** Set the detune of modulator D. */
-  public setModDDetune = (val: number, time?: number) =>
-    this.modD.setDetune(val, time)
+  public setModDDetune = (val: number, time?: number) => this.modD.setDetune(val, time)
 
   /** Set the gain of modulator D. */
-  public setModDGain = (val: number, time?: number) =>
-    this.modD.setGain(val, time)
+  public setModDGain = (val: number, time?: number) => this.modD.setGain(val, time)
 
   /** Set the attack time of the gain envelope. */
   public setGainAttack = (val: number) => this.gainEnv.setAttack(val)

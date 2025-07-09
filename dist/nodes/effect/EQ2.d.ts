@@ -5,7 +5,7 @@ export declare const EQ2_PARAM: {
     readonly HIGH_FREQUENCY: "highFrequency";
     readonly HIGH_GAIN: "highGain";
 };
-declare type EQ2Param = typeof EQ2_PARAM[keyof typeof EQ2_PARAM];
+declare type EQ2Param = (typeof EQ2_PARAM)[keyof typeof EQ2_PARAM];
 declare type BaseEQ2Props = {
     lowFrequency?: number;
     lowGain?: number;

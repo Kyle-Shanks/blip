@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { ChannelMerger } from '../core/ChannelMerger'
 import { Convolver } from '../core/Convolver'
 import { Gain, GAIN_PARAM } from '../core/Gain'
@@ -99,11 +94,7 @@ export class Reverb extends BlipNode {
     const sampleRate = this.AC.sampleRate
 
     // Use noise generators to create the impulse
-    const context = new OfflineAudioContext(
-      2,
-      (preDelay + decay) * 5 * sampleRate,
-      sampleRate
-    )
+    const context = new OfflineAudioContext(2, (preDelay + decay) * 5 * sampleRate, sampleRate)
     const noiseL = new NoiseGenerator({ AC: context, start: true })
     const noiseR = new NoiseGenerator({ AC: context, start: true })
     const channelMerger = new ChannelMerger({ AC: context })
@@ -116,16 +107,8 @@ export class Reverb extends BlipNode {
 
     // Set envelope for the gain node
     gain.params[GAIN_PARAM.GAIN].setValueAtTime(0, context.currentTime)
-    gain.params[GAIN_PARAM.GAIN].setTargetAtTime(
-      0.05,
-      context.currentTime,
-      preDelay
-    )
-    gain.params[GAIN_PARAM.GAIN].setTargetAtTime(
-      0,
-      context.currentTime + preDelay,
-      decay
-    )
+    gain.params[GAIN_PARAM.GAIN].setTargetAtTime(0.05, context.currentTime, preDelay)
+    gain.params[GAIN_PARAM.GAIN].setTargetAtTime(0, context.currentTime + preDelay, decay)
 
     // Render and set the buffer
     context.startRendering().then((buffer) => this.setBuffer(buffer))

@@ -4,8 +4,7 @@ export const STEREO_PANNER_PARAM = {
   PAN: 'pan',
 } as const
 
-type StereoPannerParam =
-  typeof STEREO_PANNER_PARAM[keyof typeof STEREO_PANNER_PARAM]
+type StereoPannerParam = (typeof STEREO_PANNER_PARAM)[keyof typeof STEREO_PANNER_PARAM]
 
 type BaseStereoPannerProps = {
   pan?: number

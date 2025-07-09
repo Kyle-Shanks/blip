@@ -1,9 +1,4 @@
-import {
-  BlipNode,
-  BlipNodeProps,
-  InputNode,
-  OutputNode,
-} from '../core/BlipNode'
+import { BlipNode, BlipNodeProps, InputNode, OutputNode } from '../core/BlipNode'
 import { Gain, GAIN_PARAM } from '../core/Gain'
 import { WaveShaper } from '../core/WaveShaper'
 
@@ -84,10 +79,7 @@ export class Distortion extends BlipNode {
 
     return curve.map((_, i) => {
       const x = (i * 2) / sampleNum - 1
-      return (
-        ((3 + gain) * Math.atan(Math.sinh(x * 0.25) * 5)) /
-        (Math.PI + gain * Math.abs(x))
-      )
+      return ((3 + gain) * Math.atan(Math.sinh(x * 0.25) * 5)) / (Math.PI + gain * Math.abs(x))
     })
   }
 }

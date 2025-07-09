@@ -4,7 +4,7 @@ export declare const AUTO_PAN_PARAM: {
     readonly DEPTH: "depth";
     readonly RATE: "rate";
 };
-declare type AutoPanParam = typeof AUTO_PAN_PARAM[keyof typeof AUTO_PAN_PARAM];
+declare type AutoPanParam = (typeof AUTO_PAN_PARAM)[keyof typeof AUTO_PAN_PARAM];
 declare type BaseAutoPanProps = {
     depth?: number;
     rate?: number;

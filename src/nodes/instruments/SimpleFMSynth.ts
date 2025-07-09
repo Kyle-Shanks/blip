@@ -16,8 +16,7 @@ export const SIMPLE_FM_SYNTH_PARAM = {
   CARIER_FILTER_Q: 'carrierFilterQ',
 } as const
 
-type SimpleFMSynthParam =
-  typeof SIMPLE_FM_SYNTH_PARAM[keyof typeof SIMPLE_FM_SYNTH_PARAM]
+type SimpleFMSynthParam = (typeof SIMPLE_FM_SYNTH_PARAM)[keyof typeof SIMPLE_FM_SYNTH_PARAM]
 
 type BaseSimpleFMSynthProps = {
   modulatorFrequency?: number
@@ -72,26 +71,18 @@ export class SimpleFMSynth extends BlipNode {
     this.outputs = [this.carrier]
 
     this.params = {
-      [SIMPLE_FM_SYNTH_PARAM.MODULATOR_DEPTH]:
-        this.modulator.params[OSC_PARAM.GAIN],
-      [SIMPLE_FM_SYNTH_PARAM.MODULATOR_DETUNE]:
-        this.modulator.params[OSC_PARAM.DETUNE],
-      [SIMPLE_FM_SYNTH_PARAM.MODULATOR_FREQUENCY]:
-        this.modulator.params[OSC_PARAM.FREQUENCY],
-      [SIMPLE_FM_SYNTH_PARAM.CARRIER_DETUNE]:
-        this.carrier.params[MONO_SYNTH_PARAM.DETUNE],
-      [SIMPLE_FM_SYNTH_PARAM.CARRIER_FREQUENCY]:
-        this.carrier.params[MONO_SYNTH_PARAM.FREQUENCY],
-      [SIMPLE_FM_SYNTH_PARAM.CARRIER_GAIN]:
-        this.carrier.params[MONO_SYNTH_PARAM.GAIN],
+      [SIMPLE_FM_SYNTH_PARAM.MODULATOR_DEPTH]: this.modulator.params[OSC_PARAM.GAIN],
+      [SIMPLE_FM_SYNTH_PARAM.MODULATOR_DETUNE]: this.modulator.params[OSC_PARAM.DETUNE],
+      [SIMPLE_FM_SYNTH_PARAM.MODULATOR_FREQUENCY]: this.modulator.params[OSC_PARAM.FREQUENCY],
+      [SIMPLE_FM_SYNTH_PARAM.CARRIER_DETUNE]: this.carrier.params[MONO_SYNTH_PARAM.DETUNE],
+      [SIMPLE_FM_SYNTH_PARAM.CARRIER_FREQUENCY]: this.carrier.params[MONO_SYNTH_PARAM.FREQUENCY],
+      [SIMPLE_FM_SYNTH_PARAM.CARRIER_GAIN]: this.carrier.params[MONO_SYNTH_PARAM.GAIN],
       [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_DETUNE]:
         this.carrier.params[MONO_SYNTH_PARAM.FILTER_DETUNE],
       [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_FREQUENCY]:
         this.carrier.params[MONO_SYNTH_PARAM.FILTER_FREQUENCY],
-      [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_GAIN]:
-        this.carrier.params[MONO_SYNTH_PARAM.FILTER_GAIN],
-      [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_Q]:
-        this.carrier.params[MONO_SYNTH_PARAM.FILTER_Q],
+      [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_GAIN]: this.carrier.params[MONO_SYNTH_PARAM.FILTER_GAIN],
+      [SIMPLE_FM_SYNTH_PARAM.CARIER_FILTER_Q]: this.carrier.params[MONO_SYNTH_PARAM.FILTER_Q],
     }
 
     // Initialize
@@ -166,20 +157,16 @@ export class SimpleFMSynth extends BlipNode {
     this.modulator.setFrequency(val, time)
 
   /** Set the detune value of the modulator. */
-  public setModulatorDetune = (val: number, time?: number) =>
-    this.modulator.setDetune(val, time)
+  public setModulatorDetune = (val: number, time?: number) => this.modulator.setDetune(val, time)
 
   /** Set the depth of the modulator. */
-  public setModulatorDepth = (val: number, time?: number) =>
-    this.modulator.setGain(val, time)
+  public setModulatorDepth = (val: number, time?: number) => this.modulator.setGain(val, time)
 
   /** Set the frequency of the carrier. */
-  public setCarrierFrequency = (val: number, time?: number) =>
-    this.carrier.setFrequency(val, time)
+  public setCarrierFrequency = (val: number, time?: number) => this.carrier.setFrequency(val, time)
 
   /** Set the detune value of the carrier. */
-  public setCarrierDetune = (val: number, time?: number) =>
-    this.carrier.setDetune(val, time)
+  public setCarrierDetune = (val: number, time?: number) => this.carrier.setDetune(val, time)
 
   /** Set the attack time of the carrier's gain envelope. */
   public setGainAttack = (val: number) => this.carrier.setGainAttack(val)

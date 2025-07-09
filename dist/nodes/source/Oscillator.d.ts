@@ -4,7 +4,7 @@ export declare const OSCILLATOR_PARAM: {
     readonly DETUNE: "detune";
     readonly FREQUENCY: "frequency";
 };
-declare type OscillatorParam = typeof OSCILLATOR_PARAM[keyof typeof OSCILLATOR_PARAM];
+declare type OscillatorParam = (typeof OSCILLATOR_PARAM)[keyof typeof OSCILLATOR_PARAM];
 declare type BaseOscillatorProps = {
     detune?: number;
     frequency?: number;

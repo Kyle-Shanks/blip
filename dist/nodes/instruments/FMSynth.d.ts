@@ -13,7 +13,7 @@ export declare const FM_SYNTH_PARAM: {
     MOD_D_DETUNE: string;
     MOD_D_FREQUENCY: string;
 };
-declare type FMSynthParam = typeof FM_SYNTH_PARAM[keyof typeof FM_SYNTH_PARAM];
+declare type FMSynthParam = (typeof FM_SYNTH_PARAM)[keyof typeof FM_SYNTH_PARAM];
 declare type BaseFMSynthProps = {
     algorithm?: number;
     modAGain?: number;
@@ -47,7 +47,7 @@ export declare class FMSynth extends BlipNode {
     private limiter;
     private gainEnv;
     constructor(props?: FMSynthProps);
-    /** Get an diagram for the current algorithm. */
+    /** Get a diagram for the current algorithm. */
     getAlgorithm: () => string;
     /** Get the frequency of modulator A. */
     getModAFrequency: () => number;

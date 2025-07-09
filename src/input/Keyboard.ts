@@ -8,29 +8,30 @@ import {
   Octave,
 } from '../util/noteUtil'
 import { clamp } from '../util/util'
+import { InputKey } from './types'
 
 // Key to midi mapping for 0th octave
-const keyMidiMap = {
-  'a': 12,
-  'w': 13,
-  's': 14,
-  'e': 15,
-  'd': 16,
-  'f': 17,
-  't': 18,
-  'g': 19,
-  'y': 20,
-  'h': 21,
-  'u': 22,
-  'j': 23,
-  'k': 24,
-  'o': 25,
-  'l': 26,
-  'p': 27,
+const keyMidiMap: Record<InputKey, number> = {
+  a: 12,
+  w: 13,
+  s: 14,
+  e: 15,
+  d: 16,
+  f: 17,
+  t: 18,
+  g: 19,
+  y: 20,
+  h: 21,
+  u: 22,
+  j: 23,
+  k: 24,
+  o: 25,
+  l: 26,
+  p: 27,
   ';': 28,
 } as const
 
-const keyToNote = (key: string, octave: Octave): Note | null => {
+const keyToNote = (key: InputKey, octave: Octave): Note | null => {
   let midi = keyMidiMap[key]
   if (!midi) return null
 
@@ -52,8 +53,8 @@ type KeyboardProps = {
 }
 
 const defaultProps: Required<KeyboardProps> = {
-  onPress: () => { },
-  onRelease: () => { },
+  onPress: () => {},
+  onRelease: () => {},
 }
 
 /**
@@ -79,14 +80,14 @@ export class Keyboard {
 
   /** Start event listening for the keyboard. */
   public on = () => {
-    window.addEventListener('keydown', this._keydown)
-    window.addEventListener('keyup', this._keyup)
+    window.addEventListener('keydown', this._keyDown)
+    window.addEventListener('keyup', this._keyUp)
   }
 
   /** Stop event listening for the keyboard. */
   public off = () => {
-    window.removeEventListener('keydown', this._keydown)
-    window.removeEventListener('keyup', this._keyup)
+    window.removeEventListener('keydown', this._keyDown)
+    window.removeEventListener('keyup', this._keyUp)
   }
 
   // - Getters -
@@ -105,7 +106,7 @@ export class Keyboard {
 
   // - Private Methods -
   // Event handling methods
-  private _keydown = (e: KeyboardEvent) => {
+  private _keyDown = (e: KeyboardEvent) => {
     if (e.repeat) return
 
     // Additional commands
@@ -120,12 +121,12 @@ export class Keyboard {
         return this._velocityUp()
     }
 
-    const note = keyToNote(e.key, this.octave)
+    const note = keyToNote(e.key as InputKey, this.octave)
     if (note !== null) this.onPress(getNoteInfo(note), e)
   }
 
-  private _keyup = (e: KeyboardEvent) => {
-    const note = keyToNote(e.key, this.octave)
+  private _keyUp = (e: KeyboardEvent) => {
+    const note = keyToNote(e.key as InputKey, this.octave)
     if (note !== null) this.onRelease(getNoteInfo(note), e)
   }
 

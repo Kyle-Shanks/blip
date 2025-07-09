@@ -7,7 +7,7 @@ export const OVERSAMPLE = {
   FOUR_TIMES: '4x',
 } as const
 
-export type Oversample = typeof OVERSAMPLE[keyof typeof OVERSAMPLE]
+export type Oversample = (typeof OVERSAMPLE)[keyof typeof OVERSAMPLE]
 
 // Noise generator types
 export const NOISE_TYPE = {
@@ -16,7 +16,7 @@ export const NOISE_TYPE = {
   BROWN: 'brown',
 } as const
 
-export type NoiseType = typeof NOISE_TYPE[keyof typeof NOISE_TYPE]
+export type NoiseType = (typeof NOISE_TYPE)[keyof typeof NOISE_TYPE]
 
 // Oscillator waveforms
 export const WAVEFORM = {
@@ -26,7 +26,7 @@ export const WAVEFORM = {
   SAWTOOTH: 'sawtooth',
 } as const
 
-export type Waveform = typeof WAVEFORM[keyof typeof WAVEFORM]
+export type Waveform = (typeof WAVEFORM)[keyof typeof WAVEFORM]
 
 // Filter node types
 export const FILTER_TYPE = {
@@ -40,4 +40,4 @@ export const FILTER_TYPE = {
   HIGH_SHELF: 'highshelf',
 } as const
 
-export type FilterType = typeof FILTER_TYPE[keyof typeof FILTER_TYPE]
+export type FilterType = (typeof FILTER_TYPE)[keyof typeof FILTER_TYPE]

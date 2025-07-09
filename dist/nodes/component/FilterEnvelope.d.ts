@@ -7,7 +7,7 @@ export declare const FILTER_ENVELOPE_PARAM: {
     readonly GAIN: "gain";
     readonly Q: "q";
 };
-declare type FilterEnvelopeParam = typeof FILTER_ENVELOPE_PARAM[keyof typeof FILTER_ENVELOPE_PARAM];
+declare type FilterEnvelopeParam = (typeof FILTER_ENVELOPE_PARAM)[keyof typeof FILTER_ENVELOPE_PARAM];
 declare type BaseFilterEnvelopeProps = BaseEnvelopeProps & {
     frequency?: number;
     q?: number;

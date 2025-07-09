@@ -9,7 +9,7 @@ export const OSC_PARAM = {
   GAIN: 'gain',
 } as const
 
-type OscParam = typeof OSC_PARAM[keyof typeof OSC_PARAM]
+type OscParam = (typeof OSC_PARAM)[keyof typeof OSC_PARAM]
 
 type BaseOscProps = {
   detune?: number
@@ -79,12 +79,10 @@ export class Osc extends BlipNode {
 
   // - Setters -
   /** Set the detune of the oscillator. */
-  public setDetune = (val: number, time?: number) =>
-    this.oscillator.setDetune(val, time)
+  public setDetune = (val: number, time?: number) => this.oscillator.setDetune(val, time)
 
   /** Set the frequency of the oscillator. */
-  public setFrequency = (val: number, time?: number) =>
-    this.oscillator.setFrequency(val, time)
+  public setFrequency = (val: number, time?: number) => this.oscillator.setFrequency(val, time)
 
   /** Set the gain of the gain node. */
   public setGain = (val: number, time?: number) => this.gain.setGain(val, time)

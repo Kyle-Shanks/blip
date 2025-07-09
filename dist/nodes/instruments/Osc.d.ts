@@ -5,7 +5,7 @@ export declare const OSC_PARAM: {
     readonly FREQUENCY: "frequency";
     readonly GAIN: "gain";
 };
-declare type OscParam = typeof OSC_PARAM[keyof typeof OSC_PARAM];
+declare type OscParam = (typeof OSC_PARAM)[keyof typeof OSC_PARAM];
 declare type BaseOscProps = {
     detune?: number;
     frequency?: number;

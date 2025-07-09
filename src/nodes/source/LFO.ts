@@ -13,7 +13,7 @@ export const LFO_PARAM = {
   RATE: 'rate',
 } as const
 
-type LFOParam = typeof LFO_PARAM[keyof typeof LFO_PARAM]
+type LFOParam = (typeof LFO_PARAM)[keyof typeof LFO_PARAM]
 
 type BaseLFOProps = {
   depth?: number
@@ -96,12 +96,10 @@ export class LFO extends BlipNode {
     this.osc.setFrequency(clamp(val, MIN_RATE, MAX_RATE), time)
 
   /** Set the detune of the LFO. */
-  public setDetune = (val: number, time?: number) =>
-    this.osc.setDetune(val, time)
+  public setDetune = (val: number, time?: number) => this.osc.setDetune(val, time)
 
   /** Set the depth of the LFO. */
-  public setDepth = (val: number, time?: number) =>
-    this.depth.setGain(val, time)
+  public setDepth = (val: number, time?: number) => this.depth.setGain(val, time)
 
   /** Set the waveform of the LFO. */
   public setType = (val: Waveform) => this.osc.setType(val)

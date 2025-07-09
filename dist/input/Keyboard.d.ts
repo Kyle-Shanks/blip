@@ -25,8 +25,8 @@ export declare class Keyboard {
     setOctave: (val: Octave) => Octave;
     /** Set the current velocity */
     setVelocity: (val: number) => number;
-    private _keydown;
-    private _keyup;
+    private _keyDown;
+    private _keyUp;
     private _octaveDown;
     private _octaveUp;
     private _velocityDown;

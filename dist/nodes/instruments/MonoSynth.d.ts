@@ -10,7 +10,7 @@ export declare const MONO_SYNTH_PARAM: {
     readonly FILTER_GAIN: "filterGain";
     readonly FILTER_Q: "filterQ";
 };
-declare type MonoSynthParam = typeof MONO_SYNTH_PARAM[keyof typeof MONO_SYNTH_PARAM];
+declare type MonoSynthParam = (typeof MONO_SYNTH_PARAM)[keyof typeof MONO_SYNTH_PARAM];
 declare type BaseMonoSynthProps = {
     detune?: number;
     frequency?: number;

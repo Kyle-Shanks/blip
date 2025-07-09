@@ -8,8 +8,7 @@ export const COMPRESSOR_PARAM = {
   THRESHOLD: 'threshold',
 } as const
 
-export type CompressorParam =
-  typeof COMPRESSOR_PARAM[keyof typeof COMPRESSOR_PARAM]
+export type CompressorParam = (typeof COMPRESSOR_PARAM)[keyof typeof COMPRESSOR_PARAM]
 
 type BaseCompressorProps = {
   attack?: number

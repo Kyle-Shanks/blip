@@ -5,7 +5,7 @@ export declare const LFO_PARAM: {
     readonly DETUNE: "detune";
     readonly RATE: "rate";
 };
-declare type LFOParam = typeof LFO_PARAM[keyof typeof LFO_PARAM];
+declare type LFOParam = (typeof LFO_PARAM)[keyof typeof LFO_PARAM];
 declare type BaseLFOProps = {
     depth?: number;
     detune?: number;

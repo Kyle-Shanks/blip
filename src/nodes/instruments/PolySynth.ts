@@ -1,12 +1,7 @@
 import { BlipNode, BlipNodeProps, OutputNode } from '../core/BlipNode'
 import { MonoSynth, MONO_SYNTH_PARAM } from './MonoSynth'
 import { Limiter } from '../core/Limiter'
-import {
-  FilterType,
-  FILTER_TYPE,
-  WAVEFORM,
-  Waveform,
-} from '../../util/constants'
+import { FilterType, FILTER_TYPE, WAVEFORM, Waveform } from '../../util/constants'
 import { Note } from '../../util/noteUtil'
 import { clamp } from '../../util/util'
 
@@ -20,7 +15,7 @@ export const POLY_SYNTH_PARAM = {
   FILTER_Q: 'filterQ',
 } as const
 
-type PolySynthParam = typeof POLY_SYNTH_PARAM[keyof typeof POLY_SYNTH_PARAM]
+type PolySynthParam = (typeof POLY_SYNTH_PARAM)[keyof typeof POLY_SYNTH_PARAM]
 
 type BasePolySynthProps = {
   polyphony?: number
@@ -91,15 +86,11 @@ export class PolySynth extends BlipNode {
     this.outputs = [this.limiter]
 
     this.params = {
-      [POLY_SYNTH_PARAM.DETUNE]: this.voices.map(
-        (voice) => voice.params[MONO_SYNTH_PARAM.DETUNE]
-      ),
+      [POLY_SYNTH_PARAM.DETUNE]: this.voices.map((voice) => voice.params[MONO_SYNTH_PARAM.DETUNE]),
       [POLY_SYNTH_PARAM.FREQUENCY]: this.voices.map(
         (voice) => voice.params[MONO_SYNTH_PARAM.FREQUENCY]
       ),
-      [POLY_SYNTH_PARAM.GAIN]: this.voices.map(
-        (voice) => voice.params[MONO_SYNTH_PARAM.GAIN]
-      ),
+      [POLY_SYNTH_PARAM.GAIN]: this.voices.map((voice) => voice.params[MONO_SYNTH_PARAM.GAIN]),
       [POLY_SYNTH_PARAM.FILTER_DETUNE]: this.voices.map(
         (voice) => voice.params[MONO_SYNTH_PARAM.FILTER_DETUNE]
       ),
@@ -205,32 +196,26 @@ export class PolySynth extends BlipNode {
   public setPolyphony = (val: number) => (this.polyphony = clamp(val, 1, 8))
 
   /** Set the waveform for each of the node's oscillators. */
-  public setType = (val: Waveform) =>
-    this.voices.forEach((voice) => voice.setType(val))
+  public setType = (val: Waveform) => this.voices.forEach((voice) => voice.setType(val))
 
   /** Set the detune for each of the node's oscillators. */
   public setDetune = (val: number, time?: number) =>
     this.voices.forEach((voice) => voice.setDetune(val, time))
 
   /** Set the attack time of the gain envelope. */
-  public setGainAttack = (val: number) =>
-    this.voices.forEach((voice) => voice.setGainAttack(val))
+  public setGainAttack = (val: number) => this.voices.forEach((voice) => voice.setGainAttack(val))
 
   /** Set the attack time of the gain envelope. */
-  public setGainDecay = (val: number) =>
-    this.voices.forEach((voice) => voice.setGainDecay(val))
+  public setGainDecay = (val: number) => this.voices.forEach((voice) => voice.setGainDecay(val))
 
   /** Set the sustain value of the gain envelope. */
-  public setGainSustain = (val: number) =>
-    this.voices.forEach((voice) => voice.setGainSustain(val))
+  public setGainSustain = (val: number) => this.voices.forEach((voice) => voice.setGainSustain(val))
 
   /** Set the release time of the gain envelope. */
-  public setGainRelease = (val: number) =>
-    this.voices.forEach((voice) => voice.setGainRelease(val))
+  public setGainRelease = (val: number) => this.voices.forEach((voice) => voice.setGainRelease(val))
 
   /** Set the gain modifier of the gain envelope. */
-  public setGainAmount = (val: number) =>
-    this.voices.forEach((voice) => voice.setGainAmount(val))
+  public setGainAmount = (val: number) => this.voices.forEach((voice) => voice.setGainAmount(val))
 
   /** Set the cutoff frequency of the filter envelope's filter. */
   public setFilterFrequency = (val: number, time?: number) =>
@@ -257,8 +242,7 @@ export class PolySynth extends BlipNode {
     this.voices.forEach((voice) => voice.setFilterAttack(val))
 
   /** Set the attack time of the filter envelope. */
-  public setFilterDecay = (val: number) =>
-    this.voices.forEach((voice) => voice.setFilterDecay(val))
+  public setFilterDecay = (val: number) => this.voices.forEach((voice) => voice.setFilterDecay(val))
 
   /** Set the sustain value of the filter envelope. */
   public setFilterSustain = (val: number) =>
@@ -325,19 +309,14 @@ export class PolySynth extends BlipNode {
     }
 
     // Stop single note
-    const targetVoices = this.voices.filter(
-      (voice) => voice.getCurrentNote() === note
-    )
+    const targetVoices = this.voices.filter((voice) => voice.getCurrentNote() === note)
     targetVoices.forEach((voice) => this._voiceTriggerStop(voice))
   }
 
   // - Private Methods -
-  private _incrementVoicePos = () =>
-    (this.voicePos = (this.voicePos + 1) % this.polyphony)
+  private _incrementVoicePos = () => (this.voicePos = (this.voicePos + 1) % this.polyphony)
 
-  private _voiceTriggerAttack = (voice: MonoSynth, note: Note) =>
-    voice.triggerAttack(note)
-  private _voiceTriggerRelease = (voice: MonoSynth, note?: Note) =>
-    voice.triggerRelease(note)
+  private _voiceTriggerAttack = (voice: MonoSynth, note: Note) => voice.triggerAttack(note)
+  private _voiceTriggerRelease = (voice: MonoSynth, note?: Note) => voice.triggerRelease(note)
   private _voiceTriggerStop = (voice: MonoSynth) => voice.triggerStop()
 }

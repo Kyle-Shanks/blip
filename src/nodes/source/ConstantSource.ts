@@ -4,8 +4,7 @@ export const CONSTANT_SOURCE_PARAM = {
   OFFSET: 'offset',
 } as const
 
-type ConstantSourceParam =
-  typeof CONSTANT_SOURCE_PARAM[keyof typeof CONSTANT_SOURCE_PARAM]
+type ConstantSourceParam = (typeof CONSTANT_SOURCE_PARAM)[keyof typeof CONSTANT_SOURCE_PARAM]
 
 type BaseConstantSourceProps = {
   offset?: number

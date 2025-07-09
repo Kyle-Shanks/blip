@@ -6,8 +6,7 @@ export const GAIN_ENVELOPE_PARAM = {
   GAIN: 'gain',
 } as const
 
-type GainEnvelopeParam =
-  typeof GAIN_ENVELOPE_PARAM[keyof typeof GAIN_ENVELOPE_PARAM]
+type GainEnvelopeParam = (typeof GAIN_ENVELOPE_PARAM)[keyof typeof GAIN_ENVELOPE_PARAM]
 
 type BaseGainEnvelopeProps = BaseEnvelopeProps & {
   gain?: number
